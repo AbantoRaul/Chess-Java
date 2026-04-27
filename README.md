@@ -8,3 +8,11 @@ Members:
 Raul Anthony A. Abanto
 Ma. Guadalupe G. Baya
 Jai Jemelie T. Mercado
+
+
+UML Class Diagram
+<img width="6144" height="5973" alt="674592073_945540325152427_3317823445121947030_n" src="https://github.com/user-attachments/assets/e24e8c55-e43a-408d-8cb9-88f1ad79f807" />
+
+
+Use-Case Diagram
+<img width="6144" height="5390" alt="681181735_1420330949864142_6197446606832445198_n" src="https://github.com/user-attachments/assets/d3d0f56a-365f-4a10-a1cb-0d9bac82e0e5" />
