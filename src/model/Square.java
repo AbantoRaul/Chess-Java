@@ -11,13 +11,13 @@ public class Square {
         this.piece = null;
     }
 
-    public int     getRow()     { return row; }
-    public int     getCol()     { return col; }
-    public Piece   getPiece()   { return piece; }
-    public boolean isOccupied() { return piece != null; }
+    public int getRow(){ return row; }
+    public int getCol(){ return col; }
+    public Piece getPiece(){ return piece; }
+    public boolean isOccupied(){ return piece != null; }
 
-    public void setPiece(Piece piece) { this.piece = piece; }
-    public void clearPiece()          { this.piece = null; }
+    public void setPiece(Piece piece){ this.piece = piece; }
+    public void clearPiece(){ this.piece = null; }
 
     public String toAlgebraic() {
         char file = (char) ('a' + col);
