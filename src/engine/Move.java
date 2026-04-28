@@ -4,6 +4,7 @@ import model.Piece;
 import model.PieceType;
 import model.Square;
 
+// Stores everything here about one chess move
 public class Move {
 
     private final Square from;
@@ -11,6 +12,6 @@ public class Move {
     private final Piece piece;
     private final Piece capturedPiece;
     private final MoveType type;
-    private final PieceType promotionType;
+    private final PieceType promotionType; // null unless PROMOTION
 
 }
