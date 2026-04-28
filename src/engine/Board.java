@@ -78,5 +78,17 @@ public class Board {
         }
     }
 
+    // Here ky mo create a copy of the board so MoveValidator can simulate moves
+    // without changing the real game board.
+    public Board deepCopy() {
+        Board copy = new Board();
+        for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
+                copy.grid[row][col].setPiece(grid[row][col].getPiece());
+            }
+        }
+        copy.enPassantTarget = this.enPassantTarget;
+        return copy;
+    }
 
 }
