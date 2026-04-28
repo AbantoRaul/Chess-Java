@@ -20,4 +20,5 @@ public abstract class Piece {
     }
 
     public abstract String getSymbol();
+    public abstract List<Move> getPseudoLegalMoves(Board board, Square from);
 }
