@@ -19,4 +19,5 @@ public abstract class Piece {
         this.hasMoved = true;
     }
 
+    public abstract String getSymbol();
 }
