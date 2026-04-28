@@ -28,4 +28,18 @@ public class Board {
         }
     }
 
+    public Square getSquare(int row, int col) {
+        return grid[row][col];
+    }
+    // Parses algebraic notation like "e2" → row=1, col=4
+    public Square getSquare(String algebraic) {
+        int col = algebraic.charAt(0) - 'a';
+        int row = algebraic.charAt(1) - '1';
+        return grid[row][col];
+    }
+    public boolean isInBounds(int row, int col) {
+        return row >= 0 && row < SIZE && col >= 0 && col < SIZE;
+    }
+
+
 }
