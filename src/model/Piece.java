@@ -1,6 +1,6 @@
 package model;
 
-public class Piece {
+public abstract class Piece {
     protected Color     color;
     protected PieceType type;
     protected boolean   hasMoved;
