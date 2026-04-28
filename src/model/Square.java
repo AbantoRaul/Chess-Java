@@ -11,4 +11,9 @@ public class Square {
         this.piece = null;
     }
 
+    public int     getRow()     { return row; }
+    public int     getCol()     { return col; }
+    public Piece   getPiece()   { return piece; }
+    public boolean isOccupied() { return piece != null; }
+
 }
