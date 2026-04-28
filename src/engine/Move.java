@@ -49,4 +49,11 @@ public class Move {
         }
         return move;
     }
+
+    @Override
+    public String toString() {
+        return toAlgebraic();
+    }
+
 }
+
