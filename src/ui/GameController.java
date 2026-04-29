@@ -150,4 +150,9 @@ public class GameController {
             gameState.setStatus(GameStatus.ONGOING);
         }
     }
+
+    private void handleResign() {
+        gameState.setStatus(GameStatus.RESIGNED);
+        System.out.println(gameState.getCurrentTurn() + " has resigned.");
+    }
 }
