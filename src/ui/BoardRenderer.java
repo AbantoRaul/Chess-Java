@@ -96,4 +96,11 @@ public class BoardRenderer {
     public void printError(String message) {
         System.out.println("  " + RED + "  ! " + message + RESET);
     }
+
+    //BOARD DRAWING
+
+    private void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 }
