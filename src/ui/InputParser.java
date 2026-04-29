@@ -39,4 +39,32 @@ public class InputParser {
             }
         }
     }
+
+    //Converts a raw input string like "e2 e4" into a Move object
+    //Mo return ug null if ang format kay invalid
+    public Move parseMove(String input, Board board) {
+        String cleaned = input.replace(" ", "");
+
+        if (!isValidFormat(cleaned)) return null;
+
+        int fromCol = cleaned.charAt(0) - 'a';
+        int fromRow = cleaned.charAt(1) - '1';
+        int toCol = cleaned.charAt(2) - 'a';
+        int toRow = cleaned.charAt(3) - '1';
+
+        if (!board.isInBounds(fromRow, fromCol) || !board.isInBounds(toRow, toCol)) {
+            return null;
+        }
+
+        Square from = board.getSquare(fromRow, fromCol);
+        Square to = board.getSquare(toRow, toCol);
+
+        if (!from.isOccupied()) return null;
+
+        Piece piece = from.getPiece();
+        Piece capturedPiece = to.isOccupied() ? to.getPiece() : null;
+        MoveType moveType = determineMoveType(piece, from, to, capturedPiece, board);
+
+        return new Move(from, to, piece, capturedPiece, moveType);
+    }
 }
