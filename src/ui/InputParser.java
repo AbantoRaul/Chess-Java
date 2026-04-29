@@ -82,4 +82,21 @@ public class InputParser {
 
         return fromOk && toOk;
     }
+
+    private MoveType determineMoveType(Piece piece, Square from, Square to,
+                                       Piece capturedPiece, Board board) {
+        if (piece.getType() == PieceType.PAWN) {
+            boolean movingDiagonally = (from.getCol() != to.getCol());
+            boolean landingOnEmpty = (capturedPiece == null);
+
+            // Diagonal move with no enemy piece = en passant (not active in demo)
+            if (movingDiagonally && landingOnEmpty) return MoveType.EN_PASSANT;
+
+            // Reaching the last rank = promotion
+            int promotionRow = (piece.getColor() == Color.WHITE) ? 7 : 0;
+            if (to.getRow() == promotionRow) return MoveType.PROMOTION;
+        }
+
+        return capturedPiece != null ? MoveType.CAPTURE : MoveType.NORMAL;
+    }
 }
