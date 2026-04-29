@@ -16,4 +16,11 @@ public class GameController {
         this.renderer = new BoardRenderer();
         this.parser = new InputParser();
     }
+
+    //Sets up the board and starts the game
+    public void start() {
+        renderer.printWelcome();
+        gameState.getBoard().initialize();
+        gameLoop();
+    }
 }
