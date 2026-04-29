@@ -139,4 +139,15 @@ public class GameController {
                 };
         }
     }
+
+    //Checks if the current player is in stalemate after the last move
+    private void checkGameEnd() {
+        Color nextPlayer = gameState.getCurrentTurn();
+
+        if (validator.isStalemate(nextPlayer)) {
+            gameState.setStatus(GameStatus.STALEMATE);
+        } else {
+            gameState.setStatus(GameStatus.ONGOING);
+        }
+    }
 }
