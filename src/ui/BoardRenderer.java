@@ -177,4 +177,26 @@ public class BoardRenderer {
             return BLACK_PIECE + letter + RESET;
         }
     }
+
+    //STATUS & PROMPT
+
+    //Mo show sa last 10 moves in a compact strip below the board
+    private void printMovesInline(List<Move> history) {
+        if (history.isEmpty()) {
+            System.out.println(DIM + "  No moves yet." + RESET);
+            return;
+        }
+
+        System.out.print(DIM + "  Moves: " + RESET);
+        int start = Math.max(0, history.size() - 10);
+        for (int i = start; i < history.size(); i++) {
+            if (i % 2 == 0) {
+                System.out.print(DIM + (i / 2 + 1) + "." + RESET);
+                System.out.print(WHITE_PIECE + history.get(i).toAlgebraic() + RESET + " ");
+            } else {
+                System.out.print(BLACK_PIECE + history.get(i).toAlgebraic() + RESET + "  ");
+            }
+        }
+        System.out.println();
+    }
 }
