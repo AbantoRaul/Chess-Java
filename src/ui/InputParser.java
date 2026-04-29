@@ -22,4 +22,21 @@ public class InputParser {
         System.out.print("> ");
         return scanner.nextLine().trim().toLowerCase();
     }
+
+    //Asks the player to choose a promotion piece
+    public PieceType readPromotionChoice() {
+        System.out.println("Promote pawn to: [Q]ueen  [R]ook  [B]ishop  [N]knight");
+
+        while (true) {
+            String input = readInput();
+            switch (input) {
+                case "q": case "queen": return PieceType.QUEEN;
+                case "r": case "rook": return PieceType.ROOK;
+                case "b": case "bishop": return PieceType.BISHOP;
+                case "n": case "knight": return PieceType.KNIGHT;
+                default:
+                    System.out.println("Invalid choice. Please type Q, R, B, or N.");
+            }
+        }
+    }
 }
