@@ -33,4 +33,7 @@ public class GameState {
         return Collections.unmodifiableList(moveHistory);
     }
 
+    public void setStatus(GameStatus newStatus){
+        this.status = newStatus;
+    }
 }
