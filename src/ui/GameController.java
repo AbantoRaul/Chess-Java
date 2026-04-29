@@ -108,4 +108,12 @@ public class GameController {
             board.setEnPassantTarget(board.getSquare(skippedRow, move.getFrom().getCol()));
         }
     }
+
+    //Asks the player what piece they want and replaces the pawn on the board
+    private void handlePromotion(Move move) {
+        System.out.println("Your pawn has reached the other side!");
+        PieceType chosenType = parser.readPromotionChoice();
+        Piece newPiece = createPromotedPiece(chosenType, move.getPiece().getColor());
+        move.getTo().setPiece(newPiece);
+    }
 }
