@@ -35,4 +35,18 @@ public class MoveValidator {
 
         return legalMoves;
     }
+
+    // Mo Returns true if the given move is in the piece's legal move list
+    public boolean isLegalMove(Move move) {
+        List<Move> legal = getLegalMoves(move.getFrom());
+        for (Move m : legal) {
+            if (m.getFrom().getRow() == move.getFrom().getRow()
+                    && m.getFrom().getCol() == move.getFrom().getCol()
+                    && m.getTo().getRow()   == move.getTo().getRow()
+                    && m.getTo().getCol()   == move.getTo().getCol()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
