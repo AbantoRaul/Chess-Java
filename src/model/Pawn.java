@@ -27,6 +27,16 @@ public class Pawn extends Piece{
             Square oneStep = board.getSquare(oneStepRow, currentCol);
 
             if (!oneStep.isOccupied()) {
+                if (oneStepRow == promotionRow) {
+                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.QUEEN));
+                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.ROOK));
+                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.BISHOP));
+                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.KNIGHT));
+                } else {
+                    moves.add(new Move(from, oneStep, this, null, MoveType.NORMAL));
+                }
+
+
                 if (currentRow == startingRow) {
                     int twoStepRow = currentRow + 2 * moveDirection;
                     Square twoStep = board.getSquare(twoStepRow, currentCol);
