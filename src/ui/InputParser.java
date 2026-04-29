@@ -67,4 +67,19 @@ public class InputParser {
 
         return new Move(from, to, piece, capturedPiece, moveType);
     }
+
+    //Validates the format. Must be 4 characters like "e2e4"
+    public boolean isValidFormat(String input) {
+        if (input.length() != 4) return false;
+
+        char fromFile = input.charAt(0);
+        char fromRank = input.charAt(1);
+        char toFile = input.charAt(2);
+        char toRank = input.charAt(3);
+
+        boolean fromOk = (fromFile >= 'a' && fromFile <= 'h') && (fromRank >= '1' && fromRank <= '8');
+        boolean toOk = (toFile   >= 'a' && toFile   <= 'h') && (toRank   >= '1' && toRank   <= '8');
+
+        return fromOk && toOk;
+    }
 }
