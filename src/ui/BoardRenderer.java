@@ -69,4 +69,26 @@ public class BoardRenderer {
         System.out.println(DIM + "  Press ENTER to start..." + RESET);
         try { System.in.read(); } catch (Exception ignored) {}
     }
+
+    //Prints the full move history in a numbered two-column format
+    public void printMoveHistory(List<Move> history) {
+        System.out.println();
+        System.out.println(CYAN + BOLD + "  Move History" + RESET);
+        System.out.println(DIM + "  ──────────────────────────────" + RESET);
+
+        if (history.isEmpty()) {
+            System.out.println(DIM + "  No moves yet." + RESET);
+        } else {
+            for (int i = 0; i < history.size(); i += 2) {
+                int num = (i / 2) + 1;
+                String whiteMove = history.get(i).toAlgebraic();
+                String blackMove = (i + 1 < history.size()) ? history.get(i + 1).toAlgebraic() : "";
+                System.out.printf("  %s%3d.%s  %s%-6s%s  %s%-6s%s%n",
+                        DIM, num, RESET,
+                        WHITE_PIECE, whiteMove, RESET,
+                        BLACK_PIECE, blackMove, RESET);
+            }
+        }
+        System.out.println();
+    }
 }
