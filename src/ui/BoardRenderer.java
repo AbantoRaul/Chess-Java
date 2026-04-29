@@ -161,4 +161,20 @@ public class BoardRenderer {
         System.out.print("|");
         System.out.println(" " + RANK_FG + BOLD + rank + RESET);
     }
+
+    //Returns a styled piece symbol, or a space for empty squares
+    private String getPieceDisplay(Square square) {
+        if (!square.isOccupied()) {
+            return " ";
+        }
+
+        Piece piece = square.getPiece();
+        String letter = piece.getSymbol().toUpperCase();
+
+        if (piece.getColor() == Color.WHITE) {
+            return WHITE_PIECE + letter + RESET;
+        } else {
+            return BLACK_PIECE + letter + RESET;
+        }
+    }
 }
