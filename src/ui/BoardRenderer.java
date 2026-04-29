@@ -134,4 +134,13 @@ public class BoardRenderer {
         }
         System.out.println();
     }
+
+    //Prints the full horizontal divider
+    private void printDividerLine() {
+        System.out.print("   ");
+        for (int col = 0; col < Board.SIZE; col++) {
+            System.out.print(DIM + "|-------" + RESET);
+        }
+        System.out.println(DIM + "|" + RESET);
+    }
 }
