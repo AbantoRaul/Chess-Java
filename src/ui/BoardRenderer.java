@@ -91,4 +91,9 @@ public class BoardRenderer {
         }
         System.out.println();
     }
+
+    //Mo print ug error message in red
+    public void printError(String message) {
+        System.out.println("  " + RED + "  ! " + message + RESET);
+    }
 }
