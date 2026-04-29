@@ -116,4 +116,27 @@ public class GameController {
         Piece newPiece = createPromotedPiece(chosenType, move.getPiece().getColor());
         move.getTo().setPiece(newPiece);
     }
+
+    //Creates the promoted piece based on the player's choice
+    private Piece createPromotedPiece(PieceType type, Color color) {
+        switch (type) {
+            // Uncomment each case when the corresponding class is added:
+            // case ROOK:   return new Rook(color);
+            // case BISHOP: return new Bishop(color);
+            // case KNIGHT: return new Knight(color);
+            case QUEEN:
+            default:
+                // Inline anonymous Queen for the demo — no Queen.java needed yet
+                return new Piece(color, PieceType.QUEEN) {
+                    @Override
+                    public String getSymbol() {
+                        return color == Color.WHITE ? "Q" : "q";
+                    }
+                    @Override
+                    public java.util.List<Move> getPseudoLegalMoves(engine.Board board, model.Square from) {
+                        return new java.util.ArrayList<>(); // Queen moves added later
+                    }
+                };
+        }
+    }
 }
