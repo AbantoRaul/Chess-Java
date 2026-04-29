@@ -1,5 +1,12 @@
 package model;
 
+import engine.Board;
+import engine.Move;
+import engine.MoveType;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pawn extends Piece{
     public Pawn(Color color) {
         super(color, PieceType.PAWN);
