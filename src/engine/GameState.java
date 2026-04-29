@@ -51,4 +51,14 @@ public class GameState {
             halfMoveClock++;
         }
     }
+
+    // Flips the current turn and increments the full-move counter after Black plays
+    public void switchTurn() {
+        if (currentTurn == Color.BLACK) {
+            fullMoveNumber++;
+        }
+        currentTurn = currentTurn.opposite();
+    }
+
+
 }
