@@ -199,4 +199,41 @@ public class BoardRenderer {
         }
         System.out.println();
     }
+
+    //Prints the turn prompt or game-over message depending on game status
+    private void printTurnAndStatus(GameStatus status, Color currentTurn) {
+        switch (status) {
+            case ONGOING:
+                String tc = (currentTurn == Color.WHITE) ? WHITE_PIECE : BLACK_PIECE;
+                String playerLabel = (currentTurn == Color.WHITE) ? "White's turn: " : "Black's turn: ";
+                System.out.println("  " + tc + playerLabel + RESET
+                        + GREEN + "e2 e4" + RESET
+                        + DIM + "  (or 'history' / 'resign')" + RESET);
+                break;
+
+            case STALEMATE:
+                System.out.println();
+                System.out.println(CYAN + BOLD
+                        + "  ╔══════════════════════════════════════════╗");
+                System.out.println(
+                        "  ║   All pawns are blocked — STALEMATE!     ║");
+                System.out.println(
+                        "  ╚══════════════════════════════════════════╝" + RESET);
+                break;
+
+            case RESIGNED:
+                System.out.println();
+                System.out.println(GOLD + BOLD
+                        + "  ╔══════════════════════════════════════════╗");
+                System.out.println(
+                        "  ║  " + currentTurn + " resigned.  "
+                                + currentTurn.opposite() + " wins!                   ║");
+                System.out.println(
+                        "  ╚══════════════════════════════════════════╝" + RESET);
+                break;
+
+            default:
+                break;
+        }
+    }
 }
