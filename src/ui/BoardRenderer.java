@@ -26,4 +26,19 @@ public class BoardRenderer {
     private static final String RED = "\u001B[1;31m";
     private static final String DIM = "\u001B[2;37m";
     private static final String RANK_FG = "\u001B[38;5;214m"; // orange labels
+
+    //PUBLIC METHODS
+
+    //Mo clear sa screen and mo print sa full game view in each turn
+    public void render(GameState gameState) {
+        clearScreen();
+        printHeader();
+        System.out.println();
+        printBoard(gameState.getBoard());
+        System.out.println();
+        printMovesInline(gameState.getMoveHistory());
+        System.out.println();
+        printTurnAndStatus(gameState.getStatus(), gameState.getCurrentTurn());
+        System.out.println();
+    }
 }
