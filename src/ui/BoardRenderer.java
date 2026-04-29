@@ -125,4 +125,13 @@ public class BoardRenderer {
 
         printFileLabels(); //A  B  C  D  E  F  G  H (bottom)
     }
+
+    //Mo print sa table row
+    private void printFileLabels() {
+        System.out.print("      ");
+        for (char f = 'A'; f <= 'H'; f++) {
+            System.out.print(RANK_FG + BOLD + "   " + f + "    " + RESET);
+        }
+        System.out.println();
+    }
 }
