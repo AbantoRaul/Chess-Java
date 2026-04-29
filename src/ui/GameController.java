@@ -9,4 +9,11 @@ public class GameController {
     private final MoveValidator validator;
     private final BoardRenderer renderer;
     private final InputParser parser;
+
+    public GameController() {
+        this.gameState = new GameState();
+        this.validator = new MoveValidator(gameState);
+        this.renderer = new BoardRenderer();
+        this.parser = new InputParser();
+    }
 }
