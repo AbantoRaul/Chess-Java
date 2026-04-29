@@ -16,4 +16,10 @@ public class InputParser {
     public InputParser() {
         this.scanner = new Scanner(System.in);
     }
+
+    //Waits for the player to type and returns the input
+    public String readInput() {
+        System.out.print("> ");
+        return scanner.nextLine().trim().toLowerCase();
+    }
 }
