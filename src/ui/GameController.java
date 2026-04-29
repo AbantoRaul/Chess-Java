@@ -47,4 +47,52 @@ public class GameController {
         //Shows the final board state after the game ends
         renderer.render(gameState);
     }
+
+    //Tries to parse, validate, and apply the player's move
+    private void processMove(String input) {
+        Board board = gameState.getBoard();
+        Color currentPlayer = gameState.getCurrentTurn();
+
+        //Step 1: Parse raw input "e2 e4" into a Move object
+        Move move = parser.parseMove(input, board);
+        if (move == null) {
+            renderer.printError("Invalid format. Please type a move like: e2 e4");
+            return;
+        }
+
+        //Step 2: Make sure the player is moving their own piece
+        if (!move.getFrom().isOccupied()) {
+            renderer.printError("There is no piece on that square.");
+            return;
+        }
+
+        if (move.getPiece().getColor() != currentPlayer) {
+            renderer.printError("That is not your piece.");
+            return;
+        }
+
+        //Step 3: Check if the move is in the piece's legal move list
+        if (!validator.isLegalMove(move)) {
+            renderer.printError("That move is not allowed.");
+            return;
+        }
+
+        //Step 4: Apply the move to the board
+        board.applyMove(move);
+
+        //Step 5: Set en passant target if a pawn moved 2 squares
+        setEnPassantTarget(move, board);
+
+        //Step 6: Handle pawn promotion
+        if (move.getMoveType() == MoveType.PROMOTION) {
+            handlePromotion(move);
+        }
+
+        //Step 7: Record the move and switch to the other player
+        gameState.recordMove(move);
+        gameState.switchTurn();
+
+        //Step 8: Check if the game has ended
+        checkGameEnd();
+    }
 }
