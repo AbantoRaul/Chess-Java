@@ -36,4 +36,19 @@ public class GameState {
     public void setStatus(GameStatus newStatus){
         this.status = newStatus;
     }
+
+    // Adds the move to history and updates the half-move clock
+    public void recordMove(Move move){
+        moveHistory.add(move);
+
+        // Pawn moves and captures reset the 50-move draw clock
+        boolean isPawnMove = move.getPiece().getType() == PieceType.PAWN;
+        boolean isCapture  = move.isCapture();
+
+        if (isPawnMove || isCapture) {
+            halfMoveClock = 0;
+        } else {
+            halfMoveClock++;
+        }
+    }
 }
