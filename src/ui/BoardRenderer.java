@@ -143,4 +143,22 @@ public class BoardRenderer {
         }
         System.out.println(DIM + "|" + RESET);
     }
+
+    //Prints one rank row
+    private void printPieceRow(Board board, int row) {
+        int rank = row + 1;
+
+        System.out.print(RANK_FG + BOLD + " " + rank + " " + RESET);
+
+        for (int col = 0; col < Board.SIZE; col++) {
+            Square square = board.getSquare(row, col);
+            System.out.print("|");
+            System.out.print("   ");               // left padding
+            System.out.print(getPieceDisplay(square));
+            System.out.print("   ");               // right padding
+        }
+
+        System.out.print("|");
+        System.out.println(" " + RANK_FG + BOLD + rank + RESET);
+    }
 }
