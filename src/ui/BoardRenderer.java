@@ -8,8 +8,6 @@ import model.Color;
 import model.Piece;
 import model.Square;
 
-import javax.crypto.spec.PSource;
-import java.sql.SQLOutput;
 import java.util.List;
 
 //Prints chess board and game info to the terminal.
