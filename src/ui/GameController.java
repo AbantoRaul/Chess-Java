@@ -23,4 +23,28 @@ public class GameController {
         gameState.getBoard().initialize();
         gameLoop();
     }
+
+    //Repeats every turn until the game ends or a player resigns
+    private void gameLoop() {
+        while (gameState.isOngoing()) {
+            renderer.render(gameState);
+
+            String input = parser.readInput();
+
+            if (input.equals("resign")) {
+                handleResign();
+                break;
+            }
+
+            if (input.equals("history")) {
+                renderer.printMoveHistory(gameState.getMoveHistory());
+                continue;
+            }
+
+            processMove(input);
+        }
+
+        //Shows the final board state after the game ends
+        renderer.render(gameState);
+    }
 }
