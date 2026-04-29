@@ -41,4 +41,32 @@ public class BoardRenderer {
         printTurnAndStatus(gameState.getStatus(), gameState.getCurrentTurn());
         System.out.println();
     }
+
+    //Prints the welcome screen that is shown before the game starts
+    public void printWelcome() {
+        clearScreen();
+        System.out.println();
+        System.out.println(GOLD + BOLD
+                + "  ╔══════════════════════════════════════════════╗");
+        System.out.println(
+                "  ║                                              ║");
+        System.out.println(
+                "  ║              CHESS - JAVA                    ║");
+        System.out.println(
+                "  ║                                              ║");
+        System.out.println(
+                "  ╚══════════════════════════════════════════════╝" + RESET);
+        System.out.println();
+        System.out.println(CYAN + "  How to play:" + RESET);
+        System.out.println("    " + GOLD + "Move    " + RESET + "->  e2 e4   (from-square  to-square)");
+        System.out.println("    " + GOLD + "History " + RESET + "->  history");
+        System.out.println("    " + GOLD + "Resign  " + RESET + "->  resign");
+        System.out.println();
+        System.out.println(DIM
+                + "  White Pawns: P  (row 2)"
+                + "     Black Pawns: p  (row 7)" + RESET);
+        System.out.println();
+        System.out.println(DIM + "  Press ENTER to start..." + RESET);
+        try { System.in.read(); } catch (Exception ignored) {}
+    }
 }
