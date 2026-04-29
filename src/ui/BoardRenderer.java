@@ -112,4 +112,17 @@ public class BoardRenderer {
                 "  " + GOLD + BOLD + "CHESS — JAVA" + RESET
                         + "  " + DIM + "─────────────────────────────────────────" + RESET);
     }
+
+    //Draws the 8x8 board with file labels and rank numbers
+    private void printBoard(Board board) {
+        printFileLabels(); //A  B  C  D  E  F  G  H (top)
+        printDividerLine(); //|-------|-------|
+
+        for (int row = Board.SIZE - 1; row >= 0; row--) {
+            printPieceRow(board, row); //8 | p | p | p | ... | 8
+            printDividerLine(); //|-------|-------|
+        }
+
+        printFileLabels(); //A  B  C  D  E  F  G  H (bottom)
+    }
 }
