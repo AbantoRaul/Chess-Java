@@ -8,6 +8,8 @@ import model.Color;
 import model.Piece;
 import model.Square;
 
+import javax.crypto.spec.PSource;
+import java.sql.SQLOutput;
 import java.util.List;
 
 //Prints chess board and game info to the terminal.
@@ -102,5 +104,12 @@ public class BoardRenderer {
     private void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    private void printHeader() {
+        System.out.println();
+        System.out.println(
+                "  " + GOLD + BOLD + "CHESS — JAVA" + RESET
+                        + "  " + DIM + "─────────────────────────────────────────" + RESET);
     }
 }
