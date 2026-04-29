@@ -95,4 +95,17 @@ public class GameController {
         //Step 8: Check if the game has ended
         checkGameEnd();
     }
+
+    //After a pawn moves 2 squares, record the skipped square for en passant
+    private void setEnPassantTarget(Move move, Board board) {
+        board.clearEnPassantTarget();
+
+        boolean isPawn = move.getPiece().getType() == PieceType.PAWN;
+        int rowDifference = Math.abs(move.getTo().getRow() - move.getFrom().getRow());
+
+        if (isPawn && rowDifference == 2) {
+            int skippedRow = (move.getFrom().getRow() + move.getTo().getRow()) / 2;
+            board.setEnPassantTarget(board.getSquare(skippedRow, move.getFrom().getCol()));
+        }
+    }
 }
