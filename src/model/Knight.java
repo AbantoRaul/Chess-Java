@@ -9,6 +9,12 @@ public class Knight extends Piece{
         List<Move> moves = new ArrayList<>();
         int[][] jumps = {{2,1},{2,-1},{-2,1},{-2,-1},{1,2},{1,-2},{-1,2},{-1,-2}};
 
+        for (int[] jump : jumps) {
+            int newRow = from.getRow() + jump[0], newCol = from.getCol() + jump[1];
+
+            if (!board.isInBounds(newRow, newCol)) continue;
+            Square target = board.getSquare(newRow, newCol);
+        }    
         return moves;
     }
 }
