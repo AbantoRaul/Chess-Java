@@ -17,7 +17,12 @@ public class Rook extends Piece{
                 if (!target.isOccupied()){
                     moves.add(new Move(from, target,this,null, MoveType.NORMAL));
                 }
-
+                else {
+                    if (target.getPiece().getColor() != super.getColor()){
+                        moves.add(new Move(from, target,this, target.getPiece(), MoveType.CAPTURE));
+                    }
+                    break;
+                }
                 newRow += dir[0];
                 newCol += dir[1];
             }
