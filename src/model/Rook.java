@@ -1,5 +1,12 @@
 package model;
 
+import engine.Board;
+import engine.Move;
+import engine.MoveType;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Rook extends Piece{
     public Rook(Color color){ super(color, PieceType.ROOK); }
     @Override public String getSymbol(){ return super.getColor() == Color.WHITE ? "R" : "r"; }
