@@ -1,5 +1,12 @@
 package model;
 
+import engine.Board;
+import engine.Move;
+import engine.MoveType;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Queen extends Piece{
     public Queen(Color color) { super(color, PieceType.QUEEN); }
     @Override public String getSymbol() { return super.getColor() == Color.WHITE ? "Q" : "q"; }
