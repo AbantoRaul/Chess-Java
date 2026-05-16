@@ -1,5 +1,12 @@
 package model;
 
+import engine.Board;
+import engine.Move;
+import engine.MoveType;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bishop extends Piece{
     public Bishop(Color color) { super(color, PieceType.BISHOP); }
 
