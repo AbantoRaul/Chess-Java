@@ -7,6 +7,7 @@ public class Queen extends Piece{
     @Override
     public List<Move> getPseudoLegalMoves(Board board, Square from) {
         List<Move> moves = new ArrayList<>();
+        int[][] directions = {{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
 
         return moves;
     }
