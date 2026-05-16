@@ -7,6 +7,7 @@ public class Knight extends Piece{
     @Override
     public List<Move> getPseudoLegalMoves(Board board, Square from) {
         List<Move> moves = new ArrayList<>();
+        int[][] jumps = {{2,1},{2,-1},{-2,1},{-2,-1},{1,2},{1,-2},{-1,2},{-1,-2}};
 
         return moves;
     }
