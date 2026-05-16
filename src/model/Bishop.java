@@ -1,4 +1,4 @@
 package model;
 
-public class Bishop {
+public class Bishop extends Piece{
 }
