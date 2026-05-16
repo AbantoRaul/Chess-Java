@@ -8,6 +8,8 @@ public class Bishop extends Piece{
     @Override
     public List<Move> getPseudoLegalMoves(Board board, Square from) {
         List<Move> moves = new ArrayList<>();
+        int[][] directions = {{1,1},{1,-1},{-1,1},{-1,-1}};
+
 
         // TODO: Add diagonal sliding logic (Steps 2-5)
         return moves;
