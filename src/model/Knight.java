@@ -1,5 +1,12 @@
 package model;
 
+import engine.Board;
+import engine.Move;
+import engine.MoveType;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Knight extends Piece{
     public Knight(Color color) { super(color, PieceType.KNIGHT); }
     @Override public String getSymbol() { return super.getColor() == Color.WHITE ? "N" : "n"; }
@@ -14,7 +21,7 @@ public class Knight extends Piece{
 
             if (!board.isInBounds(newRow, newCol)) continue;
             Square target = board.getSquare(newRow, newCol);
-            
+
             if (!target.isOccupied()){
                 moves.add(new Move(from, target,this,null, MoveType.NORMAL));
             }
