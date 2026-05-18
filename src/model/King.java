@@ -15,6 +15,10 @@ public class King extends Piece{
 
             if (!board.isInBounds(newRow, newCol)) continue;
             Square target = board.getSquare(newRow, newCol);
+
+            if (!target.isOccupied()) {
+                moves.add(new Move(from, target, this, null, MoveType.NORMAL));
+            }
         }
 
         return List.of();
