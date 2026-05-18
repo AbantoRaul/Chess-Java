@@ -19,6 +19,9 @@ public class King extends Piece{
             if (!target.isOccupied()) {
                 moves.add(new Move(from, target, this, null, MoveType.NORMAL));
             }
+            else if (target.getPiece().getColor() != super.getColor()){
+                moves.add(new Move(from, target, this, target.getPiece(), MoveType.CAPTURE));
+            }
         }
 
         return List.of();
