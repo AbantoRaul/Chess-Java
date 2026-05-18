@@ -24,6 +24,8 @@ public class King extends Piece{
             }
         }
 
+        if (!super.hasMoved()) moves.addAll(getCastlingMoves(board,from));
+
         return List.of();
     }
 
