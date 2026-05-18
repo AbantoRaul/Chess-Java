@@ -69,4 +69,10 @@ public class Pawn extends Piece{
         return moves;
     }
 
+    private void addPromotions(List<Move> moves, Square from, Square to, Piece cap) {
+        moves.add(new Move(from, to, this, cap, MoveType.PROMOTION, PieceType.QUEEN));
+        moves.add(new Move(from, to, this, cap, MoveType.PROMOTION, PieceType.ROOK));
+        moves.add(new Move(from, to, this, cap, MoveType.PROMOTION, PieceType.BISHOP));
+        moves.add(new Move(from, to, this, cap, MoveType.PROMOTION, PieceType.KNIGHT));
+    }
 }
