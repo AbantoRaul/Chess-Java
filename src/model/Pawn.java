@@ -27,24 +27,18 @@ public class Pawn extends Piece{
         // Single push
         int oneRow = row + dir;
 
-        if (board.isInBounds(oneStepRow, currentCol)) {
-            Square oneStep = board.getSquare(oneStepRow, currentCol);
-
-            if (!oneStep.isOccupied()) {
-                if (oneStepRow == promotionRow) {
-                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.QUEEN));
-                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.ROOK));
-                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.BISHOP));
-                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.KNIGHT));
+        if (board.isInBounds(oneRow, col)) {
+            Square one = board.getSquare(oneRow, col);
+            if (!one.isOccupied()) {
+                if (oneRow == promRow) {
+                    addPromotions(moves, from, one, null);
                 } else {
-                    moves.add(new Move(from, oneStep, this, null, MoveType.NORMAL));
-                }
-
-                if (currentRow == startingRow) {
-                    int twoStepRow = currentRow + 2 * moveDirection;
-                    Square twoStep = board.getSquare(twoStepRow, currentCol);
-                    if (!twoStep.isOccupied()) {
-                        moves.add(new Move(from, twoStep, this, null, MoveType.NORMAL));
+                    moves.add(new Move(from, one, this, null, MoveType.NORMAL));
+                    // Double push from starting rank
+                    if (row == startRow) {
+                        Square two = board.getSquare(row + 2 * dir, col);
+                        if (!two.isOccupied())
+                            moves.add(new Move(from, two, this, null, MoveType.NORMAL));
                     }
                 }
             }
