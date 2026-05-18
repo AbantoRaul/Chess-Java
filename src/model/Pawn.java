@@ -44,26 +44,17 @@ public class Pawn extends Piece{
             }
         }
 
-        int[] sideways = {-1, 1};
+        for (int dc : new int[]{-1, 1}) {
+            int dc2 = col + dc;
+            if (!board.isInBounds(oneRow, dc2)) continue;
+            Square diag = board.getSquare(oneRow, dc2);
 
-        for (int colOffset : sideways) {
-            int diagCol = currentCol + colOffset;
-
-            if (!board.isInBounds(oneStepRow, diagCol)) continue;
-
-            Square diagonal = board.getSquare(oneStepRow, diagCol);
-
-            // There must be an enemy piece on the diagonal square to capture
-            if (diagonal.isOccupied() && diagonal.getPiece().getColor() != this.color) {
-                if (oneStepRow == promotionRow) {
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.QUEEN));
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.ROOK));
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.BISHOP));
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.KNIGHT));
-                } else {
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.CAPTURE));
-                }
+            // Normal diagonal capture
+            if (diag.isOccupied() && diag.getPiece().getColor() != color) {
+                if (oneRow == promRow) addPromotions(moves, from, diag, diag.getPiece());
+                else moves.add(new Move(from, diag, this, diag.getPiece(), MoveType.CAPTURE));
             }
+
         }
 
         return moves;
