@@ -43,6 +43,19 @@ public class King extends Piece{
             );
         }
 
+        Square aRook = board.getSquare(row,0);
+        if (aRook.isOccupied() &&
+                aRook.getPiece().getType() == PieceType.ROOK &&
+                aRook.getPiece().getColor() == super.getColor() &&
+                !aRook.getPiece().hasMoved() &&
+                !board.getSquare(row,1).isOccupied() &&
+                !board.getSquare(row,2).isOccupied() &&
+                !board.getSquare(row,3).isOccupied()) {
+            moves.add(
+                    new Move(from, board.getSquare(row, 2), this, null, MoveType.CASTLE_QUEENSIDE)
+            );
+        }
+
         return List.of();
     }
 
