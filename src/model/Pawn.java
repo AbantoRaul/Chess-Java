@@ -19,16 +19,13 @@ public class Pawn extends Piece{
 
     @Override
     public List<Move> getPseudoLegalMoves(Board board, Square from) {
-        List<Move> moves = new ArrayList<>();
-
-        int currentRow = from.getRow();
-        int currentCol = from.getCol();
-
-        int moveDirection = (color == Color.WHITE) ? 1 : -1;
-        int startingRow   = (color == Color.WHITE) ? 1 : 6;
-        int promotionRow  = (color == Color.WHITE) ? 7 : 0;
-
-        int oneStepRow = currentRow + moveDirection;
+        List<Move> moves   = new ArrayList<>();
+        int row = from.getRow(), col = from.getCol();
+        int dir = color == Color.WHITE ? 1 : -1;
+        int startRow = color == Color.WHITE ? 1 : 6;
+        int promRow     = color == Color.WHITE ? 7 : 0;
+        // Single push
+        int oneRow = row + dir;
 
         if (board.isInBounds(oneStepRow, currentCol)) {
             Square oneStep = board.getSquare(oneStepRow, currentCol);
