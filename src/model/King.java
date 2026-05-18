@@ -26,7 +26,7 @@ public class King extends Piece{
 
         if (!super.hasMoved()) moves.addAll(getCastlingMoves(board,from));
 
-        return List.of();
+        return moves;
     }
 
     private List<Move> getCastlingMoves(Board board, Square from) {
