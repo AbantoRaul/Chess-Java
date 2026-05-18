@@ -56,7 +56,7 @@ public class King extends Piece{
             );
         }
 
-        return List.of();
+        return moves;
     }
 
 }
