@@ -10,6 +10,13 @@ public class King extends Piece{
         List<Move> moves = new ArrayList<>();
         int[][] directions = {{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
 
+        for (int[] dir : directions) {
+            int newRow = from.getRow() + dir[0], newCol = from.getCol() + dir[1];
+
+            if (!board.isInBounds(newRow, newCol)) continue;
+            Square target = board.getSquare(newRow, newCol);
+        }
+
         return List.of();
     }
 
