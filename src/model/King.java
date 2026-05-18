@@ -30,7 +30,19 @@ public class King extends Piece{
     private List<Move> getCastlingMoves(Board board, Square from) {
         List<Move> moves = new ArrayList<>();
         int row = from.getRow();
-        
+
+        Square hRook = board.getSquare(row,7);
+        if (hRook.isOccupied() &&
+                hRook.getPiece().getType() == PieceType.ROOK &&
+                hRook.getPiece().getColor() == super.getColor() &&
+                !hRook.getPiece().hasMoved() &&
+                !board.getSquare(row,5).isOccupied() &&
+                !board.getSquare(row,6).isOccupied()) {
+            moves.add(
+                    new Move(from, board.getSquare(row, 6), this, null, MoveType.CASTLE_KINGSIDE)
+            );
+        }
+
         return List.of();
     }
 
