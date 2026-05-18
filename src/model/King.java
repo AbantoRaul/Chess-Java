@@ -27,4 +27,9 @@ public class King extends Piece{
         return List.of();
     }
 
+    private List<Move> getCastlingMoves(Board board, Square from) {
+
+        return List.of();
+    }
+
 }
