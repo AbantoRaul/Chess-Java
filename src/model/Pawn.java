@@ -55,6 +55,15 @@ public class Pawn extends Piece{
                 else moves.add(new Move(from, diag, this, diag.getPiece(), MoveType.CAPTURE));
             }
 
+            // En passant
+            Square ep = board.getEnPassantTarget();
+            if (ep != null && ep.getRow() == oneRow && ep.getCol() == dc2) {
+                Piece cap = board.getSquare(row, dc2).getPiece();
+                if (cap != null) {
+                    moves.add(new Move(from, ep, this, cap, MoveType.EN_PASSANT));
+                }
+            }
+
         }
 
         return moves;
