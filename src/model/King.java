@@ -28,7 +28,9 @@ public class King extends Piece{
     }
 
     private List<Move> getCastlingMoves(Board board, Square from) {
-
+        List<Move> moves = new ArrayList<>();
+        int row = from.getRow();
+        
         return List.of();
     }
 
