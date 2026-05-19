@@ -100,4 +100,20 @@ public class MoveValidator {
             default -> new Queen(c);
         };
     }
+
+    private boolean castlesThroughCheck(Move move) {
+        if (move.getMoveType() != MoveType.CASTLE_KINGSIDE
+                && move.getMoveType() != MoveType.CASTLE_QUEENSIDE) return false;
+
+        Color color = move.getPiece().getColor();
+        if (isInCheck(color)) return true;
+
+        Board board = gameState.getBoard();
+        int row = move.getFrom().getRow();
+
+        if (move.getMoveType() == MoveType.CASTLE_KINGSIDE)
+            return isSquareAttackedBy(board.getSquare(row, 5), color.opposite(), board);
+        else
+            return isSquareAttackedBy(board.getSquare(row, 3), color.opposite(), board);
+    }
 }
