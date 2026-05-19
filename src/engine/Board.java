@@ -108,13 +108,12 @@ public class Board {
                 qrt.getPiece().setMoved();
             }
 
-            case PROMOTION:
-                // Piece replacement is handled by GameController after prompting the player
-                // board just clears the source.
-                to.setPiece(piece);
+            case PROMOTION -> {
+                Piece promoted = createPromotedPiece(move.getPromotionType(), piece.getColor());
+                to.setPiece(promoted);
                 from.clearPiece();
-                piece.setMoved();
-                break;
+                promoted.setMoved();
+            }
 
             // EN_PASSANT, CASTLE_KINGSIDE, CASTLE_QUEENSIDE
             // are no-ops until the full piece set is added.
