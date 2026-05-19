@@ -56,4 +56,38 @@ public class MoveValidator {
         }
         return all;
     }
+
+    private boolean leavesKingInCheck(Move move) {
+        Board copy = gameState.getBoard().deepCopy();
+        Square cf = copy.getSquare(move.getFrom().getRow(), move.getFrom().getCol());
+        Square ct = copy.getSquare(move.getTo().getRow(),   move.getTo().getCol());
+        Piece piece = cf.getPiece();
+
+        if (move.getMoveType() == MoveType.EN_PASSANT)
+            copy.getSquare(cf.getRow(), ct.getCol()).clearPiece();
+
+        if (move.getMoveType() == MoveType.PROMOTION && move.getPromotionType() != null)
+            ct.setPiece(createPromoPiece(move.getPromotionType(), piece.getColor()));
+        else
+            ct.setPiece(piece);
+
+        cf.clearPiece();
+
+        if (move.getMoveType() == MoveType.CASTLE_KINGSIDE) {
+            Square rf = copy.getSquare(cf.getRow(), 7);
+            Square rt = copy.getSquare(cf.getRow(), 5);
+            rt.setPiece(rf.getPiece());
+            rf.clearPiece();
+        } else if (move.getMoveType() == MoveType.CASTLE_QUEENSIDE) {
+            Square rf = copy.getSquare(cf.getRow(), 0);
+            Square rt = copy.getSquare(cf.getRow(), 3);
+            rt.setPiece(rf.getPiece());
+            rf.clearPiece();
+        }
+
+        Color mc = piece.getColor();
+        Square king = copy.findKing(mc);
+        if (king == null) return true;
+        return isSquareAttackedBy(king, mc.opposite(), copy);
+    }
 }
