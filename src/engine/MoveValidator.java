@@ -32,6 +32,11 @@ public class MoveValidator {
         return king != null && isSquareAttackedBy(king, color.opposite(), board);
     }
 
+    public boolean isCheckmate(Color color) {
+        return isInCheck(color) && getAllLegalMoves(color).isEmpty();
+    }
+
+
     // Mo Returns true if the given move is in the piece's legal move list
     public boolean isLegalMove(Move move) {
         List<Move> legal = getLegalMoves(move.getFrom());
