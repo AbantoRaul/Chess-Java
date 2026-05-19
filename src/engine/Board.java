@@ -22,9 +22,16 @@ public class Board {
     // Places only Pawns for the demo.
     // White Pawns on row 1 (rank 2), Black Pawns on row 6 (rank 7).
     public void initialize() {
-        for (int col = 0; col < SIZE; col++) {
-            grid[1][col].setPiece(new Pawn(Color.WHITE)); // White pawns — rank 2
-            grid[6][col].setPiece(new Pawn(Color.BLACK)); // Black pawns — rank 7
+        PieceType[] back = {
+                PieceType.ROOK, PieceType.KNIGHT, PieceType.BISHOP, PieceType.QUEEN,
+                PieceType.KING, PieceType.BISHOP, PieceType.KNIGHT, PieceType.ROOK
+        };
+
+        for (int c = 0; c < SIZE; c++) {
+            grid[0][c].setPiece(createPiece(back[c], Color.WHITE));
+            grid[1][c].setPiece(new Pawn(Color.WHITE));
+            grid[7][c].setPiece(createPiece(back[c], Color.BLACK));
+            grid[6][c].setPiece(new Pawn(Color.BLACK));
         }
     }
 
@@ -56,12 +63,11 @@ public class Board {
 
         switch (move.getMoveType()) {
 
-            case NORMAL:
-            case CAPTURE:
+            case NORMAL, CAPTURE -> {
                 to.setPiece(piece);
                 from.clearPiece();
                 piece.setMoved();
-                break;
+            }
 
             case PROMOTION:
                 // Piece replacement is handled by GameController after prompting the player
