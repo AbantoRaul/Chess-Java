@@ -30,9 +30,8 @@ public class GameState {
     public int getFullMoveNumber() { return this.fullMoveNumber; }
     public List<Move> getMoveHistory() { return Collections.unmodifiableList(this.moveHistory); }
 
-    public void setStatus(GameStatus newStatus){
-        this.status = newStatus;
-    }
+
+    public void setStatus(GameStatus s) { this.status = s; }
 
     // Adds the move to history and updates the half-move clock
     public void recordMove(Move move){
