@@ -1,15 +1,9 @@
 package engine;
 
-import model.Color;
-import model.Piece;
-import model.Square;
+import model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// MoveValidator checks whether a move is legal before it is applied.
-// Filters pseudo-legal moves by simulating them and checking if the king is left in check.
-// NOTE (Pawn Demo): leavesKingInCheck() is skipped since there is no King on the board yet.
-// Will be re-enabled once King and other pieces are added.
 
 public class MoveValidator {
 
@@ -20,56 +14,124 @@ public class MoveValidator {
     }
 
     public List<Move> getLegalMoves(Square square) {
-        List<Move> legalMoves = new ArrayList<>();
+        List<Move> legal = new ArrayList<>();
 
-        if (!square.isOccupied()) return legalMoves;
+        if (!square.isOccupied()) return legal;
 
         Piece piece = square.getPiece();
         Board board = gameState.getBoard();
 
-        // Get all moves the piece can make based on movement rules
-        List<Move> pseudoLegal = piece.getPseudoLegalMoves(board, square);
-
-        // For now, every pseudo-legal move is accepted directly
-        legalMoves.addAll(pseudoLegal);
-
-        return legalMoves;
+        for (Move m : piece.getPseudoLegalMoves(board, square))
+            if (!leavesKingInCheck(m) && !castlesThroughCheck(m)) legal.add(m);
+        return legal;
     }
 
-    // Mo Returns true if the given move is in the piece's legal move list
-    public boolean isLegalMove(Move move) {
-        List<Move> legal = getLegalMoves(move.getFrom());
-        for (Move m : legal) {
-            if (m.getFrom().getRow() == move.getFrom().getRow()
-                    && m.getFrom().getCol() == move.getFrom().getCol()
-                    && m.getTo().getRow()   == move.getTo().getRow()
-                    && m.getTo().getCol()   == move.getTo().getCol()) {
-                return true;
-            }
-        }
-        return false;
+    public boolean isInCheck(Color color) {
+        Board board = gameState.getBoard();
+        Square king = board.findKing(color);
+        return king != null && isSquareAttackedBy(king, color.opposite(), board);
     }
 
-    // Returns true if the current player has no legal moves.
-    // Without a king, stalemate occurs if all pawns are blocked.
+    public boolean isCheckmate(Color color) {
+        return isInCheck(color) && getAllLegalMoves(color).isEmpty();
+    }
+
+
     public boolean isStalemate(Color color) {
-        return getAllLegalMoves(color).isEmpty();
+        return !isInCheck(color) && getAllLegalMoves(color).isEmpty();
     }
 
     //Mo returns every legal move available to the given color across all their pieces
-    private List<Move> getAllLegalMoves(Color color) {
-        List<Move> allMoves = new ArrayList<>();
+    public List<Move> getAllLegalMoves(Color color) {
+        List<Move> all = new ArrayList<>();
         Board board = gameState.getBoard();
 
-        for (int row = 0; row < Board.SIZE; row++) {
-            for (int col = 0; col < Board.SIZE; col++) {
-                Square sq = board.getSquare(row, col);
-                if (sq.isOccupied() && sq.getPiece().getColor() == color) {
-                    allMoves.addAll(getLegalMoves(sq));
+        for (int r = 0; r < Board.SIZE; r++) {
+            for (int c = 0; c < Board.SIZE; c++) {
+                Square sq = board.getSquare(r, c);
+
+                if (sq.isOccupied() && sq.getPiece().getColor() == color)
+                    all.addAll(getLegalMoves(sq));
+            }
+        }
+        return all;
+    }
+
+    private boolean leavesKingInCheck(Move move) {
+        Board copy = gameState.getBoard().deepCopy();
+        Square cf = copy.getSquare(move.getFrom().getRow(), move.getFrom().getCol());
+        Square ct = copy.getSquare(move.getTo().getRow(),   move.getTo().getCol());
+        Piece piece = cf.getPiece();
+
+        if (move.getMoveType() == MoveType.EN_PASSANT)
+            copy.getSquare(cf.getRow(), ct.getCol()).clearPiece();
+
+        if (move.getMoveType() == MoveType.PROMOTION && move.getPromotionType() != null)
+            ct.setPiece(createPromoPiece(move.getPromotionType(), piece.getColor()));
+        else
+            ct.setPiece(piece);
+
+        cf.clearPiece();
+
+        if (move.getMoveType() == MoveType.CASTLE_KINGSIDE) {
+            Square rf = copy.getSquare(cf.getRow(), 7);
+            Square rt = copy.getSquare(cf.getRow(), 5);
+            rt.setPiece(rf.getPiece());
+            rf.clearPiece();
+        } else if (move.getMoveType() == MoveType.CASTLE_QUEENSIDE) {
+            Square rf = copy.getSquare(cf.getRow(), 0);
+            Square rt = copy.getSquare(cf.getRow(), 3);
+            rt.setPiece(rf.getPiece());
+            rf.clearPiece();
+        }
+
+        Color mc = piece.getColor();
+        Square king = copy.findKing(mc);
+        if (king == null) return true;
+        return isSquareAttackedBy(king, mc.opposite(), copy);
+    }
+
+    private Piece createPromoPiece(PieceType t, Color c) {
+        return switch (t) {
+            case QUEEN -> new Queen(c);
+            case ROOK -> new Rook(c);
+            case BISHOP -> new Bishop(c);
+            case KNIGHT -> new Knight(c);
+            default -> new Queen(c);
+        };
+    }
+
+    private boolean castlesThroughCheck(Move move) {
+        if (move.getMoveType() != MoveType.CASTLE_KINGSIDE
+                && move.getMoveType() != MoveType.CASTLE_QUEENSIDE) return false;
+
+        Color color = move.getPiece().getColor();
+        if (isInCheck(color)) return true;
+
+        Board board = gameState.getBoard();
+        int row = move.getFrom().getRow();
+
+        if (move.getMoveType() == MoveType.CASTLE_KINGSIDE)
+            return isSquareAttackedBy(board.getSquare(row, 5), color.opposite(), board);
+        else
+            return isSquareAttackedBy(board.getSquare(row, 3), color.opposite(), board);
+    }
+
+    private boolean isSquareAttackedBy(Square target, Color attacker, Board board) {
+        for (int r = 0; r < Board.SIZE; r++) {
+            for (int c = 0; c < Board.SIZE; c++) {
+                Square sq = board.getSquare(r, c);
+                Piece p = sq.getPiece();
+
+                if (p == null || p.getColor() != attacker) continue;
+
+                for (Move a : p.getPseudoLegalMoves(board, sq)) {
+                    if (a.getTo().getRow() == target.getRow()
+                            && a.getTo().getCol() == target.getCol()) return true;
                 }
             }
         }
 
-        return allMoves;
+        return false;
     }
 }
