@@ -75,6 +75,7 @@ public class Board {
         switch (move.getMoveType()) {
 
             case NORMAL, CAPTURE -> {
+
                 to.setPiece(piece);
                 from.clearPiece();
                 piece.setMoved();
