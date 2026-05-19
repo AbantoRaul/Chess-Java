@@ -150,7 +150,9 @@ public class Board {
                 copy.grid[r][c].setPiece(copyPiece(grid[r][c].getPiece()));
             }
         }
-        copy.enPassantTarget = this.enPassantTarget;
+        copy.enPassantTarget = enPassantTarget == null
+                ? null
+                : copy.getSquare(enPassantTarget.getRow(), enPassantTarget.getCol());
         return copy;
     }
 
