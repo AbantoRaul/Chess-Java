@@ -116,4 +116,22 @@ public class MoveValidator {
         else
             return isSquareAttackedBy(board.getSquare(row, 3), color.opposite(), board);
     }
+
+    private boolean isSquareAttackedBy(Square target, Color attacker, Board board) {
+        for (int r = 0; r < Board.SIZE; r++) {
+            for (int c = 0; c < Board.SIZE; c++) {
+                Square sq = board.getSquare(r, c);
+                Piece p = sq.getPiece();
+
+                if (p == null || p.getColor() != attacker) continue;
+
+                for (Move a : p.getPseudoLegalMoves(board, sq)) {
+                    if (a.getTo().getRow() == target.getRow()
+                            && a.getTo().getCol() == target.getCol()) return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
