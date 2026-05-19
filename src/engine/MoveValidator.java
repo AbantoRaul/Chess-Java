@@ -37,10 +37,8 @@ public class MoveValidator {
     }
 
 
-    // Returns true if the current player has no legal moves.
-    // Without a king, stalemate occurs if all pawns are blocked.
     public boolean isStalemate(Color color) {
-        return getAllLegalMoves(color).isEmpty();
+        return !isInCheck(color) && getAllLegalMoves(color).isEmpty();
     }
 
     //Mo returns every legal move available to the given color across all their pieces
