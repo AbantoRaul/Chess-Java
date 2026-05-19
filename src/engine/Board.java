@@ -35,6 +35,17 @@ public class Board {
         }
     }
 
+    private Piece createPiece(PieceType t, Color col) {
+        return switch (t) {
+            case ROOK -> new Rook(col);
+            case KNIGHT -> new Knight(col);
+            case BISHOP -> new Bishop(col);
+            case QUEEN -> new Queen(col);
+            case KING -> new King(col);
+            default -> new Pawn(col);
+        };
+    }
+
     public Square getSquare(int row, int col) {
         return grid[row][col];
     }
