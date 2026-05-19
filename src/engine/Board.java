@@ -114,11 +114,6 @@ public class Board {
                 from.clearPiece();
                 promoted.setMoved();
             }
-
-            // EN_PASSANT, CASTLE_KINGSIDE, CASTLE_QUEENSIDE
-            // are no-ops until the full piece set is added.
-            default:
-                break;
         }
     }
 
