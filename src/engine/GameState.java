@@ -15,23 +15,20 @@ public class GameState {
     private int fullMoveNumber; // increments after Black moves
 
     public GameState() {
-        this.board = new Board();
-        this.currentTurn = Color.WHITE;   // White always moves first
-        this.status = GameStatus.ONGOING;
-        this.moveHistory = new ArrayList<>();
-        this.halfMoveClock = 0;
-        this.fullMoveNumber = 1;
+        board = new Board();
+        moveHistory = new ArrayList<>();
+        currentTurn = Color.WHITE;
+        status = GameStatus.ONGOING;
+        halfMoveClock  = 0;
+        fullMoveNumber = 1;
     }
 
-    public Board getBoard(){ return board; }
-    public Color getCurrentTurn(){ return currentTurn; }
-    public GameStatus getStatus(){ return status; }
-    public int getHalfMoveClock(){ return halfMoveClock; }
-    public int getFullMoveNumber(){ return fullMoveNumber; }
-
-    public List<Move> getMoveHistory(){
-        return Collections.unmodifiableList(moveHistory);
-    }
+    public Board getBoard() { return this.board; }
+    public Color getCurrentTurn() { return this.currentTurn; }
+    public GameStatus getStatus() { return this.status; }
+    public int getHalfMoveClock() { return this.halfMoveClock; }
+    public int getFullMoveNumber() { return this.fullMoveNumber; }
+    public List<Move> getMoveHistory() { return Collections.unmodifiableList(this.moveHistory); }
 
     public void setStatus(GameStatus newStatus){
         this.status = newStatus;
