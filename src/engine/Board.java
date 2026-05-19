@@ -156,4 +156,20 @@ public class Board {
         return copy;
     }
 
+    private static Piece copyPiece(Piece p) {
+        if (p == null) return null;
+
+        Piece copy = switch (p.getType()) {
+            case KING -> new King(p.getColor());
+            case QUEEN -> new Queen(p.getColor());
+            case ROOK -> new Rook(p.getColor());
+            case BISHOP -> new Bishop(p.getColor());
+            case KNIGHT -> new Knight(p.getColor());
+            default -> new Pawn(p.getColor());
+        };
+
+        if (p.hasMoved()) copy.setMoved();
+        return copy;
+    }
+
 }
