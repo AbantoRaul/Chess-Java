@@ -81,6 +81,33 @@ public class Board {
                 piece.setMoved();
             }
 
+            case EN_PASSANT -> {
+                to.setPiece(piece);
+                from.clearPiece();
+                grid[from.getRow()][to.getCol()].clearPiece();
+                piece.setMoved();
+            }
+            case CASTLE_KINGSIDE -> {
+                to.setPiece(piece);
+                from.clearPiece();
+                piece.setMoved();
+                Square krf = grid[from.getRow()][7];
+                Square krt = grid[from.getRow()][5];
+                krt.setPiece(krf.getPiece());
+                krf.clearPiece();
+                krt.getPiece().setMoved();
+            }
+            case CASTLE_QUEENSIDE -> {
+                to.setPiece(piece);
+                from.clearPiece();
+                piece.setMoved();
+                Square qrf = grid[from.getRow()][0];
+                Square qrt = grid[from.getRow()][3];
+                qrt.setPiece(qrf.getPiece());
+                qrf.clearPiece();
+                qrt.getPiece().setMoved();
+            }
+
             case PROMOTION:
                 // Piece replacement is handled by GameController after prompting the player
                 // board just clears the source.
