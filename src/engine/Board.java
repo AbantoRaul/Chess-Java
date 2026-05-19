@@ -117,6 +117,18 @@ public class Board {
         }
     }
 
+    private Piece createPromotedPiece(PieceType t, Color c) {
+        if (t == null) return new Queen(c);
+
+        return switch (t) {
+            case QUEEN -> new Queen(c);
+            case ROOK -> new Rook(c);
+            case BISHOP -> new Bishop(c);
+            case KNIGHT -> new Knight(c);
+            default -> new Queen(c);
+        };
+    }
+
     // Here ky mo create a copy of the board so MoveValidator can simulate moves
     // without changing the real game board.
     public Board deepCopy() {
