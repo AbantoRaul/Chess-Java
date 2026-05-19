@@ -1,4 +1,43 @@
 package model;
 
-public class Bishop {
+import engine.Board;
+import engine.Move;
+import engine.MoveType;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Bishop extends Piece{
+    public Bishop(Color color) { super(color, PieceType.BISHOP); }
+
+    @Override public String getSymbol() { return super.getColor() == Color.WHITE ? "B" : "b"; }
+
+    @Override
+    public List<Move> getPseudoLegalMoves(Board board, Square from) {
+        List<Move> moves = new ArrayList<>();
+        int[][] directions = {{1,1},{1,-1},{-1,1},{-1,-1}};
+
+        for (int[] dir : directions) {
+            int newRow = from.getRow() + dir[0], newCol = from.getCol() + dir[1];
+
+            while (board.isInBounds(newRow, newCol)) {
+                Square target = board.getSquare(newRow, newCol);
+                if(!target.isOccupied()){
+                    moves.add(new Move(from, target,this,null, MoveType.NORMAL));
+                }
+                else {
+                    if (target.getPiece().getColor() != super.getColor()){
+                        moves.add(new Move(from, target,this, target.getPiece(), MoveType.CAPTURE));
+                    }
+                    break;
+                }
+
+                newRow += dir[0];
+                newCol += dir[1];
+            }
+        }
+
+        // TODO: Add diagonal sliding logic (Steps 2-5)
+        return moves;
+    }
 }

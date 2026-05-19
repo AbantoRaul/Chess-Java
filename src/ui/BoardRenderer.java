@@ -1,4 +1,237 @@
 package ui;
 
+import engine.Board;
+import engine.GameState;
+import engine.GameStatus;
+import engine.Move;
+import model.Color;
+import model.Piece;
+import model.Square;
+
+import java.util.List;
+
+//Prints chess board and game info to the terminal.
+//Uses the same ANSI style as the full version.
+//Only the status messages are simplified for the pawn-only demo.
 public class BoardRenderer {
+
+    // ── ANSI codes ────────────────────────────────────────
+    private static final String RESET = "\u001B[0m";
+    private static final String BOLD  = "\u001B[1m";
+    private static final String WHITE_PIECE = "\u001B[1;97m"; // bold bright white
+    private static final String BLACK_PIECE = "\u001B[1;93m"; // bold bright yellow
+    private static final String GOLD = "\u001B[1;33m";
+    private static final String CYAN = "\u001B[1;36m";
+    private static final String GREEN = "\u001B[1;32m";
+    private static final String RED = "\u001B[1;31m";
+    private static final String DIM = "\u001B[2;37m";
+    private static final String RANK_FG = "\u001B[38;5;214m"; // orange labels
+
+    //PUBLIC METHODS
+
+    //Mo clear sa screen and mo print sa full game view in each turn
+    public void render(GameState gameState) {
+        clearScreen();
+        printHeader();
+        System.out.println();
+        printBoard(gameState.getBoard());
+        System.out.println();
+        printMovesInline(gameState.getMoveHistory());
+        System.out.println();
+        printTurnAndStatus(gameState.getStatus(), gameState.getCurrentTurn());
+        System.out.println();
+    }
+
+    //Prints the welcome screen that is shown before the game starts
+    public void printWelcome() {
+        clearScreen();
+        System.out.println();
+        System.out.println(GOLD + BOLD
+                + "  ╔══════════════════════════════════════════════╗");
+        System.out.println(
+                "  ║                                              ║");
+        System.out.println(
+                "  ║              CHESS - JAVA                    ║");
+        System.out.println(
+                "  ║                                              ║");
+        System.out.println(
+                "  ╚══════════════════════════════════════════════╝" + RESET);
+        System.out.println();
+        System.out.println(CYAN + "  How to play:" + RESET);
+        System.out.println("    " + GOLD + "Move    " + RESET + "->  e2 e4   (from-square  to-square)");
+        System.out.println("    " + GOLD + "History " + RESET + "->  history");
+        System.out.println("    " + GOLD + "Resign  " + RESET + "->  resign");
+        System.out.println();
+        System.out.println(DIM
+                + "  White Pawns: P  (row 2)"
+                + "     Black Pawns: p  (row 7)" + RESET);
+        System.out.println();
+        System.out.println(DIM + "  Press ENTER to start..." + RESET);
+        try { System.in.read(); } catch (Exception ignored) {}
+    }
+
+    //Prints the full move history in a numbered two-column format
+    public void printMoveHistory(List<Move> history) {
+        System.out.println();
+        System.out.println(CYAN + BOLD + "  Move History" + RESET);
+        System.out.println(DIM + "  ──────────────────────────────" + RESET);
+
+        if (history.isEmpty()) {
+            System.out.println(DIM + "  No moves yet." + RESET);
+        } else {
+            for (int i = 0; i < history.size(); i += 2) {
+                int num = (i / 2) + 1;
+                String whiteMove = history.get(i).toAlgebraic();
+                String blackMove = (i + 1 < history.size()) ? history.get(i + 1).toAlgebraic() : "";
+                System.out.printf("  %s%3d.%s  %s%-6s%s  %s%-6s%s%n",
+                        DIM, num, RESET,
+                        WHITE_PIECE, whiteMove, RESET,
+                        BLACK_PIECE, blackMove, RESET);
+            }
+        }
+        System.out.println();
+    }
+
+    //Mo print ug error message in red
+    public void printError(String message) {
+        System.out.println("  " + RED + "  ! " + message + RESET);
+    }
+
+    //BOARD DRAWING
+
+    private void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    private void printHeader() {
+        System.out.println();
+        System.out.println(
+                "  " + GOLD + BOLD + "CHESS — JAVA" + RESET
+                        + "  " + DIM + "─────────────────────────────────────────" + RESET);
+    }
+
+    //Draws the 8x8 board with file labels and rank numbers
+    private void printBoard(Board board) {
+        printFileLabels(); //A  B  C  D  E  F  G  H (top)
+        printDividerLine(); //|-------|-------|
+
+        for (int row = Board.SIZE - 1; row >= 0; row--) {
+            printPieceRow(board, row); //8 | p | p | p | ... | 8
+            printDividerLine(); //|-------|-------|
+        }
+
+        printFileLabels(); //A  B  C  D  E  F  G  H (bottom)
+    }
+
+    //Mo print sa table row
+    private void printFileLabels() {
+        System.out.print("      ");
+        for (char f = 'A'; f <= 'H'; f++) {
+            System.out.print(RANK_FG + BOLD + "   " + f + "    " + RESET);
+        }
+        System.out.println();
+    }
+
+    //Prints the full horizontal divider
+    private void printDividerLine() {
+        System.out.print("   ");
+        for (int col = 0; col < Board.SIZE; col++) {
+            System.out.print(DIM + "|-------" + RESET);
+        }
+        System.out.println(DIM + "|" + RESET);
+    }
+
+    //Prints one rank row
+    private void printPieceRow(Board board, int row) {
+        int rank = row + 1;
+
+        System.out.print(RANK_FG + BOLD + " " + rank + " " + RESET);
+
+        for (int col = 0; col < Board.SIZE; col++) {
+            Square square = board.getSquare(row, col);
+            System.out.print("|");
+            System.out.print("   ");               // left padding
+            System.out.print(getPieceDisplay(square));
+            System.out.print("   ");               // right padding
+        }
+
+        System.out.print("|");
+        System.out.println(" " + RANK_FG + BOLD + rank + RESET);
+    }
+
+    //Returns a styled piece symbol, or a space for empty squares
+    private String getPieceDisplay(Square square) {
+        if (!square.isOccupied()) {
+            return " ";
+        }
+
+        Piece piece = square.getPiece();
+        String letter = piece.getSymbol().toUpperCase();
+
+        if (piece.getColor() == Color.WHITE) {
+            return WHITE_PIECE + letter + RESET;
+        } else {
+            return BLACK_PIECE + letter + RESET;
+        }
+    }
+
+    //STATUS & PROMPT
+
+    //Mo show sa last 10 moves in a compact strip below the board
+    private void printMovesInline(List<Move> history) {
+        if (history.isEmpty()) {
+            System.out.println(DIM + "  No moves yet." + RESET);
+            return;
+        }
+
+        System.out.print(DIM + "  Moves: " + RESET);
+        int start = Math.max(0, history.size() - 10);
+        for (int i = start; i < history.size(); i++) {
+            if (i % 2 == 0) {
+                System.out.print(DIM + (i / 2 + 1) + "." + RESET);
+                System.out.print(WHITE_PIECE + history.get(i).toAlgebraic() + RESET + " ");
+            } else {
+                System.out.print(BLACK_PIECE + history.get(i).toAlgebraic() + RESET + "  ");
+            }
+        }
+        System.out.println();
+    }
+
+    //Prints the turn prompt or game-over message depending on game status
+    private void printTurnAndStatus(GameStatus status, Color currentTurn) {
+        switch (status) {
+            case ONGOING:
+                String tc = (currentTurn == Color.WHITE) ? WHITE_PIECE : BLACK_PIECE;
+                String playerLabel = (currentTurn == Color.WHITE) ? "White's turn: " : "Black's turn: ";
+                System.out.println("  " + tc + playerLabel + RESET
+                        + GREEN + "e2 e4" + RESET
+                        + DIM + "  (or 'history' / 'resign')" + RESET);
+                break;
+
+            case STALEMATE:
+                System.out.println();
+                System.out.println(CYAN + BOLD
+                        + "  ╔══════════════════════════════════════════╗");
+                System.out.println(
+                        "  ║   All pawns are blocked — STALEMATE!     ║");
+                System.out.println(
+                        "  ╚══════════════════════════════════════════╝" + RESET);
+                break;
+
+            case RESIGNED:
+                System.out.println();
+                System.out.println(GOLD + BOLD
+                        + "  ╔══════════════════════════════════════════╗");
+                System.out.println(
+                        "  ║  " + currentTurn + " resigned.  "
+                                + currentTurn.opposite() + " wins!                   ║");
+                System.out.println(
+                        "  ╚══════════════════════════════════════════╝" + RESET);
+                break;
+
+            default:
+                break;
+        }
+    }
 }

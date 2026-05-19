@@ -20,62 +20,59 @@ public class Pawn extends Piece{
     @Override
     public List<Move> getPseudoLegalMoves(Board board, Square from) {
         List<Move> moves = new ArrayList<>();
+        int row = from.getRow(), col = from.getCol();
+        int dir = color == Color.WHITE ? 1 : -1;
+        int startRow = color == Color.WHITE ? 1 : 6;
+        int promRow = color == Color.WHITE ? 7 : 0;
+        // Single push
+        int oneRow = row + dir;
 
-        int currentRow = from.getRow();
-        int currentCol = from.getCol();
-
-        int moveDirection = (color == Color.WHITE) ? 1 : -1;
-        int startingRow   = (color == Color.WHITE) ? 1 : 6;
-        int promotionRow  = (color == Color.WHITE) ? 7 : 0;
-
-        int oneStepRow = currentRow + moveDirection;
-
-        if (board.isInBounds(oneStepRow, currentCol)) {
-            Square oneStep = board.getSquare(oneStepRow, currentCol);
-
-            if (!oneStep.isOccupied()) {
-                if (oneStepRow == promotionRow) {
-                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.QUEEN));
-                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.ROOK));
-                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.BISHOP));
-                    moves.add(new Move(from, oneStep, this, null, MoveType.PROMOTION, PieceType.KNIGHT));
+        if (board.isInBounds(oneRow, col)) {
+            Square one = board.getSquare(oneRow, col);
+            if (!one.isOccupied()) {
+                if (oneRow == promRow) {
+                    addPromotions(moves, from, one, null);
                 } else {
-                    moves.add(new Move(from, oneStep, this, null, MoveType.NORMAL));
-                }
-
-                if (currentRow == startingRow) {
-                    int twoStepRow = currentRow + 2 * moveDirection;
-                    Square twoStep = board.getSquare(twoStepRow, currentCol);
-                    if (!twoStep.isOccupied()) {
-                        moves.add(new Move(from, twoStep, this, null, MoveType.NORMAL));
+                    moves.add(new Move(from, one, this, null, MoveType.NORMAL));
+                    // Double push from starting rank
+                    if (row == startRow) {
+                        Square two = board.getSquare(row + 2 * dir, col);
+                        if (!two.isOccupied())
+                            moves.add(new Move(from, two, this, null, MoveType.NORMAL));
                     }
                 }
             }
         }
 
-        int[] sideways = {-1, 1};
+        for (int dc : new int[]{-1, 1}) {
+            int dc2 = col + dc;
+            if (!board.isInBounds(oneRow, dc2)) continue;
+            Square diag = board.getSquare(oneRow, dc2);
 
-        for (int colOffset : sideways) {
-            int diagCol = currentCol + colOffset;
+            // Normal diagonal capture
+            if (diag.isOccupied() && diag.getPiece().getColor() != color) {
+                if (oneRow == promRow) addPromotions(moves, from, diag, diag.getPiece());
+                else moves.add(new Move(from, diag, this, diag.getPiece(), MoveType.CAPTURE));
+            }
 
-            if (!board.isInBounds(oneStepRow, diagCol)) continue;
-
-            Square diagonal = board.getSquare(oneStepRow, diagCol);
-
-            // There must be an enemy piece on the diagonal square to capture
-            if (diagonal.isOccupied() && diagonal.getPiece().getColor() != this.color) {
-                if (oneStepRow == promotionRow) {
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.QUEEN));
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.ROOK));
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.BISHOP));
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.PROMOTION, PieceType.KNIGHT));
-                } else {
-                    moves.add(new Move(from, diagonal, this, diagonal.getPiece(), MoveType.CAPTURE));
+            // En passant
+            Square ep = board.getEnPassantTarget();
+            if (ep != null && ep.getRow() == oneRow && ep.getCol() == dc2) {
+                Piece cap = board.getSquare(row, dc2).getPiece();
+                if (cap != null) {
+                    moves.add(new Move(from, ep, this, cap, MoveType.EN_PASSANT));
                 }
             }
+
         }
 
         return moves;
     }
 
+    private void addPromotions(List<Move> moves, Square from, Square to, Piece cap) {
+        moves.add(new Move(from, to, this, cap, MoveType.PROMOTION, PieceType.QUEEN));
+        moves.add(new Move(from, to, this, cap, MoveType.PROMOTION, PieceType.ROOK));
+        moves.add(new Move(from, to, this, cap, MoveType.PROMOTION, PieceType.BISHOP));
+        moves.add(new Move(from, to, this, cap, MoveType.PROMOTION, PieceType.KNIGHT));
+    }
 }
