@@ -1,8 +1,6 @@
 package engine;
 
-import model.Color;
-import model.Piece;
-import model.Square;
+import model.*;
 import java.util.ArrayList;
 import java.util.List;
 
