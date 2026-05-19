@@ -129,6 +129,18 @@ public class Board {
         };
     }
 
+    public Square findKing(Color color) {
+        for (int r = 0; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
+                Piece p = grid[r][c].getPiece();
+                if (p != null && p.getColor() == color && p.getType() == PieceType.KING)
+                    return grid[r][c];
+            }
+        }
+
+        return null;
+    }
+
     // Here ky mo create a copy of the board so MoveValidator can simulate moves
     // without changing the real game board.
     public Board deepCopy() {
