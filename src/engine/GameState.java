@@ -51,18 +51,4 @@ public class GameState {
     public boolean isOngoing() {
         return status == GameStatus.ONGOING || status == GameStatus.CHECK;
     }
-
-    // Returns formatted move history like "1. e2e4  e7e5"
-    public String getFormattedHistory() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < moveHistory.size(); i++) {
-            boolean isWhiteMove = (i % 2 == 0);
-            if (isWhiteMove) {
-                sb.append((i / 2 + 1)).append(". ");
-            }
-            sb.append(moveHistory.get(i).toAlgebraic());
-            sb.append(isWhiteMove ? "  " : "\n");
-        }
-        return sb.toString();
-    }
 }
