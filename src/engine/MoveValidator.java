@@ -14,20 +14,16 @@ public class MoveValidator {
     }
 
     public List<Move> getLegalMoves(Square square) {
-        List<Move> legalMoves = new ArrayList<>();
+        List<Move> legal = new ArrayList<>();
 
-        if (!square.isOccupied()) return legalMoves;
+        if (!square.isOccupied()) return legal;
 
         Piece piece = square.getPiece();
         Board board = gameState.getBoard();
 
-        // Get all moves the piece can make based on movement rules
-        List<Move> pseudoLegal = piece.getPseudoLegalMoves(board, square);
-
-        // For now, every pseudo-legal move is accepted directly
-        legalMoves.addAll(pseudoLegal);
-
-        return legalMoves;
+        for (Move m : piece.getPseudoLegalMoves(board, square))
+            if (!leavesKingInCheck(m) && !castlesThroughCheck(m)) legal.add(m);
+        return legal;
     }
 
     // Mo Returns true if the given move is in the piece's legal move list
