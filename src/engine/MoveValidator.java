@@ -26,6 +26,12 @@ public class MoveValidator {
         return legal;
     }
 
+    public boolean isInCheck(Color color) {
+        Board board = gameState.getBoard();
+        Square king = board.findKing(color);
+        return king != null && isSquareAttackedBy(king, color.opposite(), board);
+    }
+
     // Mo Returns true if the given move is in the piece's legal move list
     public boolean isLegalMove(Move move) {
         List<Move> legal = getLegalMoves(move.getFrom());
