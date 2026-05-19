@@ -34,18 +34,11 @@ public class GameState {
     public void setStatus(GameStatus s) { this.status = s; }
 
     // Adds the move to history and updates the half-move clock
-    public void recordMove(Move move){
+    public void recordMove(Move move) {
         moveHistory.add(move);
-
-        // Pawn moves and captures reset the 50-move draw clock
-        boolean isPawnMove = move.getPiece().getType() == PieceType.PAWN;
-        boolean isCapture  = move.isCapture();
-
-        if (isPawnMove || isCapture) {
-            halfMoveClock = 0;
-        } else {
-            halfMoveClock++;
-        }
+        boolean isPawn = move.getPiece().getType() == PieceType.PAWN;
+        if (isPawn || move.isCapture()) halfMoveClock = 0;
+        else halfMoveClock++;
     }
 
     // Flips the current turn and increments the full-move counter after Black plays
