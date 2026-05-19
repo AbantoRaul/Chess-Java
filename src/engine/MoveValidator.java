@@ -90,4 +90,14 @@ public class MoveValidator {
         if (king == null) return true;
         return isSquareAttackedBy(king, mc.opposite(), copy);
     }
+
+    private Piece createPromoPiece(PieceType t, Color c) {
+        return switch (t) {
+            case QUEEN -> new Queen(c);
+            case ROOK -> new Rook(c);
+            case BISHOP -> new Bishop(c);
+            case KNIGHT -> new Knight(c);
+            default -> new Queen(c);
+        };
+    }
 }
