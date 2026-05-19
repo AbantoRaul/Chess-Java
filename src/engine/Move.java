@@ -43,11 +43,12 @@ public class Move {
 
     // Returns the move as a readable string like "e2e4" or "e7e8Q"
     public String toAlgebraic() {
-        String move = from.toAlgebraic() + to.toAlgebraic();
-        if (type == MoveType.PROMOTION && promotionType != null) {
-            move += promotionType.name().charAt(0);
-        }
-        return move;
+        String m = from.toAlgebraic() + to.toAlgebraic();
+
+        if (type == MoveType.PROMOTION && promotionType != null)
+            m += promotionType.name().charAt(0);
+
+        return m;
     }
 
     @Override
