@@ -227,6 +227,11 @@ public class MenuPanel extends JPanel {
 
     }
 
+    private void drawKnightMedallion(Graphics2D g2, int cx, int cy) {
+        int r = MEDALLION_R;
+
+    }
+
 
 
 
