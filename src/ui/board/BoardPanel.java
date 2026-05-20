@@ -107,6 +107,16 @@ public class BoardPanel extends JPanel{
             int rx = boardX() + cfg.boardPx + (cfg.frame - (int)rb.getWidth()) / 2;
             g2.drawString(rank, lx, ry);
             g2.drawString(rank, rx, ry);
+
+            String file = String.valueOf((char)('A' + i));
+            Rectangle2D fb = coordFont.getStringBounds(file, frc);
+
+            int fcx = boardX() + i * cfg.sq + cfg.sq / 2 - (int)(fb.getWidth() / 2);
+            int topY = cfg.padding + (cfg.frame - (int)fb.getHeight()) / 2 + (int)fb.getHeight() - 2;
+            int botY = boardY() + cfg.boardPx + (cfg.frame + (int)fb.getHeight()) / 2 - 2;
+
+            g2.drawString(file, fcx, topY);
+            g2.drawString(file, fcx, botY);
         }
     }
 
