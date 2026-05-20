@@ -16,4 +16,7 @@ public class MenuPanel extends JPanel {
     private static final Color WOOD_DARK = new Color( 95,  55,  20);
     private static final Color WOOD_MID = new Color(130,  80,  30);
     private static final Color WOOD_LIGHT = new Color(175, 115,  55);
+
+    private static final Font TITLE_FONT = new Font("Serif", Font.BOLD, 40);
+    private static final Font BTN_FONT = new Font("SansSerif", Font.BOLD, 15);
 }
