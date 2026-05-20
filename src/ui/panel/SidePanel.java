@@ -61,4 +61,10 @@ public class SidePanel extends JPanel {
     private final Font moveNumFont;
     private final Font btnFont;
 
+    // Components
+    private final PlayerCard blackCard;
+    private final PlayerCard whiteCard;
+    private final JPanel historyRows;
+    private final JScrollPane historyScroll;
+
 }
