@@ -18,4 +18,11 @@ public class BoardPanel extends JPanel{
     private static final Color CHECK_TINT = new Color(229,  57,  53, 160);
     private static final Color MOVE_DOT = new Color( 61,  61,  61,  70);
     private static final Color CAPTURE_RING = new Color(198,  40,  40, 140);
+
+    private final LayoutConfig cfg;
+    private final GameController controller;
+
+    private Font pieceFont;
+    private Font coordFont;
+
 }
