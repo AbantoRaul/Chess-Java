@@ -11,4 +11,8 @@ public class LayoutConfig {
 
     // Side panel
     public final int sideW;  // side panel width
+
+    // Pause button
+    public final int pauseBtnR; // pause button radius
+    public final int pieceFontSz; // piece font size
 }
