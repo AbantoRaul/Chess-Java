@@ -28,4 +28,10 @@ public class MenuPanel extends JPanel {
     private Timer animTimer;
     private float knightOffset = 0f;
     private float knightDir = 1f;
+
+    private static final int CARD_W = 280;
+    private static final int CARD_H = 210;
+    private static final int MEDALLION_R = 40;
+    private static final int BTN_W = 190;
+    private static final int BTN_H = 44;
 }
