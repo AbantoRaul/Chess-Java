@@ -416,6 +416,11 @@ public class SidePanel extends JPanel {
                 "DejaVu Sans", "Arial Unicode MS", "SansSerif"
         };
 
+        for (String name : candidates) {
+            Font f = new Font(name, Font.PLAIN, size);
+            if (f.canDisplay('\u2654')) return f;
+        }
+
     }
 
 }
