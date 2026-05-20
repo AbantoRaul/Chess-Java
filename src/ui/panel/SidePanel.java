@@ -159,6 +159,9 @@ public class SidePanel extends JPanel {
         int scoreB = capByBlack.stream().mapToInt(p -> VALUE.get(p.getType())).sum();
         int adv = scoreW - scoreB;
 
+        blackCard.update(capByWhite, false, adv < 0 ? "+" + (-adv) : "");
+        whiteCard.update(capByBlack, true, adv > 0 ? "+" + adv : "");
+
     }
 
 }
