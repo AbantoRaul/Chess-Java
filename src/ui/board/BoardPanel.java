@@ -11,4 +11,11 @@ public class BoardPanel extends JPanel{
     private static final Color FRAME_MID = new Color(130,  70,  25);
     private static final Color FRAME_GOLD = new Color(197, 153,  83);
     private static final Color COORD_FG = new Color(237, 213, 176);
+
+    // ── Highlight colours ─────────────────────────────────────────────────
+    private static final Color SEL_TINT = new Color(246, 246, 105, 180);
+    private static final Color LAST_TINT = new Color(205, 209, 110, 130);
+    private static final Color CHECK_TINT = new Color(229,  57,  53, 160);
+    private static final Color MOVE_DOT = new Color( 61,  61,  61,  70);
+    private static final Color CAPTURE_RING = new Color(198,  40,  40, 140);
 }
