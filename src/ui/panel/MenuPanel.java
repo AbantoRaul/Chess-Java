@@ -136,6 +136,11 @@ public class MenuPanel extends JPanel {
         // Drop shadow
         g2.setColor(new Color(0, 0, 0, 90));
         g2.fillRoundRect(x + 7, y + 10, w, h, 22, 22);
+
+        // Red card body
+        GradientPaint bodyGp = new GradientPaint(x, y, BANNER_RED, x, y + h, BANNER_RED_DARK);
+        g2.setPaint(bodyGp);
+        g2.fillRoundRect(x, y, w, h, 22, 22);
     }
 
 
