@@ -355,4 +355,14 @@ public class SidePanel extends JPanel {
         return lbl;
     }
 
+    // RESIGN BAR
+    private JPanel buildResignBar() {
+        JPanel bar = new JPanel(new GridLayout(1, 1));
+        bar.setOpaque(false);
+        bar.setBorder(new EmptyBorder(5, 8, 5, 8));
+        bar.setPreferredSize(new Dimension(0, RESIGN_H));
+        bar.setMaximumSize (new Dimension(Short.MAX_VALUE, RESIGN_H));
+        bar.setMinimumSize (new Dimension(0, RESIGN_H));
+    }
+
 }
