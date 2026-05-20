@@ -193,6 +193,13 @@ public class SidePanel extends JPanel {
             line2 = "";
             if (pieces.isEmpty()) { repaint(); return; }
 
+            StringBuilder sb = new StringBuilder();
+            for (Piece p : pieces)
+                sb.append(useWhiteGlyphs
+                        ? WG.getOrDefault(p.getType(),  "?")
+                        : BLK.getOrDefault(p.getType(), "?"));
+            String all = sb.toString();
+
         }
 
     }
