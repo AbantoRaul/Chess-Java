@@ -31,8 +31,8 @@ public class ChessApp {
             frame.pack();
             frame.setMinimumSize(new Dimension(640, 520));
 
-
-
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
         });
     }
 }
