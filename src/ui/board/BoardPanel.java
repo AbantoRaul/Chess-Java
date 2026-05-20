@@ -272,6 +272,12 @@ public class BoardPanel extends JPanel{
                 if (!dragging) return;
                 int[] sq = pixelToSquare(e.getX(), e.getY());
                 dragging = false;
+
+                if (sq != null && (sq[0] != dragFromRow || sq[1] != dragFromCol))
+                    controller.onDragCompleted(dragFromRow, dragFromCol, sq[0], sq[1]);
+                else repaint();
+
+                dragFromRow = dragFromCol = -1;
             }
         });
 
