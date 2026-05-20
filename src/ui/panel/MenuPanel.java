@@ -147,6 +147,11 @@ public class MenuPanel extends JPanel {
         g2.setStroke(new BasicStroke(1.8f));
         g2.drawRoundRect(x + 5, y + 5, w - 10, h - 10, 16, 16);
         g2.setStroke(new BasicStroke(1f));
+
+        // Top zigzag strip
+        drawZigzagRow(g2, cx, y + 16, w - 24);
+        // Bottom zigzag strip
+        drawZigzagRow(g2, cx, y + h - 10, w - 24);
     }
 
 
