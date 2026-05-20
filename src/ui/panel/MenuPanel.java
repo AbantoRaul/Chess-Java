@@ -164,6 +164,10 @@ public class MenuPanel extends JPanel {
         Rectangle btn = getBtnRect();
         drawWoodButton(g2, btn.x + btn.width/2, btn.y + btn.height/2,
                 btn.width, btn.height, "START", btnHover, btnPress);
+
+        // Knight medallion (floating above card top)
+        int knightCY = y - MEDALLION_R + 12 + (int) knightOffset;
+        drawKnightMedallion(g2, cx, knightCY);
     }
 
 
