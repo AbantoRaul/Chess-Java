@@ -344,6 +344,15 @@ public class SidePanel extends JPanel {
 
             }
         };
+
+        lbl.setFont(sectionFont);
+        lbl.setForeground(GOLD);
+        lbl.setOpaque(false);
+        lbl.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl.setPreferredSize(new Dimension(0, HEADER_H));
+        lbl.setMaximumSize (new Dimension(Short.MAX_VALUE, HEADER_H));
+        lbl.setMinimumSize (new Dimension(0, HEADER_H));
+        return lbl;
     }
 
 }
