@@ -1,4 +1,5 @@
 package ui.board;
 
-public class BoardPanel {
+
+public class BoardPanel extends JPanel{
 }
