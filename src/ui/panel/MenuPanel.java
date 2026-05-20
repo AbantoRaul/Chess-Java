@@ -273,6 +273,16 @@ public class MenuPanel extends JPanel {
         int count = totalWidth / step;
         int startX = cx - (count * step) / 2;
 
+        for (int i = 0; i < count; i++) {
+            int x0 = startX + i * step;
+            int xm = x0 + step / 2;
+            int x1 = x0 + step;
+            // alternate peak up / peak down for a classic zigzag
+            int peakY = (i % 2 == 0) ? y - zh : y + zh;
+            g2.drawLine(x0, y, xm, peakY);
+            g2.drawLine(xm, peakY, x1, y);
+        }
+        g2.setStroke(new BasicStroke(1f));
     }
 
 
