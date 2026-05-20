@@ -327,5 +327,7 @@ public class MenuPanel extends JPanel {
             Font f = new Font(name, Font.PLAIN, size);
             if (f.canDisplay('\u265E')) return f;
         }
+
+        return new Font("SansSerif", Font.BOLD, size);
     }
 }
