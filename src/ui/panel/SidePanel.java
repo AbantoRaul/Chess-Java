@@ -1,5 +1,18 @@
 package ui.panel;
 
+import engine.Move;
+import engine.GameState;
+import model.Piece;
+import model.PieceType;
+import ui.app.LayoutConfig;
+import ui.controller.GameController;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.util.*;
+import java.util.List;
+
 public class SidePanel extends JPanel {
 
     // Theme colours
