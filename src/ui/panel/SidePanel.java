@@ -86,6 +86,16 @@ public class SidePanel extends JPanel {
         RESIGN_H = clamp(sq / 2,  30, 44) + 10;
         ROW_H    = clamp(sq / 4,  15, 20);
 
+        // Fonts
+        nameFont = new Font("Serif", Font.BOLD,  NAME_SZ);
+        scoreFont = new Font("SansSerif", Font.BOLD, clamp(sq/6, 8, 12));
+        capturedFont = loadPieceFont(GLYPH_SZ);
+        sectionFont = new Font("Serif", Font.BOLD, clamp(sq/7, 8, 11));
+        moveFont = new Font(Font.MONOSPACED, Font.PLAIN, clamp(sq/6, 9, 12));
+        moveFontBold = new Font(Font.MONOSPACED, Font.BOLD, clamp(sq/6, 9, 12));
+        moveNumFont = new Font(Font.MONOSPACED, Font.PLAIN, clamp(sq/7, 8, 10));
+        btnFont = new Font("SansSerif", Font.BOLD, clamp(sq/5, 10, 13));
+
     }
 
 }
