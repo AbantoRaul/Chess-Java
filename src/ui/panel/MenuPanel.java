@@ -23,4 +23,9 @@ public class MenuPanel extends JPanel {
     private final Runnable onPlay;
     private boolean btnHover = false;
     private boolean btnPress = false;
+
+    // knight float animation
+    private Timer animTimer;
+    private float knightOffset = 0f;
+    private float knightDir = 1f;
 }
