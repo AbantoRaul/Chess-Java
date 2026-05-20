@@ -256,6 +256,18 @@ public class SidePanel extends JPanel {
             g2.setColor(new Color(GOLD.getRed(), GOLD.getGreen(), GOLD.getBlue(), 50));
             g2.drawLine(PAD_H, sepY, w - PAD_H, sepY);
 
+            // Captured pieces
+            g2.setFont(capturedFont);
+            g2.setColor(new Color(210, 180, 130));
+
+            int gy1 = sepY + PAD_V + GLYPH_SZ;
+            if (!line1.isEmpty())
+                g2.drawString(line1, PAD_H, gy1);
+
+            int gy2 = gy1 + GLYPH_SZ + 2;
+            if (!line2.isEmpty() && gy2 < h - 2)
+                g2.drawString(line2, PAD_H, gy2);
+
         }
 
         }
