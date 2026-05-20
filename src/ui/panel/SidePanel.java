@@ -178,6 +178,15 @@ public class SidePanel extends JPanel {
         private String line1 = "";
         private String line2 = "";
 
+        PlayerCard(String label) {
+            this.label = label;
+
+            setPreferredSize(new Dimension(0, CARD_H));
+            setMaximumSize (new Dimension(Short.MAX_VALUE, CARD_H));
+            setMinimumSize (new Dimension(0, CARD_H));
+            setOpaque(false);
+        }
+
     }
 
 }
