@@ -291,6 +291,9 @@ public class MenuPanel extends JPanel {
         int y = cy - h/2;
         int arc = h;
 
+        g2.setColor(new Color(0, 0, 0, 80));
+        g2.fillRoundRect(x + 3, y + 5, w, h, arc, arc);
+
     }
 
 
