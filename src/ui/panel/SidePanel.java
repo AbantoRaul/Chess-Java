@@ -72,6 +72,20 @@ public class SidePanel extends JPanel {
         this.cfg = cfg;
         int sq = cfg.sq;
 
+        // All sizes derived from sq with clamp
+        NAME_SZ = clamp(sq / 5, 10, 15);
+        GLYPH_SZ = clamp(sq / 6, 9, 13);
+        PAD_H = clamp(sq / 8, 6, 12);
+        PAD_V  = clamp(sq / 10, 4, 8);
+        CARD_H = PAD_V + NAME_SZ + PAD_V
+                + 1
+                + PAD_V + GLYPH_SZ
+                + 2 + GLYPH_SZ + PAD_V;
+
+        HEADER_H = clamp(sq / 4,  18, 26);
+        RESIGN_H = clamp(sq / 2,  30, 44) + 10;
+        ROW_H    = clamp(sq / 4,  15, 20);
+
     }
 
 }
