@@ -78,6 +78,11 @@ public class BoardPanel extends JPanel{
         g2.setColor(new Color(0, 0, 0, 100));
         g2.fillRoundRect(fx + 6, fy + 8, fw, fh, 12, 12);
 
+        // Wood body
+        GradientPaint gp = new GradientPaint(fx, fy, FRAME_MID, fx + fw, fy + fh, FRAME_DARK);
+        g2.setPaint(gp);
+        g2.fillRoundRect(fx, fy, fw, fh, 10, 10);
+
     }
 
     private void drawSquares(Graphics2D g2) {
