@@ -232,6 +232,12 @@ public class MenuPanel extends JPanel {
 
         g2.setColor(new Color(30, 15, 5));
         g2.fillOval(cx - r - 4, cy - r - 4, (r+4)*2, (r+4)*2);
+
+        // body
+        GradientPaint gp = new GradientPaint(cx - r, cy - r, new Color(160, 105, 45),
+                cx + r, cy + r, WOOD_DARK);
+        g2.setPaint(gp);
+        g2.fillOval(cx - r, cy - r, r*2, r*2);
     }
 
 
