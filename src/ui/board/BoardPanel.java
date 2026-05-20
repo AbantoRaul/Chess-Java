@@ -38,7 +38,10 @@ public class BoardPanel extends JPanel{
         attachMouseListeners();
     }
     private void loadFonts() {
-
+        String[] candidates = {
+                "Segoe UI Emoji", "Apple Color Emoji", "Noto Emoji",
+                "DejaVu Sans", "Arial Unicode MS", "SansSerif"
+        };
     }
 
     private int boardX() { return cfg.padding + cfg.frame; }
