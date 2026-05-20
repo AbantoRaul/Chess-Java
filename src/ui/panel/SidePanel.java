@@ -291,6 +291,14 @@ public class SidePanel extends JPanel {
             historyRows.add(row);
         }
 
+        historyRows.revalidate();
+        historyRows.repaint();
+
+        SwingUtilities.invokeLater(() -> {
+            JScrollBar vsb = historyScroll.getVerticalScrollBar();
+            vsb.setValue(vsb.getMaximum());
+        });
+
     }
 
 }
