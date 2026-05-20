@@ -100,6 +100,12 @@ public class SidePanel extends JPanel {
         blackCard = new PlayerCard("BLACK");
         whiteCard = new PlayerCard("WHITE");
 
+        // History
+        historyRows = new JPanel();
+        historyRows.setLayout(new BoxLayout(historyRows, BoxLayout.Y_AXIS));
+        historyRows.setBackground(BG_HISTORY);
+        historyRows.setBorder(new EmptyBorder(2, 2, 2, 2));
+
     }
 
 }
