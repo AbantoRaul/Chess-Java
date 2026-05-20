@@ -126,6 +126,9 @@ public class MenuPanel extends JPanel {
         g2.fillRect(0, 0, w, h);
     }
 
+    private void drawCard(Graphics2D g2) {
+
+    }
 
 
 }
