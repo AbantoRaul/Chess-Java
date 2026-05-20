@@ -42,6 +42,12 @@ public class BoardPanel extends JPanel{
                 "Segoe UI Emoji", "Apple Color Emoji", "Noto Emoji",
                 "DejaVu Sans", "Arial Unicode MS", "SansSerif"
         };
+
+        pieceFont = null;
+        for (String name : candidates) {
+            Font f = new Font(name, Font.PLAIN, cfg.pieceFontSz);
+            if (f.canDisplay('\u2654')) { pieceFont = f; break; }
+        }
     }
 
     private int boardX() { return cfg.padding + cfg.frame; }
