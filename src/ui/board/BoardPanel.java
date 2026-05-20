@@ -269,7 +269,9 @@ public class BoardPanel extends JPanel{
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
+                if (!dragging) return;
+                int[] sq = pixelToSquare(e.getX(), e.getY());
+                dragging = false;
             }
         });
 
