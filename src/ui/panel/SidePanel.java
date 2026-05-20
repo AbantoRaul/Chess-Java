@@ -238,6 +238,19 @@ public class SidePanel extends JPanel {
             g2.setStroke(new BasicStroke(1f));
             g2.drawLine(0, h - 1, w, h - 1);
 
+            // Name row
+            int nameBaseline = PAD_V + NAME_SZ;
+            g2.setFont(nameFont);
+            g2.setColor(GOLD_LIGHT);
+            g2.drawString(label, PAD_H, nameBaseline);
+            // Score to the right of name
+            if (!score.isEmpty()) {
+                int nameW = g2.getFontMetrics(nameFont).stringWidth(label);
+                g2.setFont(scoreFont);
+                g2.setColor(new Color(255, 215, 0));
+                g2.drawString(score, PAD_H + nameW + 5, nameBaseline);
+            }
+
         }
 
         }
