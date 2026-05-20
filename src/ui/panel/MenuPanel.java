@@ -55,4 +55,7 @@ public class MenuPanel extends JPanel {
         });
         animTimer.start();
     }
+
+    public void stopAnimation() { if (animTimer != null) animTimer.stop(); }
+    public void startAnimation() { if (animTimer != null) animTimer.start(); }
 }
