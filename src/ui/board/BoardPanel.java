@@ -65,4 +65,10 @@ public class BoardPanel extends JPanel{
         int ox = boardX(), oy = boardY();
 
     }
+
+    // Semi-transparent piece following the cursor while dragging
+    private void drawDragGhost(Graphics2D g2) {
+        Square sq = controller.getGameState().getBoard().getSquare(dragFromRow, dragFromCol);
+
+    }
 }
