@@ -113,6 +113,12 @@ public class SidePanel extends JPanel {
         historyScroll.getViewport().setBackground(BG_HISTORY);
         styleScrollBar(historyScroll);
 
+        // Panel config
+        setPreferredSize(new Dimension(cfg.sideW, cfg.boardSide));
+        setBackground(BG_WOOD);
+        setLayout(new BorderLayout());
+        setBorder(BorderFactory.createMatteBorder(0, 2, 0, 0, GOLD));
+
     }
 
 }
