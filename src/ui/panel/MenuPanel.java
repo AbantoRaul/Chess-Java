@@ -141,6 +141,12 @@ public class MenuPanel extends JPanel {
         GradientPaint bodyGp = new GradientPaint(x, y, BANNER_RED, x, y + h, BANNER_RED_DARK);
         g2.setPaint(bodyGp);
         g2.fillRoundRect(x, y, w, h, 22, 22);
+
+        // Gold inner border
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(1.8f));
+        g2.drawRoundRect(x + 5, y + 5, w - 10, h - 10, 16, 16);
+        g2.setStroke(new BasicStroke(1f));
     }
 
 
