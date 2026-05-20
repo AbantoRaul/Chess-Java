@@ -394,6 +394,14 @@ public class SidePanel extends JPanel {
             }
         };
 
+        btn.setFont(btnFont);
+        btn.setForeground(fg);
+        btn.setContentAreaFilled(false);
+        btn.setBorderPainted(false);
+        btn.setFocusPainted(false);
+        btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btn.setOpaque(false);
+        return btn;
     }
 
 }
