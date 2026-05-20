@@ -1,4 +1,19 @@
 package ui.panel;
 
 public class SidePanel extends JPanel {
+
+    // Theme colours
+    private static final Color BG_WOOD = new Color( 95,  55,  20);
+    private static final Color BG_WOOD_MID = new Color(115,  68,  25);
+    private static final Color BG_WOOD_DARK = new Color( 75,  40,  12);
+    private static final Color BG_HISTORY = new Color( 20,  12,   4);
+    private static final Color GOLD = new Color(197, 153,  83);
+    private static final Color GOLD_LIGHT = new Color(230, 190, 120);
+    private static final Color FG_WHMOVE = new Color(240, 235, 220);
+    private static final Color FG_BKMOVE = new Color(190, 175, 150);
+    private static final Color FG_NUM = new Color(140, 110,  70);
+    private static final Color LAST_ROW_BG = new Color( 50,  30,  10);
+    private static final Color BG_RESIGN = new Color(110,  22,  22);
+    private static final Color BG_RES_HOV = new Color(150,  30,  30);
+    private static final Color SEPARATOR = new Color(140, 100,  50);
 }
