@@ -327,4 +327,15 @@ public class SidePanel extends JPanel {
         return l;
     }
 
+    // SECTION HEADER
+    private JComponent buildSectionHeader() {
+        JLabel lbl = new JLabel("MOVE HISTORY", SwingConstants.CENTER) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g;
+
+            }
+        };
+    }
+
 }
