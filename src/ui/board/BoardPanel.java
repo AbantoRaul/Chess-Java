@@ -240,6 +240,9 @@ public class BoardPanel extends JPanel{
 
         int tx = (int)(px + (size - bounds.getWidth())  / 2 - bounds.getX());
         int ty = (int)(py + (size - bounds.getHeight()) / 2 - bounds.getY());
+
+        g2.setColor(new Color(0, 0, 0, 80));
+        g2.drawString(glyph, tx + 1, ty + 1);
     }
 
     // ── Mouse listeners ───────────────────────────────────────────────────
