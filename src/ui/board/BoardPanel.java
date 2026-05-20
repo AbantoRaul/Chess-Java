@@ -71,4 +71,8 @@ public class BoardPanel extends JPanel{
         Square sq = controller.getGameState().getBoard().getSquare(dragFromRow, dragFromCol);
 
     }
+
+    private void drawPieceAt(Graphics2D g2, Piece piece, int px, int py, int size) {
+
+    }
 }
