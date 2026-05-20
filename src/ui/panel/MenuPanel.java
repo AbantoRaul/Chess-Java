@@ -58,4 +58,7 @@ public class MenuPanel extends JPanel {
 
     public void stopAnimation() { if (animTimer != null) animTimer.stop(); }
     public void startAnimation() { if (animTimer != null) animTimer.start(); }
+
+    private int cardX() { return getWidth()  / 2 - CARD_W / 2; }
+    private int cardY() { return getHeight() / 2 - CARD_H / 2; }
 }
