@@ -64,6 +64,10 @@ public class BoardPanel extends JPanel{
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
+        drawWoodenFrame(g2);
+        drawSquares(g2);
+        drawPieces(g2);
+        if (dragging && dragFromRow >= 0) drawDragGhost(g2);
     }
 
     private void drawWoodenFrame(Graphics2D g2) {
