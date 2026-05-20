@@ -317,9 +317,7 @@ public class MenuPanel extends JPanel {
 
     }
 
-
-
-
+    private Font findEmojiFont(int size) {
 
 
 }
