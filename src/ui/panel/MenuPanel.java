@@ -285,6 +285,17 @@ public class MenuPanel extends JPanel {
         g2.setStroke(new BasicStroke(1f));
     }
 
+    private void drawWoodButton(Graphics2D g2, int cx, int cy, int w, int h,
+                                String label, boolean hover, boolean press) {
+        int x = cx - w/2;
+        int y = cy - h/2;
+        int arc = h;
+
+    }
+
+
+
+
 
 
 }
