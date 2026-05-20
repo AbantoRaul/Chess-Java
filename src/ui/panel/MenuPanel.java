@@ -220,6 +220,11 @@ public class MenuPanel extends JPanel {
         g2.setColor(new Color(120, 80, 20, 130));
         g2.drawString(text, tx + 2, ty + 2);
 
+        // gradient gold text
+        GradientPaint tgp = new GradientPaint(tx, ty - (int)tb.getHeight(), GOLD_LIGHT, tx, ty, GOLD);
+        g2.setPaint(tgp);
+        g2.drawString(text, tx, ty);
+
     }
 
 
