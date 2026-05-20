@@ -106,7 +106,9 @@ public class MenuPanel extends JPanel {
     }
 
     private void drawChessboardBg(Graphics2D g2) {
-
+        int sq = 80;
+        int cols = getWidth() / sq + 2;
+        int rows = getHeight() / sq + 2;
     }
 
 
