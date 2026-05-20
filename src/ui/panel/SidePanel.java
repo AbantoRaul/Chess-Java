@@ -138,6 +138,18 @@ public class SidePanel extends JPanel {
     public void update() {
         GameState gs = controller.getGameState();
 
+        List<Piece> capByWhite = new ArrayList<>();
+        List<Piece> capByBlack = new ArrayList<>();
+
+        for (Move m : gs.getMoveHistory()) {
+            if (m.getCapturedPiece() == null) continue;
+
+            Piece cp = m.getCapturedPiece();
+
+            if (cp.getColor() == model.Color.BLACK) capByWhite.add(cp);
+            else capByBlack.add(cp);
+        }
+
     }
 
 }
