@@ -175,14 +175,11 @@ public class SidePanel extends JPanel {
         blackCard.update(capByWhite, false, adv < 0 ? "+" + (-adv) : "");
         whiteCard.update(capByBlack, true, adv > 0 ? "+" + adv : "");
 
-        extracted(gs);
-    }
-
-    private void extracted(GameState gs) {
         updateHistory(gs);
         revalidate();
         repaint();
     }
+
 
     // PLAYER CARD — inner class
     private class PlayerCard extends JPanel {
@@ -195,8 +192,8 @@ public class SidePanel extends JPanel {
             this.label = label;
 
             setPreferredSize(new Dimension(0, CARD_H));
-            setMaximumSize (new Dimension(Short.MAX_VALUE, CARD_H));
-            setMinimumSize (new Dimension(0, CARD_H));
+            setMaximumSize(new Dimension(Short.MAX_VALUE, CARD_H));
+            setMinimumSize(new Dimension(0, CARD_H));
             setOpaque(false);
         }
 
@@ -204,18 +201,21 @@ public class SidePanel extends JPanel {
             this.score = scoreStr;
             line1 = "";
             line2 = "";
-            if (pieces.isEmpty()) { repaint(); return; }
+            if (pieces.isEmpty()) {
+                repaint();
+                return;
+            }
 
             StringBuilder sb = new StringBuilder();
             for (Piece p : pieces)
                 sb.append(useWhiteGlyphs
-                        ? WG.getOrDefault(p.getType(),  "?")
+                        ? WG.getOrDefault(p.getType(), "?")
                         : BLK.getOrDefault(p.getType(), "?"));
             String all = sb.toString();
 
             int availW = getWidth() > 0 ? getWidth() - PAD_H * 2
                     : cfg.sideW - PAD_H * 2;
-            int glyphW = (int)(GLYPH_SZ * 0.90);
+            int glyphW = (int) (GLYPH_SZ * 0.90);
             int perLine = Math.max(1, availW / glyphW);
             int total = all.length();
 
@@ -282,9 +282,6 @@ public class SidePanel extends JPanel {
                 g2.drawString(line2, PAD_H, gy2);
 
         }
-
-        }
-
     }
 
     // HISTORY
@@ -315,7 +312,7 @@ public class SidePanel extends JPanel {
     }
 
     private JPanel buildHistoryRow(int num, String white,
-                                   String black, boolean isLast) {
+                                       String black, boolean isLast) {
 
         JPanel row = new JPanel(new FlowLayout(FlowLayout.LEFT, 2, 0));
         row.setOpaque(true);
