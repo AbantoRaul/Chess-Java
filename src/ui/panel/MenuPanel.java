@@ -127,7 +127,11 @@ public class MenuPanel extends JPanel {
     }
 
     private void drawCard(Graphics2D g2) {
-
+        int cx = getWidth()  / 2;
+        int x = cardX();
+        int y = cardY();
+        int w = CARD_W;
+        int h = CARD_H;
     }
 
 
