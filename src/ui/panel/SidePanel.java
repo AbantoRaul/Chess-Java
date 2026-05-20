@@ -124,6 +124,11 @@ public class SidePanel extends JPanel {
         northStack.add(blackCard, BorderLayout.CENTER);
         northStack.add(buildSectionHeader(), BorderLayout.SOUTH);
 
+        JPanel southStack = new JPanel(new BorderLayout());
+        southStack.setOpaque(false);
+        southStack.add(whiteCard, BorderLayout.CENTER);
+        southStack.add(buildResignBar(), BorderLayout.SOUTH);
+
     }
 
 }
