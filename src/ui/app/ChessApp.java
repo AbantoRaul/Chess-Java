@@ -9,6 +9,12 @@ public class ChessApp {
             // usable screen area excluding taskbar
             Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 
+            Insets insets = Toolkit.getDefaultToolkit()
+                    .getScreenInsets(GraphicsEnvironment
+                            .getLocalGraphicsEnvironment()
+                            .getDefaultScreenDevice()
+                            .getDefaultConfiguration());
+
 
 
         });
