@@ -170,5 +170,10 @@ public class MenuPanel extends JPanel {
         drawKnightMedallion(g2, cx, knightCY);
     }
 
+    // Ribbon with V-notch side tails
+    private void drawRibbon(Graphics2D g2, int cx, int cy, int w, int h) {
+
+    }
+
 
 }
