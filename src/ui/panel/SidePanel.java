@@ -96,6 +96,10 @@ public class SidePanel extends JPanel {
         moveNumFont = new Font(Font.MONOSPACED, Font.PLAIN, clamp(sq/7, 8, 10));
         btnFont = new Font("SansSerif", Font.BOLD, clamp(sq/5, 10, 13));
 
+        // Player cards
+        blackCard = new PlayerCard("BLACK");
+        whiteCard = new PlayerCard("WHITE");
+
     }
 
 }
