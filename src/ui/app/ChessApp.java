@@ -26,6 +26,8 @@ public class ChessApp {
 
             GameController controller = new GameController(frame, usableW, usableH);
 
+            frame.setContentPane(controller.buildMainPanel());
+
 
 
         });
