@@ -200,6 +200,21 @@ public class BoardPanel extends JPanel{
     private void drawPieces(Graphics2D g2) {
         int ox = boardX(), oy = boardY();
 
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+
+                // [feat(ui/board): skip dragged piece square to avoid double render]
+                if (dragging && row == dragFromRow && col == dragFromCol) continue;
+
+                Square sq = controller.getGameState().getBoard().getSquare(row, col);
+
+                // [feat(ui/board): skip empty squares]
+                if (!sq.isOccupied()) continue;
+
+                // [feat(ui/board): draw piece glyph at computed pixel position]
+                drawPieceAt(g2, sq.getPiece(), ox + col * cfg.sq, oy + (7 - row) * cfg.sq, cfg.sq);
+            }
+        }
     }
 
     // Semi-transparent piece following the cursor while dragging
