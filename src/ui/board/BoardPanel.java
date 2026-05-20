@@ -289,6 +289,11 @@ public class BoardPanel extends JPanel{
         });
 
         addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                if (!dragging) return;
+                dragX = e.getX(); dragY = e.getY(); repaint();
+            }
 
         });
     }
