@@ -155,6 +155,10 @@ public class SidePanel extends JPanel {
         capByWhite.sort(byVal);
         capByBlack.sort(byVal);
 
+        int scoreW = capByWhite.stream().mapToInt(p -> VALUE.get(p.getType())).sum();
+        int scoreB = capByBlack.stream().mapToInt(p -> VALUE.get(p.getType())).sum();
+        int adv = scoreW - scoreB;
+
     }
 
 }
