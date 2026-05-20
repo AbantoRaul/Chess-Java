@@ -1,4 +1,5 @@
 package ui.panel;
 
-public class MenuPanel {
+public class MenuPanel extends JPanel {
+    
 }
