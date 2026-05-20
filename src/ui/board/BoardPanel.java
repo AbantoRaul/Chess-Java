@@ -86,4 +86,17 @@ public class BoardPanel extends JPanel{
 
         });
     }
+
+    // Converts pixel coordinates to board row/col, returns null if outside board
+    private int[] pixelToSquare(int px, int py) {
+        int ox = boardX(), oy = boardY();
+
+        if (px < ox || py < oy || px >= ox + cfg.boardPx || py >= oy + cfg.boardPx) return null;
+
+        int col = (px - ox) / cfg.sq;
+        int row = 7 - (py - oy) / cfg.sq;
+
+        if (col < 0 || col > 7 || row < 0 || row > 7) return null;
+        return new int[]{row, col};
+    }
 }
