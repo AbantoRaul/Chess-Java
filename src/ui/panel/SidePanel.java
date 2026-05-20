@@ -162,6 +162,7 @@ public class SidePanel extends JPanel {
         blackCard.update(capByWhite, false, adv < 0 ? "+" + (-adv) : "");
         whiteCard.update(capByBlack, true, adv > 0 ? "+" + adv : "");
 
+        extracted(gs);
     }
 
 }
