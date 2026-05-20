@@ -49,4 +49,10 @@ public class BoardPanel extends JPanel{
         super.paintComponent(g);
 
     }
+
+    private void drawWoodenFrame(Graphics2D g2) {
+        int fx = cfg.padding, fy = cfg.padding;
+        int fw = cfg.total,   fh = cfg.total;
+
+    }
 }
