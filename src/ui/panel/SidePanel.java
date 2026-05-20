@@ -41,4 +41,14 @@ public class SidePanel extends JPanel {
     private final LayoutConfig cfg;
     private final GameController controller;
 
+    // Derived sizes
+    private final int NAME_SZ;
+    private final int GLYPH_SZ;
+    private final int PAD_H;
+    private final int PAD_V;
+    private final int CARD_H;
+    private final int HEADER_H;
+    private final int RESIGN_H;
+    private final int ROW_H;
+
 }
