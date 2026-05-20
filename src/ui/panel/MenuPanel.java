@@ -209,6 +209,12 @@ public class MenuPanel extends JPanel {
     }
 
     private void drawTitle(Graphics2D g2, int cx, int cy) {
+        g2.setFont(TITLE_FONT);
+        FontRenderContext frc = g2.getFontRenderContext();
+        String text = "CHESS";
+        Rectangle2D tb = TITLE_FONT.getStringBounds(text, frc);
+        int tx = (int)(cx - tb.getWidth() / 2);
+        int ty = (int)(cy - tb.getHeight() / 2 - tb.getY());
 
     }
 
