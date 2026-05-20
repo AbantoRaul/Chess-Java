@@ -294,6 +294,12 @@ public class MenuPanel extends JPanel {
         g2.setColor(new Color(0, 0, 0, 80));
         g2.fillRoundRect(x + 3, y + 5, w, h, arc, arc);
 
+        Color top = press ? WOOD_DARK : hover ? WOOD_LIGHT : new Color(145, 90, 35);
+        Color bot = press ? WOOD_MID  : hover ? WOOD_MID   : WOOD_DARK;
+        GradientPaint gp = new GradientPaint(x, y, top, x, y + h, bot);
+        g2.setPaint(gp);
+        g2.fillRoundRect(x, y, w, h, arc, arc);
+
     }
 
 
