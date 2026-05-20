@@ -1,4 +1,4 @@
 package ui.panel;
 
-public class SidePanel {
+public class SidePanel extends JPanel {
 }
