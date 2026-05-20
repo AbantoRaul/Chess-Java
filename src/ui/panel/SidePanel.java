@@ -274,4 +274,11 @@ public class SidePanel extends JPanel {
 
     }
 
+    // HISTORY
+    private void updateHistory(GameState gs) {
+        historyRows.removeAll();
+        List<Move> history = gs.getMoveHistory();
+
+    }
+
 }
