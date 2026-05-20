@@ -234,6 +234,10 @@ public class SidePanel extends JPanel {
             g2.setPaint(gp);
             g2.fillRect(0, 0, w, h);
 
+            g2.setColor(GOLD);
+            g2.setStroke(new BasicStroke(1f));
+            g2.drawLine(0, h - 1, w, h - 1);
+
         }
 
         }
