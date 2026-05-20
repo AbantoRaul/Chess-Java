@@ -226,6 +226,8 @@ public class BoardPanel extends JPanel{
         Composite orig = g2.getComposite();
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.85f));
 
+        drawPieceAt(g2, sq.getPiece(), dragX - cfg.sq / 2, dragY - cfg.sq / 2, cfg.sq);
+        g2.setComposite(orig);
     }
 
     private void drawPieceAt(Graphics2D g2, Piece piece, int px, int py, int size) {
