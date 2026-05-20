@@ -69,6 +69,18 @@ public class MenuPanel extends JPanel {
     }
 
     private void setupMouseListeners() {
+        addMouseListener(new MouseAdapter() {
+            @Override public void mousePressed(MouseEvent e) {
+                if (getBtnRect().contains(e.getPoint())) { btnPress = true; repaint(); }
+            }
+
+            @Override public void mouseReleased(MouseEvent e) {
+                boolean was = btnPress;
+                btnPress = false; repaint();
+                if (was && getBtnRect().contains(e.getPoint())) onPlay.run();
+            }
+        });
+
 
     }
 }
