@@ -106,6 +106,13 @@ public class SidePanel extends JPanel {
         historyRows.setBackground(BG_HISTORY);
         historyRows.setBorder(new EmptyBorder(2, 2, 2, 2));
 
+        historyScroll = new JScrollPane(historyRows);
+        historyScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        historyScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        historyScroll.setBorder(null);
+        historyScroll.getViewport().setBackground(BG_HISTORY);
+        styleScrollBar(historyScroll);
+
     }
 
 }
