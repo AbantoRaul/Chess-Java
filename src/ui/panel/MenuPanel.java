@@ -322,5 +322,10 @@ public class MenuPanel extends JPanel {
                 "Segoe UI Emoji","Apple Color Emoji","Noto Emoji",
                 "DejaVu Sans","Arial Unicode MS","SansSerif"
         };
+
+        for (String name : candidates) {
+            Font f = new Font(name, Font.PLAIN, size);
+            if (f.canDisplay('\u265E')) return f;
+        }
     }
 }
