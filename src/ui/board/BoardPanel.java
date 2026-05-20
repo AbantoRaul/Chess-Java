@@ -37,4 +37,7 @@ public class BoardPanel extends JPanel{
         loadFonts();
         attachMouseListeners();
     }
+    private void loadFonts() {
+
+    }
 }
