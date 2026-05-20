@@ -230,6 +230,8 @@ public class MenuPanel extends JPanel {
     private void drawKnightMedallion(Graphics2D g2, int cx, int cy) {
         int r = MEDALLION_R;
 
+        g2.setColor(new Color(30, 15, 5));
+        g2.fillOval(cx - r - 4, cy - r - 4, (r+4)*2, (r+4)*2);
     }
 
 
