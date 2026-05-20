@@ -123,6 +123,18 @@ public class BoardPanel extends JPanel{
     private void drawSquares(Graphics2D g2) {
         Square sel = controller.getSelectedSquare();
         List<Move> moves = controller.getSelectedMoves();
+
+        // Collect move and capture targets for highlighting
+        Set<String> moveSqs = new HashSet<>();
+        Set<String> captureSqs = new HashSet<>();
+
+        if (moves != null) {
+            for (Move m : moves) {
+                String key = m.getTo().getRow() + "," + m.getTo().getCol();
+                if (m.isCapture()) captureSqs.add(key);
+                else moveSqs.add(key);
+            }
+        }
     }
 
     private void drawPieces(Graphics2D g2) {
