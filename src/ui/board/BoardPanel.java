@@ -253,6 +253,9 @@ public class BoardPanel extends JPanel{
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
+                int[] sq = pixelToSquare(e.getX(), e.getY());
+                if (sq == null) return;
+                Square square = controller.getGameState().getBoard().getSquare(sq[0], sq[1]);
             }
         });
 
