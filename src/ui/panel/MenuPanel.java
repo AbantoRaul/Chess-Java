@@ -200,6 +200,12 @@ public class MenuPanel extends JPanel {
         g2.setPaint(gp);
         g2.fillPolygon(xs, ys, 6);
 
+        // gold border around entire ribbon
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(1.5f));
+        g2.drawPolygon(xs, ys, 6);
+        g2.setStroke(new BasicStroke(1f));
+
     }
 
 
