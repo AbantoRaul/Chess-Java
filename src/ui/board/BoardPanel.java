@@ -243,6 +243,9 @@ public class BoardPanel extends JPanel{
 
         g2.setColor(new Color(0, 0, 0, 80));
         g2.drawString(glyph, tx + 1, ty + 1);
+
+        g2.setColor(piece.getColor() == model.Color.WHITE ? Color.WHITE : new Color(30, 30, 30));
+        g2.drawString(glyph, tx, ty);
     }
 
     // ── Mouse listeners ───────────────────────────────────────────────────
