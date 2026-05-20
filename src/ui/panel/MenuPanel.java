@@ -116,6 +116,14 @@ public class MenuPanel extends JPanel {
                 g2.fillRect(c * sq, r * sq, sq, sq);
             }
         }
+
+        int w = getWidth(), h = getHeight();
+        RadialGradientPaint vig = new RadialGradientPaint(
+                new Point2D.Float(w/2f, h/2f), Math.max(w, h) * 0.6f,
+                new float[]{0f, 1f},
+                new Color[]{new Color(0,0,0,0), new Color(0,0,0,90)});
+        g2.setPaint(vig);
+        g2.fillRect(0, 0, w, h);
     }
 
 
