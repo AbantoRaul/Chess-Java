@@ -129,6 +129,9 @@ public class SidePanel extends JPanel {
         southStack.add(whiteCard, BorderLayout.CENTER);
         southStack.add(buildResignBar(), BorderLayout.SOUTH);
 
+        add(northStack, BorderLayout.NORTH);
+        add(historyScroll, BorderLayout.CENTER);
+        add(southStack, BorderLayout.SOUTH);
     }
 
 }
