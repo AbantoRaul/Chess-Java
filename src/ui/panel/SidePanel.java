@@ -37,4 +37,8 @@ public class SidePanel extends JPanel {
         BLK.put(PieceType.PAWN, "\u265F"); BLK.put(PieceType.KING, "\u265A");
     }
 
+    // Config
+    private final LayoutConfig cfg;
+    private final GameController controller;
+
 }
