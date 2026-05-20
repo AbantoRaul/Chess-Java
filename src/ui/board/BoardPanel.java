@@ -98,6 +98,10 @@ public class BoardPanel extends JPanel{
         g2.setFont(coordFont);
         g2.setColor(COORD_FG);
         FontRenderContext frc = g2.getFontRenderContext();
+
+        for (int i = 0; i < 8; i++) {
+
+        }
     }
 
     private void drawSquares(Graphics2D g2) {
