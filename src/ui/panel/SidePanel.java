@@ -363,6 +363,12 @@ public class SidePanel extends JPanel {
         bar.setPreferredSize(new Dimension(0, RESIGN_H));
         bar.setMaximumSize (new Dimension(Short.MAX_VALUE, RESIGN_H));
         bar.setMinimumSize (new Dimension(0, RESIGN_H));
+
+        JButton btn = makeWoodButton("Resign",
+                BG_RESIGN, BG_RES_HOV, new Color(245, 198, 198));
+        btn.addActionListener(e -> controller.onResign());
+        bar.add(btn);
+        return bar;
     }
 
 }
