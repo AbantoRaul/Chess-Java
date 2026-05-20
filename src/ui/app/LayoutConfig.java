@@ -8,4 +8,7 @@ public class LayoutConfig {
     public final int boardPx; // sq * 8
     public final int total; // boardPx + frame * 2
     public final int boardSide; // total + padding * 2
+
+    // Side panel
+    public final int sideW;  // side panel width
 }
