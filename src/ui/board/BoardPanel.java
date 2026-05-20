@@ -279,6 +279,13 @@ public class BoardPanel extends JPanel{
 
                 dragFromRow = dragFromCol = -1;
             }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (dragging) return;
+                int[] sq = pixelToSquare(e.getX(), e.getY());
+                if (sq != null) controller.onSquareClicked(sq[0], sq[1]);
+            }
         });
 
         addMouseMotionListener(new MouseMotionAdapter() {
