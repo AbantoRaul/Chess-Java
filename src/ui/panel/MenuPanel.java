@@ -34,4 +34,15 @@ public class MenuPanel extends JPanel {
     private static final int MEDALLION_R = 40;
     private static final int BTN_W = 190;
     private static final int BTN_H = 44;
+
+    public MenuPanel(Runnable onPlay, LayoutConfig cfg) {
+        this.onPlay = onPlay;
+        int w = cfg.boardSide + cfg.sideW;
+        int h = cfg.boardSide;
+
+        setPreferredSize(new Dimension(w, h));
+        setLayout(null);
+        initAnimation();
+        setupMouseListeners();
+    }
 }
