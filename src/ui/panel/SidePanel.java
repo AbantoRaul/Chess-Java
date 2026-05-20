@@ -424,4 +424,24 @@ public class SidePanel extends JPanel {
         return new Font("SansSerif", Font.PLAIN, size);
     }
 
+    private void styleScrollBar(JScrollPane sp) {
+        sp.getVerticalScrollBar().setUI(
+                new javax.swing.plaf.basic.BasicScrollBarUI() {
+                    @Override protected void configureScrollBarColors() {
+                        thumbColor = GOLD;
+                        trackColor = BG_HISTORY;
+                    }
+                    @Override protected JButton createDecreaseButton(int o) {
+                        return zero();
+                    }
+                    @Override protected JButton createIncreaseButton(int o) {
+                        return zero();
+                    }
+                    private JButton zero() {
+                        JButton b = new JButton();
+                        b.setPreferredSize(new Dimension(0, 0));
+                        return b;
+                    }
+                });
+    }
 }
