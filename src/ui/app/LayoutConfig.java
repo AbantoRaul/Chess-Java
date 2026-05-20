@@ -17,6 +17,7 @@ public class LayoutConfig {
     public final int pieceFontSz; // piece font size
 
     public LayoutConfig(int usableW, int usableH) {
+        int maxBoardSide = (int)(Math.min(usableW * 0.78, usableH * 0.92));
 
     }
 }
