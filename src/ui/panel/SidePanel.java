@@ -301,4 +301,15 @@ public class SidePanel extends JPanel {
 
     }
 
+    private JPanel buildHistoryRow(int num, String white,
+                                   String black, boolean isLast) {
+
+        JPanel row = new JPanel(new FlowLayout(FlowLayout.LEFT, 2, 0));
+        row.setOpaque(true);
+        row.setBackground(isLast ? LAST_ROW_BG : BG_HISTORY);
+        row.setPreferredSize(new Dimension(0, ROW_H));
+        row.setMaximumSize (new Dimension(Short.MAX_VALUE, ROW_H));
+
+    }
+
 }
