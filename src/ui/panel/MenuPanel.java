@@ -176,6 +176,23 @@ public class MenuPanel extends JPanel {
         int hh  = h / 2;
         int notch = 10;
         int tail = 20;
+
+        int[] xs = {
+                cx - hw,           // A: left inner top (ribbon body starts here)
+                cx + hw,           // B: right inner top
+                cx + hw + tail,    // C: right tail tip
+                cx + hw,           // D: right inner bottom
+                cx - hw,           // E: left inner bottom
+                cx - hw - tail,    // F: left tail tip
+        };
+        int[] ys = {
+                cy - hh,           // A top
+                cy - hh,           // B top
+                cy,                // C mid (tail point)
+                cy + hh,           // D bottom
+                cy + hh,           // E bottom
+                cy,                // F mid (tail point)
+        };
     }
 
 
