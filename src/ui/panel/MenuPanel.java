@@ -238,6 +238,17 @@ public class MenuPanel extends JPanel {
                 cx + r, cy + r, WOOD_DARK);
         g2.setPaint(gp);
         g2.fillOval(cx - r, cy - r, r*2, r*2);
+
+        // outer gold ring
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(3f));
+        g2.drawOval(cx - r, cy - r, r*2, r*2);
+
+        // inner subtle ring
+        g2.setColor(new Color(197, 153, 83, 100));
+        g2.setStroke(new BasicStroke(1f));
+        g2.drawOval(cx - r + 6, cy - r + 6, (r-6)*2, (r-6)*2);
+        g2.setStroke(new BasicStroke(1f));
     }
 
 
