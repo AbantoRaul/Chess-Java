@@ -171,4 +171,13 @@ public class SidePanel extends JPanel {
         repaint();
     }
 
+    // PLAYER CARD — inner class
+    private class PlayerCard extends JPanel {
+        private final String label;
+        private String score = "";
+        private String line1 = "";
+        private String line2 = "";
+
+    }
+
 }
