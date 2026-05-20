@@ -381,6 +381,16 @@ public class SidePanel extends JPanel {
 
                 Color top = getModel().isPressed() ? bg.darker()
                         : getModel().isRollover() ? hov : bg;
+
+                GradientPaint gp = new GradientPaint(
+                        0, 0, top.brighter(), 0, getHeight(), top.darker());
+                g2.setPaint(gp);
+                g2.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 10, 10);
+                g2.setColor(GOLD);
+                g2.setStroke(new BasicStroke(1f));
+                g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 10, 10);
+                g2.dispose();
+                super.paintComponent(g);
             }
         };
 
