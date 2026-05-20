@@ -135,6 +135,17 @@ public class BoardPanel extends JPanel{
                 else moveSqs.add(key);
             }
         }
+
+        // Find king in check for red highlight
+        int checkRow = -1, checkCol = -1;
+
+        GameStatus status = controller.getGameState().getStatus();
+
+        if (status == GameStatus.CHECK || status == GameStatus.CHECKMATE) {
+            Square king = controller.getGameState().getBoard()
+                    .findKing(controller.getGameState().getCurrentTurn());
+            if (king != null) { checkRow = king.getRow(); checkCol = king.getCol(); }
+        }
     }
 
     private void drawPieces(Graphics2D g2) {
