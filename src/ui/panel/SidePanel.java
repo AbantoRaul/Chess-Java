@@ -230,7 +230,9 @@ public class SidePanel extends JPanel {
 
             int w = getWidth(), h = getHeight();
 
-
+            GradientPaint gp = new GradientPaint(0, 0, BG_WOOD_MID, 0, h, BG_WOOD_DARK);
+            g2.setPaint(gp);
+            g2.fillRect(0, 0, w, h);
 
         }
 
