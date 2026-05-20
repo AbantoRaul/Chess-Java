@@ -256,6 +256,15 @@ public class BoardPanel extends JPanel{
                 int[] sq = pixelToSquare(e.getX(), e.getY());
                 if (sq == null) return;
                 Square square = controller.getGameState().getBoard().getSquare(sq[0], sq[1]);
+
+                if (square.isOccupied()
+                        && square.getPiece().getColor() == controller.getGameState().getCurrentTurn()
+                        && controller.getGameState().isOngoing()) {
+                    dragFromRow = sq[0]; dragFromCol = sq[1];
+                    dragX = e.getX();   dragY = e.getY();
+                    dragging = true;
+                    controller.onSquareClicked(sq[0], sq[1]);
+                }
             }
         });
 
