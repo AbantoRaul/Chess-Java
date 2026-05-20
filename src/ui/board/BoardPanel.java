@@ -223,6 +223,9 @@ public class BoardPanel extends JPanel{
 
         if (!sq.isOccupied()) return;
 
+        Composite orig = g2.getComposite();
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.85f));
+
     }
 
     private void drawPieceAt(Graphics2D g2, Piece piece, int px, int py, int size) {
