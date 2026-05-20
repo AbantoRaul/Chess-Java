@@ -15,6 +15,9 @@ public class ChessApp {
                             .getDefaultScreenDevice()
                             .getDefaultConfiguration());
 
+            int usableW = screen.width  - insets.left - insets.right;
+            int usableH = screen.height - insets.top  - insets.bottom;
+
 
 
         });
