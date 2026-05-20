@@ -319,4 +319,12 @@ public class SidePanel extends JPanel {
         return row;
     }
 
+    private JLabel makeCell(String text, Color fg, Font font, int width) {
+        JLabel l = new JLabel(text);
+        l.setFont(font);
+        l.setForeground(fg);
+        l.setPreferredSize(new Dimension(width, ROW_H - 2));
+        return l;
+    }
+
 }
