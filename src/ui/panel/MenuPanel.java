@@ -67,4 +67,8 @@ public class MenuPanel extends JPanel {
         int by = cardY() + CARD_H - BTN_H - 55;
         return new Rectangle(cx - BTN_W/2, by, BTN_W, BTN_H);
     }
+
+    private void setupMouseListeners() {
+
+    }
 }
