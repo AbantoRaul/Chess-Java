@@ -208,5 +208,11 @@ public class MenuPanel extends JPanel {
 
     }
 
+    private void drawTitle(Graphics2D g2, int cx, int cy) {
+
+    }
+
+
+
 
 }
