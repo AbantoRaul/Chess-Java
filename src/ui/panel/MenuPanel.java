@@ -109,6 +109,13 @@ public class MenuPanel extends JPanel {
         int sq = 80;
         int cols = getWidth() / sq + 2;
         int rows = getHeight() / sq + 2;
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                g2.setColor((r + c) % 2 == 0 ? SQ_LIGHT : SQ_DARK);
+                g2.fillRect(c * sq, r * sq, sq, sq);
+            }
+        }
     }
 
 
