@@ -249,6 +249,19 @@ public class MenuPanel extends JPanel {
         g2.setStroke(new BasicStroke(1f));
         g2.drawOval(cx - r + 6, cy - r + 6, (r-6)*2, (r-6)*2);
         g2.setStroke(new BasicStroke(1f));
+
+        // knight glyph
+        Font kf = findEmojiFont(38);
+        g2.setFont(kf);
+        FontRenderContext frc = g2.getFontRenderContext();
+        String glyph = "\u265E";
+        Rectangle2D kb = kf.getStringBounds(glyph, frc);
+        int gx = (int)(cx - kb.getWidth()/2  - kb.getX());
+        int gy = (int)(cy - kb.getHeight()/2 - kb.getY());
+        g2.setColor(new Color(0, 0, 0, 100));
+        g2.drawString(glyph, gx + 1, gy + 1);
+        g2.setColor(new Color(230, 200, 150));
+        g2.drawString(glyph, gx, gy);
     }
 
 
