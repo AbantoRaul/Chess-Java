@@ -251,7 +251,9 @@ public class BoardPanel extends JPanel{
     // ── Mouse listeners ───────────────────────────────────────────────────
     private void attachMouseListeners() {
         addMouseListener(new MouseAdapter() {
-
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
         });
 
         addMouseMotionListener(new MouseMotionAdapter() {
