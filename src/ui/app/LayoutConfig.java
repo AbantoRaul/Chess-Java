@@ -15,4 +15,8 @@ public class LayoutConfig {
     // Pause button
     public final int pauseBtnR; // pause button radius
     public final int pieceFontSz; // piece font size
+
+    public LayoutConfig(int usableW, int usableH) {
+
+    }
 }
