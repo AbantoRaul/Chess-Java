@@ -134,4 +134,10 @@ public class SidePanel extends JPanel {
         add(southStack, BorderLayout.SOUTH);
     }
 
+    // UPDATE
+    public void update() {
+        GameState gs = controller.getGameState();
+
+    }
+
 }
