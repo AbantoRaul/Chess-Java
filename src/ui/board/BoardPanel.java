@@ -83,6 +83,11 @@ public class BoardPanel extends JPanel{
         g2.setPaint(gp);
         g2.fillRoundRect(fx, fy, fw, fh, 10, 10);
 
+        // Gold border
+        g2.setColor(FRAME_GOLD);
+        g2.setStroke(new BasicStroke(1.5f));
+        g2.drawRoundRect(fx + 4, fy + 4, fw - 8, fh - 8, 8, 8);
+
     }
 
     private void drawSquares(Graphics2D g2) {
