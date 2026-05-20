@@ -404,4 +404,9 @@ public class SidePanel extends JPanel {
         return btn;
     }
 
+    // UTILITIES
+    private static int clamp(int v, int lo, int hi) {
+        return Math.max(lo, Math.min(hi, v));
+    }
+
 }
