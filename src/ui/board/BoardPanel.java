@@ -232,6 +232,14 @@ public class BoardPanel extends JPanel{
 
     private void drawPieceAt(Graphics2D g2, Piece piece, int px, int py, int size) {
         String glyph = getGlyph(piece);
+
+        g2.setFont(pieceFont.deriveFont((float)(size - 10)));
+
+        FontRenderContext frc = g2.getFontRenderContext();
+        Rectangle2D bounds = g2.getFont().getStringBounds(glyph, frc);
+
+        int tx = (int)(px + (size - bounds.getWidth())  / 2 - bounds.getX());
+        int ty = (int)(py + (size - bounds.getHeight()) / 2 - bounds.getY());
     }
 
     // ── Mouse listeners ───────────────────────────────────────────────────
