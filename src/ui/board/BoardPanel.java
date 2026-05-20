@@ -99,4 +99,16 @@ public class BoardPanel extends JPanel{
         if (col < 0 || col > 7 || row < 0 || row > 7) return null;
         return new int[]{row, col};
     }
+    
+    private static String getGlyph(Piece p) {
+        boolean w = p.getColor() == model.Color.WHITE;
+        return switch (p.getType()) {
+            case KING   -> w ? "\u2654" : "\u265A";
+            case QUEEN  -> w ? "\u2655" : "\u265B";
+            case ROOK   -> w ? "\u2656" : "\u265C";
+            case BISHOP -> w ? "\u2657" : "\u265D";
+            case KNIGHT -> w ? "\u2658" : "\u265E";
+            case PAWN   -> w ? "\u2659" : "\u265F";
+        };
+    }
 }
