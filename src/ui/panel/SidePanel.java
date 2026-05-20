@@ -16,4 +16,13 @@ public class SidePanel extends JPanel {
     private static final Color BG_RESIGN = new Color(110,  22,  22);
     private static final Color BG_RES_HOV = new Color(150,  30,  30);
     private static final Color SEPARATOR = new Color(140, 100,  50);
+
+    // Piece values
+    private static final Map<PieceType, Integer> VALUE = new EnumMap<>(PieceType.class);
+    static {
+        VALUE.put(PieceType.QUEEN, 9); VALUE.put(PieceType.ROOK, 5);
+        VALUE.put(PieceType.BISHOP, 3); VALUE.put(PieceType.KNIGHT, 3);
+        VALUE.put(PieceType.PAWN, 1); VALUE.put(PieceType.KING, 0);
+    }
+
 }
