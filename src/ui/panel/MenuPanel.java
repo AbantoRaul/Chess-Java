@@ -318,6 +318,9 @@ public class MenuPanel extends JPanel {
     }
 
     private Font findEmojiFont(int size) {
-
-
+        String[] candidates = {
+                "Segoe UI Emoji","Apple Color Emoji","Noto Emoji",
+                "DejaVu Sans","Arial Unicode MS","SansSerif"
+        };
+    }
 }
