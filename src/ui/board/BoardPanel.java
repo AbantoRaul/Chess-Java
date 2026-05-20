@@ -40,4 +40,7 @@ public class BoardPanel extends JPanel{
     private void loadFonts() {
 
     }
+
+    private int boardX() { return cfg.padding + cfg.frame; }
+    private int boardY() { return cfg.padding + cfg.frame; }
 }
