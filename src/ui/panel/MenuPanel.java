@@ -156,6 +156,9 @@ public class MenuPanel extends JPanel {
         // Cream ribbon (upper portion of card)
         int ribbonCY = y + 72;
         drawRibbon(g2, cx, ribbonCY, w + 36, 50);
+
+        // CHESS title
+        drawTitle(g2, cx, ribbonCY);
     }
 
 
