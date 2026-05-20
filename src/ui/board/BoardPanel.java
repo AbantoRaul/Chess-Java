@@ -295,6 +295,17 @@ public class BoardPanel extends JPanel{
                 dragX = e.getX(); dragY = e.getY(); repaint();
             }
 
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                int[] sq = pixelToSquare(e.getX(), e.getY());
+                if (sq == null) { setCursor(Cursor.getDefaultCursor()); return; }
+                Square square = controller.getGameState().getBoard().getSquare(sq[0], sq[1]);
+
+                setCursor(square.isOccupied()
+                        && square.getPiece().getColor() == controller.getGameState().getCurrentTurn()
+                        ? Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)
+                        : Cursor.getDefaultCursor());
+            }
         });
     }
 
