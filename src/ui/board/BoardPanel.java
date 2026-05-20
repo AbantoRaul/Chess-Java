@@ -60,4 +60,9 @@ public class BoardPanel extends JPanel{
         Square sel = controller.getSelectedSquare();
         List<Move> moves = controller.getSelectedMoves();
     }
+
+    private void drawPieces(Graphics2D g2) {
+        int ox = boardX(), oy = boardY();
+
+    }
 }
