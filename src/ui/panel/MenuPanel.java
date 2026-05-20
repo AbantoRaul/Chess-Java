@@ -1,5 +1,13 @@
 package ui.panel;
 
+import ui.app.LayoutConfig;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.*;
+
 public class MenuPanel extends JPanel {
 
     // Chessboard background
