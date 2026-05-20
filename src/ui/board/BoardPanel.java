@@ -100,7 +100,13 @@ public class BoardPanel extends JPanel{
         FontRenderContext frc = g2.getFontRenderContext();
 
         for (int i = 0; i < 8; i++) {
-
+            String rank = String.valueOf(i + 1);
+            Rectangle2D rb = coordFont.getStringBounds(rank, frc);
+            int ry = boardY() + (7 - i) * cfg.sq + cfg.sq / 2 + (int)(rb.getHeight() / 2) - 2;
+            int lx = cfg.padding + (cfg.frame - (int)rb.getWidth()) / 2;
+            int rx = boardX() + cfg.boardPx + (cfg.frame - (int)rb.getWidth()) / 2;
+            g2.drawString(rank, lx, ry);
+            g2.drawString(rank, rx, ry);
         }
     }
 
