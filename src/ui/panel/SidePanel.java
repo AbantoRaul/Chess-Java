@@ -119,6 +119,11 @@ public class SidePanel extends JPanel {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createMatteBorder(0, 2, 0, 0, GOLD));
 
+        JPanel northStack = new JPanel(new BorderLayout());
+        northStack.setOpaque(false);
+        northStack.add(blackCard, BorderLayout.CENTER);
+        northStack.add(buildSectionHeader(), BorderLayout.SOUTH);
+
     }
 
 }
