@@ -266,6 +266,12 @@ public class MenuPanel extends JPanel {
 
     // Zigzag row: alternating up/down triangles
     private void drawZigzagRow(Graphics2D g2, int cx, int y, int totalWidth) {
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(1.5f));
+        int step = 10;
+        int zh = 5;
+        int count = totalWidth / step;
+        int startX = cx - (count * step) / 2;
 
     }
 
