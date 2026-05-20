@@ -146,6 +146,55 @@ public class BoardPanel extends JPanel{
                     .findKing(controller.getGameState().getCurrentTurn());
             if (king != null) { checkRow = king.getRow(); checkCol = king.getCol(); }
         }
+
+        int ox = boardX(), oy = boardY();
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                int px = ox + col * cfg.sq;
+                int py = oy + (7 - row) * cfg.sq;
+                String key = row + "," + col;
+
+                // [feat(ui/board): compute boolean flags for each square state]
+                boolean isSelected = sel != null && sel.getRow() == row && sel.getCol() == col;
+                boolean isLastFrom = row == controller.getLastFromRow() && col == controller.getLastFromCol();
+                boolean isLastTo = row == controller.getLastToRow() && col == controller.getLastToCol();
+                boolean isCheck = row == checkRow && col == checkCol;
+                boolean isMoveTarget = moveSqs.contains(key);
+                boolean isCaptureTarget = captureSqs.contains(key);
+
+                // [feat(ui/board): paint base square color alternating light and dark]
+                // Base square colour
+                g2.setColor((row + col) % 2 == 0 ? LIGHT : DARK);
+                g2.fillRect(px, py, cfg.sq, cfg.sq);
+
+                // [feat(ui/board): apply check selection and last move tint overlays]
+                // Overlay tints
+                if (isCheck) { g2.setColor(CHECK_TINT); g2.fillRect(px, py, cfg.sq, cfg.sq); }
+                else if (isSelected) { g2.setColor(SEL_TINT); g2.fillRect(px, py, cfg.sq, cfg.sq); }
+                else if (isLastFrom || isLastTo) { g2.setColor(LAST_TINT); g2.fillRect(px, py, cfg.sq, cfg.sq); }
+
+                // [feat(ui/board): determine square occupancy accounting for drag state]
+                Square sq = controller.getGameState().getBoard().getSquare(row, col);
+                boolean occupied = sq.isOccupied() && !(dragging && row == dragFromRow && col == dragFromCol);
+
+                // [feat(ui/board): draw move dot on empty legal target squares]
+                // Move dot for empty target squares
+                if (isMoveTarget && !occupied) {
+                    g2.setColor(MOVE_DOT);
+                    int r = cfg.sq / 5, cx2 = px + cfg.sq / 2, cy2 = py + cfg.sq / 2;
+                    g2.fillOval(cx2 - r, cy2 - r, r * 2, r * 2);
+                }
+
+                // [feat(ui/board): draw capture ring on occupied legal target squares]
+                // Capture ring for occupied target squares
+                if (isCaptureTarget && occupied) {
+                    g2.setColor(CAPTURE_RING);
+                    g2.setStroke(new BasicStroke(Math.max(3, cfg.sq / 15f)));
+                    g2.drawOval(px + 5, py + 5, cfg.sq - 10, cfg.sq - 10);
+                    g2.setStroke(new BasicStroke(1));
+                }
+            }
+        }
     }
 
     private void drawPieces(Graphics2D g2) {
