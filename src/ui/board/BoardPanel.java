@@ -25,4 +25,7 @@ public class BoardPanel extends JPanel{
     private Font pieceFont;
     private Font coordFont;
 
+    private int dragFromRow = -1, dragFromCol = -1;
+    private int dragX = -1, dragY = -1;
+    private boolean dragging = false;
 }
