@@ -1,5 +1,7 @@
 package ui.app;
 
+import ui.controller.GameController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -21,6 +23,8 @@ public class ChessApp {
             JFrame frame = new JFrame("Chess");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setResizable(true);
+
+            GameController controller = new GameController(frame, usableW, usableH);
 
 
 
