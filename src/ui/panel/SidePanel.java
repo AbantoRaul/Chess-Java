@@ -51,4 +51,14 @@ public class SidePanel extends JPanel {
     private final int RESIGN_H;
     private final int ROW_H;
 
+    // Fonts
+    private final Font nameFont;
+    private final Font scoreFont;
+    private final Font capturedFont;
+    private final Font sectionFont;
+    private final Font moveFont;
+    private final Font moveFontBold;
+    private final Font moveNumFont;
+    private final Font btnFont;
+
 }
