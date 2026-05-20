@@ -45,4 +45,8 @@ public class MenuPanel extends JPanel {
         initAnimation();
         setupMouseListeners();
     }
+
+    private void initAnimation() {
+
+    }
 }
