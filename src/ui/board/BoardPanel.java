@@ -1,7 +1,25 @@
 package ui.board;
 
 
-public class BoardPanel extends JPanel{
+import engine.GameStatus;
+import engine.Move;
+import model.Piece;
+import model.Square;
+import ui.app.LayoutConfig;
+import ui.controller.GameController;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class BoardPanel extends JPanel {
     // ── Square colours ────────────────────────────────────────────────────
     private static final Color LIGHT = new Color(240, 217, 181);
     private static final Color DARK = new Color(181, 136,  99);
