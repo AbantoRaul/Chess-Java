@@ -172,7 +172,6 @@ public class BoardPanel extends JPanel {
                 int py = oy + (7 - row) * cfg.sq;
                 String key = row + "," + col;
 
-                // [feat(ui/board): compute boolean flags for each square state]
                 boolean isSelected = sel != null && sel.getRow() == row && sel.getCol() == col;
                 boolean isLastFrom = row == controller.getLastFromRow() && col == controller.getLastFromCol();
                 boolean isLastTo = row == controller.getLastToRow() && col == controller.getLastToCol();
@@ -180,22 +179,18 @@ public class BoardPanel extends JPanel {
                 boolean isMoveTarget = moveSqs.contains(key);
                 boolean isCaptureTarget = captureSqs.contains(key);
 
-                // [feat(ui/board): paint base square color alternating light and dark]
                 // Base square colour
                 g2.setColor((row + col) % 2 == 0 ? LIGHT : DARK);
                 g2.fillRect(px, py, cfg.sq, cfg.sq);
 
-                // [feat(ui/board): apply check selection and last move tint overlays]
                 // Overlay tints
                 if (isCheck) { g2.setColor(CHECK_TINT); g2.fillRect(px, py, cfg.sq, cfg.sq); }
                 else if (isSelected) { g2.setColor(SEL_TINT); g2.fillRect(px, py, cfg.sq, cfg.sq); }
                 else if (isLastFrom || isLastTo) { g2.setColor(LAST_TINT); g2.fillRect(px, py, cfg.sq, cfg.sq); }
 
-                // [feat(ui/board): determine square occupancy accounting for drag state]
                 Square sq = controller.getGameState().getBoard().getSquare(row, col);
                 boolean occupied = sq.isOccupied() && !(dragging && row == dragFromRow && col == dragFromCol);
 
-                // [feat(ui/board): draw move dot on empty legal target squares]
                 // Move dot for empty target squares
                 if (isMoveTarget && !occupied) {
                     g2.setColor(MOVE_DOT);
@@ -203,7 +198,6 @@ public class BoardPanel extends JPanel {
                     g2.fillOval(cx2 - r, cy2 - r, r * 2, r * 2);
                 }
 
-                // [feat(ui/board): draw capture ring on occupied legal target squares]
                 // Capture ring for occupied target squares
                 if (isCaptureTarget && occupied) {
                     g2.setColor(CAPTURE_RING);
@@ -221,15 +215,12 @@ public class BoardPanel extends JPanel {
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
 
-                // [feat(ui/board): skip dragged piece square to avoid double render]
                 if (dragging && row == dragFromRow && col == dragFromCol) continue;
 
                 Square sq = controller.getGameState().getBoard().getSquare(row, col);
 
-                // [feat(ui/board): skip empty squares]
                 if (!sq.isOccupied()) continue;
 
-                // [feat(ui/board): draw piece glyph at computed pixel position]
                 drawPieceAt(g2, sq.getPiece(), ox + col * cfg.sq, oy + (7 - row) * cfg.sq, cfg.sq);
             }
         }
@@ -339,7 +330,7 @@ public class BoardPanel extends JPanel {
         if (col < 0 || col > 7 || row < 0 || row > 7) return null;
         return new int[]{row, col};
     }
-    
+
     private static String getGlyph(Piece p) {
         boolean w = p.getColor() == model.Color.WHITE;
         return switch (p.getType()) {
