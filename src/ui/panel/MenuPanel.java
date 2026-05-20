@@ -172,7 +172,10 @@ public class MenuPanel extends JPanel {
 
     // Ribbon with V-notch side tails
     private void drawRibbon(Graphics2D g2, int cx, int cy, int w, int h) {
-
+        int hw = w / 2;
+        int hh  = h / 2;
+        int notch = 10;
+        int tail = 20;
     }
 
 
