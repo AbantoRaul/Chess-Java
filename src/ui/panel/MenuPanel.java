@@ -132,6 +132,10 @@ public class MenuPanel extends JPanel {
         int y = cardY();
         int w = CARD_W;
         int h = CARD_H;
+
+        // Drop shadow
+        g2.setColor(new Color(0, 0, 0, 90));
+        g2.fillRoundRect(x + 7, y + 10, w, h, 22, 22);
     }
 
 
