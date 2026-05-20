@@ -266,6 +266,11 @@ public class BoardPanel extends JPanel{
                     controller.onSquareClicked(sq[0], sq[1]);
                 }
             }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
         });
 
         addMouseMotionListener(new MouseMotionAdapter() {
