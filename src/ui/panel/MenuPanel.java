@@ -152,6 +152,10 @@ public class MenuPanel extends JPanel {
         drawZigzagRow(g2, cx, y + 16, w - 24);
         // Bottom zigzag strip
         drawZigzagRow(g2, cx, y + h - 10, w - 24);
+
+        // Cream ribbon (upper portion of card)
+        int ribbonCY = y + 72;
+        drawRibbon(g2, cx, ribbonCY, w + 36, 50);
     }
 
 
