@@ -105,5 +105,10 @@ public class MenuPanel extends JPanel {
 
     }
 
+    private void drawChessboardBg(Graphics2D g2) {
+
+    }
+
+
 
 }
