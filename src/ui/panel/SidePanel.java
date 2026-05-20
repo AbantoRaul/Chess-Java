@@ -187,6 +187,14 @@ public class SidePanel extends JPanel {
             setOpaque(false);
         }
 
+        void update(List<Piece> pieces, boolean useWhiteGlyphs, String scoreStr) {
+            this.score = scoreStr;
+            line1 = "";
+            line2 = "";
+            if (pieces.isEmpty()) { repaint(); return; }
+
+        }
+
     }
 
 }
