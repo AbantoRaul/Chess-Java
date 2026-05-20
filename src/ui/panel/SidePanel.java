@@ -150,6 +150,11 @@ public class SidePanel extends JPanel {
             else capByBlack.add(cp);
         }
 
+        Comparator<Piece> byVal =
+                (a, b) -> VALUE.get(b.getType()) - VALUE.get(a.getType());
+        capByWhite.sort(byVal);
+        capByBlack.sort(byVal);
+
     }
 
 }
