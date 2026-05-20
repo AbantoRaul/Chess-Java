@@ -18,6 +18,10 @@ public class ChessApp {
             int usableW = screen.width  - insets.left - insets.right;
             int usableH = screen.height - insets.top  - insets.bottom;
 
+            JFrame frame = new JFrame("Chess");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setResizable(true);
+
 
 
         });
