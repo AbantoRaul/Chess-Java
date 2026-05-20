@@ -310,6 +310,9 @@ public class SidePanel extends JPanel {
         row.setPreferredSize(new Dimension(0, ROW_H));
         row.setMaximumSize (new Dimension(Short.MAX_VALUE, ROW_H));
 
+        int numW  = clamp(cfg.sideW / 7, 20,28);
+        int moveW = clamp(cfg.sideW / 4, 36,55);
+
     }
 
 }
