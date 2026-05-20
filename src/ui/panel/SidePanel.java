@@ -165,4 +165,10 @@ public class SidePanel extends JPanel {
         extracted(gs);
     }
 
+    private void extracted(GameState gs) {
+        updateHistory(gs);
+        revalidate();
+        repaint();
+    }
+
 }
