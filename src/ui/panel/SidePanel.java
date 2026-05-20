@@ -25,4 +25,16 @@ public class SidePanel extends JPanel {
         VALUE.put(PieceType.PAWN, 1); VALUE.put(PieceType.KING, 0);
     }
 
+    // Chess Unicode glyphs
+    private static final Map<PieceType, String> WG  = new EnumMap<>(PieceType.class);
+    private static final Map<PieceType, String> BLK = new EnumMap<>(PieceType.class);
+    static {
+        WG.put(PieceType.QUEEN, "\u2655"); WG.put(PieceType.ROOK, "\u2656");
+        WG.put(PieceType.BISHOP, "\u2657"); WG.put(PieceType.KNIGHT, "\u2658");
+        WG.put(PieceType.PAWN, "\u2659"); WG.put(PieceType.KING, "\u2654");
+        BLK.put(PieceType.QUEEN, "\u265B"); BLK.put(PieceType.ROOK, "\u265C");
+        BLK.put(PieceType.BISHOP,"\u265D"); BLK.put(PieceType.KNIGHT,"\u265E");
+        BLK.put(PieceType.PAWN, "\u265F"); BLK.put(PieceType.KING, "\u265A");
+    }
+
 }
