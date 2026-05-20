@@ -279,6 +279,18 @@ public class SidePanel extends JPanel {
         historyRows.removeAll();
         List<Move> history = gs.getMoveHistory();
 
+        for (int i = 0; i < history.size(); i += 2) {
+            int num = i / 2 + 1;
+            String white = history.get(i).toAlgebraic();
+            String black = (i + 1 < history.size())
+                    ? history.get(i + 1).toAlgebraic() : "";
+            boolean isLast = (i >= history.size() - 2);
+            JPanel row = buildHistoryRow(num, white, black, isLast);
+
+            row.setAlignmentX(LEFT_ALIGNMENT);
+            historyRows.add(row);
+        }
+
     }
 
 }
