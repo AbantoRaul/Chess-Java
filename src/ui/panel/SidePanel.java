@@ -411,6 +411,11 @@ public class SidePanel extends JPanel {
 
     private static Font loadPieceFont(int size) {
 
+        String[] candidates = {
+                "Segoe UI Emoji", "Apple Color Emoji", "Noto Emoji",
+                "DejaVu Sans", "Arial Unicode MS", "SansSerif"
+        };
+
     }
 
 }
