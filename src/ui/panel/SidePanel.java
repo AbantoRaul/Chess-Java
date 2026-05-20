@@ -251,6 +251,11 @@ public class SidePanel extends JPanel {
                 g2.drawString(score, PAD_H + nameW + 5, nameBaseline);
             }
 
+            // Subtle separator under name
+            int sepY = nameBaseline + PAD_V;
+            g2.setColor(new Color(GOLD.getRed(), GOLD.getGreen(), GOLD.getBlue(), 50));
+            g2.drawLine(PAD_H, sepY, w - PAD_H, sepY);
+
         }
 
         }
