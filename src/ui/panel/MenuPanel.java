@@ -216,6 +216,10 @@ public class MenuPanel extends JPanel {
         int tx = (int)(cx - tb.getWidth() / 2);
         int ty = (int)(cy - tb.getHeight() / 2 - tb.getY());
 
+        // emboss shadow
+        g2.setColor(new Color(120, 80, 20, 130));
+        g2.drawString(text, tx + 2, ty + 2);
+
     }
 
 
