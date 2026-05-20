@@ -313,6 +313,10 @@ public class SidePanel extends JPanel {
         int numW  = clamp(cfg.sideW / 7, 20,28);
         int moveW = clamp(cfg.sideW / 4, 36,55);
 
+        row.add(makeCell(String.format("%2d.", num), FG_NUM, moveNumFont, numW));
+        row.add(makeCell(white, FG_WHMOVE, moveFontBold, moveW));
+        row.add(makeCell(black, FG_BKMOVE, moveFont, moveW));
+        return row;
     }
 
 }
