@@ -200,6 +200,12 @@ public class SidePanel extends JPanel {
                         : BLK.getOrDefault(p.getType(), "?"));
             String all = sb.toString();
 
+            int availW = getWidth() > 0 ? getWidth() - PAD_H * 2
+                    : cfg.sideW - PAD_H * 2;
+            int glyphW = (int)(GLYPH_SZ * 0.90);
+            int perLine = Math.max(1, availW / glyphW);
+            int total = all.length();
+
         }
 
     }
