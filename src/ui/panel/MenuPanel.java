@@ -61,4 +61,10 @@ public class MenuPanel extends JPanel {
 
     private int cardX() { return getWidth()  / 2 - CARD_W / 2; }
     private int cardY() { return getHeight() / 2 - CARD_H / 2; }
+
+    private Rectangle getBtnRect() {
+        int cx = getWidth() / 2;
+        int by = cardY() + CARD_H - BTN_H - 55;
+        return new Rectangle(cx - BTN_W/2, by, BTN_W, BTN_H);
+    }
 }
