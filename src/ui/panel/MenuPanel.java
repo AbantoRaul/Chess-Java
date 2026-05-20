@@ -193,6 +193,13 @@ public class MenuPanel extends JPanel {
                 cy + hh,           // E bottom
                 cy,                // F mid (tail point)
         };
+
+        // cream fill
+        GradientPaint gp = new GradientPaint(cx, cy - hh, BANNER_CREAM,
+                cx, cy + hh, BANNER_CREAM_DK);
+        g2.setPaint(gp);
+        g2.fillPolygon(xs, ys, 6);
+
     }
 
 
