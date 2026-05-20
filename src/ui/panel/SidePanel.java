@@ -206,6 +206,22 @@ public class SidePanel extends JPanel {
             int perLine = Math.max(1, availW / glyphW);
             int total = all.length();
 
+            if (total <= perLine) {
+                line1 = all;
+            } else {
+                line1 = all.substring(0, Math.min(perLine, total));
+                String rest = all.substring(Math.min(perLine, total));
+                if (rest.length() <= perLine) {
+                    line2 = rest;
+                } else {
+                    int shown = perLine - 2;
+                    int overflow = rest.length() - shown;
+                    line2 = rest.substring(0, Math.max(0, shown)) + "+" + overflow;
+                }
+            }
+            repaint();
+        }
+
         }
 
     }
