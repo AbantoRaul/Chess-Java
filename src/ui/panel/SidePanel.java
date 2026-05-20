@@ -68,6 +68,9 @@ public class SidePanel extends JPanel {
     private final JScrollPane historyScroll;
 
     public SidePanel(GameController controller, LayoutConfig cfg) {
+        this.controller = controller;
+        this.cfg = cfg;
+        int sq = cfg.sq;
 
     }
 
