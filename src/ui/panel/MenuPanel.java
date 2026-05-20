@@ -47,6 +47,12 @@ public class MenuPanel extends JPanel {
     }
 
     private void initAnimation() {
-
+        animTimer = new Timer(30, e -> {
+            knightOffset += knightDir * 0.55f;
+            if (knightOffset >  5f) knightDir = -1f;
+            if (knightOffset < -5f) knightDir =  1f;
+            repaint();
+        });
+        animTimer.start();
     }
 }
