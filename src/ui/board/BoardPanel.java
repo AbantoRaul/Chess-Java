@@ -231,7 +231,7 @@ public class BoardPanel extends JPanel{
     }
 
     private void drawPieceAt(Graphics2D g2, Piece piece, int px, int py, int size) {
-
+        String glyph = getGlyph(piece);
     }
 
     // ── Mouse listeners ───────────────────────────────────────────────────
