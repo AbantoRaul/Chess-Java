@@ -94,6 +94,10 @@ public class BoardPanel extends JPanel{
         g2.drawRect(boardX() - 2, boardY() - 2, cfg.boardPx + 4, cfg.boardPx + 4);
         g2.setStroke(new BasicStroke(1f));
 
+        // Rank and file coordinates
+        g2.setFont(coordFont);
+        g2.setColor(COORD_FG);
+        FontRenderContext frc = g2.getFontRenderContext();
     }
 
     private void drawSquares(Graphics2D g2) {
