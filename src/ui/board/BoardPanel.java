@@ -74,6 +74,10 @@ public class BoardPanel extends JPanel{
         int fx = cfg.padding, fy = cfg.padding;
         int fw = cfg.total,   fh = cfg.total;
 
+        // Shadow
+        g2.setColor(new Color(0, 0, 0, 100));
+        g2.fillRoundRect(fx + 6, fy + 8, fw, fh, 12, 12);
+
     }
 
     private void drawSquares(Graphics2D g2) {
