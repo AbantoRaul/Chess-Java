@@ -19,5 +19,15 @@ public class LayoutConfig {
     public LayoutConfig(int usableW, int usableH) {
         int maxBoardSide = (int)(Math.min(usableW * 0.78, usableH * 0.92));
 
+        sq = Math.max(40, Math.min(90, maxBoardSide / 10));
+        frame = Math.max(28, sq / 2);
+        padding = Math.max(15, sq / 5);
+        boardPx = sq * 8;
+        total = boardPx + frame * 2;
+        boardSide = total + padding * 2;
+
+        sideW = Math.max(160, sq * 3);
+        pauseBtnR = Math.max(14, frame / 2 - 4);
+        pieceFontSz = Math.max(20, sq - 8);
     }
 }
