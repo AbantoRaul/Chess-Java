@@ -334,6 +334,14 @@ public class SidePanel extends JPanel {
             protected void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g;
 
+                g2.setColor(BG_HISTORY);
+                g2.fillRect(0, 0, getWidth(), getHeight());
+                g2.setColor(SEPARATOR);
+                g2.setStroke(new BasicStroke(1f));
+                g2.drawLine(0, 0, getWidth(), 0);
+                g2.drawLine(0, getHeight() - 1, getWidth(),getHeight() - 1);
+                super.paintComponent(g);
+
             }
         };
     }
