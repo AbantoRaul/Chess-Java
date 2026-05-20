@@ -159,6 +159,11 @@ public class MenuPanel extends JPanel {
 
         // CHESS title
         drawTitle(g2, cx, ribbonCY);
+
+        // START button
+        Rectangle btn = getBtnRect();
+        drawWoodButton(g2, btn.x + btn.width/2, btn.y + btn.height/2,
+                btn.width, btn.height, "START", btnHover, btnPress);
     }
 
 
