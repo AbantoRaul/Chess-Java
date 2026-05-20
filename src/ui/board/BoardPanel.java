@@ -43,4 +43,10 @@ public class BoardPanel extends JPanel{
 
     private int boardX() { return cfg.padding + cfg.frame; }
     private int boardY() { return cfg.padding + cfg.frame; }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+    }
 }
