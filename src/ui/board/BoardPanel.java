@@ -55,4 +55,9 @@ public class BoardPanel extends JPanel{
         int fw = cfg.total,   fh = cfg.total;
 
     }
+
+    private void drawSquares(Graphics2D g2) {
+        Square sel = controller.getSelectedSquare();
+        List<Move> moves = controller.getSelectedMoves();
+    }
 }
