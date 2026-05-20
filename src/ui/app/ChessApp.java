@@ -28,6 +28,9 @@ public class ChessApp {
 
             frame.setContentPane(controller.buildMainPanel());
 
+            frame.pack();
+            frame.setMinimumSize(new Dimension(640, 520));
+
 
 
         });
