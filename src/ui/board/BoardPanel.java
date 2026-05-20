@@ -48,6 +48,9 @@ public class BoardPanel extends JPanel{
             Font f = new Font(name, Font.PLAIN, cfg.pieceFontSz);
             if (f.canDisplay('\u2654')) { pieceFont = f; break; }
         }
+
+        if (pieceFont == null) pieceFont = new Font("SansSerif", Font.BOLD, cfg.pieceFontSz);
+        coordFont = new Font("Serif", Font.BOLD, Math.max(10, cfg.sq / 5));
     }
 
     private int boardX() { return cfg.padding + cfg.frame; }
