@@ -19,4 +19,8 @@ public class MenuPanel extends JPanel {
 
     private static final Font TITLE_FONT = new Font("Serif", Font.BOLD, 40);
     private static final Font BTN_FONT = new Font("SansSerif", Font.BOLD, 15);
+
+    private final Runnable onPlay;
+    private boolean btnHover = false;
+    private boolean btnPress = false;
 }
