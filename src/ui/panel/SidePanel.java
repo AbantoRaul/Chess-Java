@@ -409,4 +409,8 @@ public class SidePanel extends JPanel {
         return Math.max(lo, Math.min(hi, v));
     }
 
+    private static Font loadPieceFont(int size) {
+
+    }
+
 }
