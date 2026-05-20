@@ -421,6 +421,7 @@ public class SidePanel extends JPanel {
             if (f.canDisplay('\u2654')) return f;
         }
 
+        return new Font("SansSerif", Font.PLAIN, size);
     }
 
 }
