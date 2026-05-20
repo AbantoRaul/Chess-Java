@@ -88,6 +88,12 @@ public class BoardPanel extends JPanel{
         g2.setStroke(new BasicStroke(1.5f));
         g2.drawRoundRect(fx + 4, fy + 4, fw - 8, fh - 8, 8, 8);
 
+        // Inner board edge
+        g2.setColor(FRAME_DARK);
+        g2.setStroke(new BasicStroke(2f));
+        g2.drawRect(boardX() - 2, boardY() - 2, cfg.boardPx + 4, cfg.boardPx + 4);
+        g2.setStroke(new BasicStroke(1f));
+
     }
 
     private void drawSquares(Graphics2D g2) {
