@@ -75,4 +75,15 @@ public class BoardPanel extends JPanel{
     private void drawPieceAt(Graphics2D g2, Piece piece, int px, int py, int size) {
 
     }
+
+    // ── Mouse listeners ───────────────────────────────────────────────────
+    private void attachMouseListeners() {
+        addMouseListener(new MouseAdapter() {
+
+        });
+
+        addMouseMotionListener(new MouseMotionAdapter() {
+
+        });
+    }
 }
