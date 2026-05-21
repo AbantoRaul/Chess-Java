@@ -323,7 +323,22 @@ public class PauseOverlay extends JPanel {
 
     // MOUSE
     private void attachMouseListeners() {
+        addMouseListener(new MouseAdapter() {
+            @Override public void mousePressed(MouseEvent e) {
+                int i = hitBtn(e.getPoint());
+                if (i >= 0) { press[i] = true; repaint(); }
+            }
 
+            @Override public void mouseReleased(MouseEvent e) {
+                int i = hitBtn(e.getPoint());
+                boolean[] was = {press[0], press[1], press[2]};
+                press[0] = press[1] = press[2] = false;
+                repaint();
+                if (i == 0 && was[0]) onResume.run();
+                if (i == 1 && was[1]) onRestart.run();
+                if (i == 2 && was[2]) onExit.run();
+            }
+        });
     }
 
 }
