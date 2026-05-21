@@ -105,6 +105,9 @@ public class EndGameOverlay extends JPanel {
     private void recomputeLayout() {
         int pw = getWidth(), ph = getHeight();
         if (pw == 0 || ph == 0) return;
+
+        bannerW = (int) (pw * 0.68);
+        bannerW = Math.max(340, Math.min(580, bannerW));
     }
 
 
