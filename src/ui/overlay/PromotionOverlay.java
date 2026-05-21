@@ -234,6 +234,16 @@ public class PromotionOverlay extends JPanel {
         g2.setColor(GOLD_LIGHT);
         g2.drawString("Pawn Promotion", tx, titleTextY);
 
+        // Subtitle
+        g2.setFont(subtitleFont);
+        String sub = "Choose a piece to promote to:";
+        Rectangle2D sb = subtitleFont.getStringBounds(sub, frc);
+        int sx = (int)(cx - sb.getWidth() / 2);
+        g2.setColor(new Color(0, 0, 0, 70));
+        g2.drawString(sub, sx + 1, subtitleTextY + 1);
+        g2.setColor(BANNER_CREAM);
+        g2.drawString(sub, sx, subtitleTextY);
+
     }
 
 
