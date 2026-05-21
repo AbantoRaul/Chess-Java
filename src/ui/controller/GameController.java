@@ -105,4 +105,9 @@ public class GameController {
     public int getLastFromCol() { return lastFromCol; }
     public int getLastToRow() { return lastToRow; }
     public int getLastToCol() { return lastToCol; }
+    
+    // ── Game actions ──────────────────────────────────────────────────────
+    public void onNewGame() {
+
+    }
 }
