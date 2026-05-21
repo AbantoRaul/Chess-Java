@@ -68,4 +68,11 @@ public class GameController {
 
         return btn;
     }
+
+    // ── Pause / Resume ────────────────────────────────────────────────────
+    public void onPauseClicked() {
+        paused = true;
+        pauseOverlay.setVisible(true);
+        pauseOverlay.playOpenAnimation();
+    }
 }
