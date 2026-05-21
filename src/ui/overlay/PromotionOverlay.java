@@ -268,6 +268,10 @@ public class PromotionOverlay extends JPanel {
         int x = cx - w / 2;
         int y = cy - h / 2;
         int arc = Math.max(10, h / 5);
+
+        // Shadow
+        g2.setColor(new Color(0, 0, 0, 80));
+        g2.fillRoundRect(x + 3, y + 5, w, h, arc, arc);
     }
 
 
