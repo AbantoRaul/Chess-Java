@@ -35,5 +35,8 @@ public class CheckOverlay extends JPanel {
         setLayout(null);
     }
 
+    // Called by GameControllerSwing whenever check starts
+    public void showCheck(String playerName) {
 
+    }
 }
