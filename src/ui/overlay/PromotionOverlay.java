@@ -67,6 +67,9 @@ public class PromotionOverlay extends JPanel {
 
         alpha  = 0f;
         slideY = 0f;
+
+        setVisible(true);
+        setEnabled(true);
     }
 
 
