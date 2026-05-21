@@ -403,6 +403,13 @@ public class GameController {
             refreshAll();
             showEndDialog("Draw!", "50-move rule reached.");
         }
+        else if (validator.isInCheck(next)) {
+            gameState.setStatus(GameStatus.CHECK);
+            if (checkOverlay != null) {
+                String name = next == Color.WHITE ? "White" : "Black";
+                checkOverlay.showCheck(name);
+            }
+        }
     }
 
     private void showEndDialog(String title, String message) {
