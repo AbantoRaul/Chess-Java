@@ -26,6 +26,22 @@ public class PauseOverlay extends JPanel {
     private float scrollAnim = 0f;
     private Timer animTimer;
 
+    // Layout values. Recomputed every paint from actual panel size.
+    // Card dimensions
+    private int cardW, cardH, cardX, cardY;
+    // Scroll tube/knob dimensions
+    private int tubeH;
+    private int knobR;
+    private int knobExtra;
+    // Content positions inside the card
+    private int titleY;
+    private int ornamentY;
+    private int zigzagY;
+    private int btn0Y, btn1Y, btn2Y;
+    private int btnW, btnH;
+    private Font titleFont;
+    private Font btnFont;
+
     public PauseOverlay(Runnable onResume, Runnable onRestart, Runnable onExit) {
         this.onResume = onResume;
         this.onRestart = onRestart;
