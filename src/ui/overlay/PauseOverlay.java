@@ -57,6 +57,11 @@ public class PauseOverlay extends JPanel {
         if (pw == 0 || ph == 0) return;
 
         cardW = (int)(pw * 0.52);
+
+        // Tube and knob sizes
+        tubeH = Math.max(14, ph / 30);
+        knobR = Math.max(12, tubeH / 2 + 6);
+        knobExtra = knobR + tubeH / 2 + 4;
     }
 
     // MOUSE
