@@ -307,6 +307,18 @@ public class PromotionOverlay extends JPanel {
         // Glyph — cream so it's visible on wood
         g2.setColor(BANNER_CREAM);
         g2.drawString(glyph, gx, gy);
+
+        // Text label — lower 40% of button
+        g2.setFont(btnLabelFont);
+        Rectangle2D lb = btnLabelFont.getStringBounds(LABELS[idx], frc);
+        int lx = (int)(cx - lb.getWidth()  / 2);
+        int labelCentreY = divY + (h - divY + y) / 2;
+        int ly = (int)(labelCentreY - lb.getHeight() / 2 - lb.getY());
+
+        g2.setColor(new Color(0, 0, 0, 60));
+        g2.drawString(LABELS[idx], lx + 1, ly + 1);
+        g2.setColor(BANNER_CREAM);
+        g2.drawString(LABELS[idx], lx, ly);
     }
 
 
