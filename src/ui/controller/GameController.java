@@ -98,6 +98,12 @@ public class GameController {
         boardPanel.setBounds(0, 0, side, side);
         layered.add(boardPanel, JLayeredPane.DEFAULT_LAYER);
 
+        checkOverlay = new CheckOverlay();
+        checkOverlay.setBounds(0, 0, side, side);
+        checkOverlay.setVisible(false);
+        layered.add(checkOverlay, JLayeredPane.PALETTE_LAYER);
+
+
         return outer;
     }
 
