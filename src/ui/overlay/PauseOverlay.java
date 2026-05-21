@@ -66,6 +66,10 @@ public class PauseOverlay extends JPanel {
         int safeMargin = 16;
         cardH = (int)(ph * 0.75) - knobExtra * 2 - safeMargin;
         cardH = Math.max(200, cardH);
+
+        // Card is centred in the panel
+        cardX = (pw - cardW) / 2;
+        cardY = (ph - cardH) / 2;
     }
 
     // MOUSE
