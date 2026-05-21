@@ -328,6 +328,11 @@ public class GameController {
     private Move findMoveToSquare(int row, int col) {
         if (selectedMoves == null) return null;
 
+        List<Move> promos = selectedMoves.stream()
+                .filter(m -> m.getTo().getRow() == row && m.getTo().getCol() == col
+                        && m.getMoveType() == MoveType.PROMOTION)
+                .toList();
+
     }
 
     private Move askPromotion(List<Move> promos) {
