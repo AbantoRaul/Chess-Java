@@ -282,8 +282,15 @@ public class PauseOverlay extends JPanel {
         g2.drawRoundRect(x + 1, y + 1, w - 2, h - 2, arc, arc);
         g2.setStroke(new BasicStroke(1f));
 
-
-
+        g2.setFont(btnFont);
+        FontRenderContext frc = g2.getFontRenderContext();
+        Rectangle2D lb = btnFont.getStringBounds(label, frc);
+        int lx = (int)(cx - lb.getWidth()  / 2);
+        int ly = (int)(cy - lb.getHeight() / 2 - lb.getY());
+        g2.setColor(new Color(0, 0, 0, 60));
+        g2.drawString(label, lx + 1, ly + 1);
+        g2.setColor(BANNER_CREAM);
+        g2.drawString(label, lx, ly);
     }
 
     // ZIGZAG
