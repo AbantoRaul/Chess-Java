@@ -140,4 +140,8 @@ public class CheckOverlay extends JPanel {
 
         g2.setComposite(origComp);
     }
-}
+
+    private void drawBanner(Graphics2D g2) {
+        int cx = getWidth() / 2;
+
+    }
