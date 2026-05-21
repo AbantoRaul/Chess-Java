@@ -249,6 +249,8 @@ public class GameController {
     }
 
     public void onDragCompleted(int fromRow, int fromCol, int toRow, int toCol) {
+        if (!gameState.isOngoing() || paused || awaitingPromotion) { refreshAll(); return; }
+
         Square from = gameState.getBoard().getSquare(fromRow, fromCol);
 
     }
