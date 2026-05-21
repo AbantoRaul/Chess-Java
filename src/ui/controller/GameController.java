@@ -238,6 +238,9 @@ public class GameController {
                 clearSelection();
                 executeMove(move);
             }
+            else if (sq.isOccupied() && sq.getPiece().getColor() == gameState.getCurrentTurn()) {
+                trySelect(sq);
+            }
         }
         refreshAll();
     }
