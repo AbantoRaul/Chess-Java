@@ -134,6 +134,11 @@ public class EndGameOverlay extends JPanel {
                 + btnH
                 + btnPadBot;
         bannerH = Math.max(150, bannerH);
+
+        bannerX = (pw - bannerW) / 2;
+        int finalY = (int) (ph * 0.30);
+        int startY = -bannerH - knobR * 2 - 10;
+        bannerY = (int) (startY + (finalY - startY) * easeOut(slideY));
     }
 
 
