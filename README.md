@@ -53,13 +53,3 @@ Chess-Java is a two-player chess game built in Java using Swing. It is designed 
 <img width="960" alt="Use-Case Diagram" src="https://github.com/user-attachments/assets/80f45877-0995-4ec6-bea0-697476b34081" />
 
 ---
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| Language | Java |
-| UI Framework | Java Swing |
-| Build Tool | _(e.g. IntelliJ / Maven / Gradle)_ |
-
----
