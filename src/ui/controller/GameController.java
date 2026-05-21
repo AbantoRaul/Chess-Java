@@ -61,6 +61,16 @@ public class GameController {
         int tileSz = Math.max(40, cfg.sq - 5);
         int btnSize = Math.max(36, cfg.pauseBtnR * 2 + 8);
 
+        // Tiled wood background
+        JPanel outer = new JPanel(new BorderLayout()) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g;
+                int w = getWidth(), h = getHeight();
+
+
+            }
+        };
 
         return outer;
     }
