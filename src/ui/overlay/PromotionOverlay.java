@@ -173,6 +173,11 @@ public class PromotionOverlay extends JPanel {
         return new Rectangle(cx - btnW / 2, cy - btnH / 2, btnW, btnH);
     }
 
+    private int hitBtn(Point p) {
+        for (int i = 0; i < 4; i++) if (btnRect(i).contains(p)) return i;
+        return -1;
+    }
+
 
 
         // Mouse listeners
