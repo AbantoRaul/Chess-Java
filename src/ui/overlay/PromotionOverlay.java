@@ -34,4 +34,9 @@ public class PromotionOverlay extends JPanel {
     private final boolean[] hover = new boolean[4];
     private final boolean[] press = new boolean[4];
 
+    private float alpha  = 0f;
+    private float slideY = 0f;
+    private Timer animIn;
+    private Timer animOut;
+
 }
