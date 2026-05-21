@@ -76,6 +76,11 @@ public class EndGameOverlay extends JPanel {
         animIn.start();
     }
 
+    public void hide() {
+        stopAll();
+        setEnabled(false);
+    }
+
     private void stopAll() {
         if (animIn != null) animIn.stop();
         if (animOut != null) animOut.stop();
