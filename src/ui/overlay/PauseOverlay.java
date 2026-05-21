@@ -295,6 +295,10 @@ public class PauseOverlay extends JPanel {
 
     // ZIGZAG
     private void drawZigzag(Graphics2D g2, int x, int y, int w) {
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(1.5f));
+        int step = Math.max(6, w / 28);
+        int zh = 4;
 
     }
 
