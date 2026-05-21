@@ -391,6 +391,12 @@ public class GameController {
             refreshAll();
             showEndDialog("Checkmate!", winner + " wins!");
         }
+        else if (validator.isStalemate(next)) {
+            gameState.setStatus(GameStatus.STALEMATE);
+            if (checkOverlay != null) checkOverlay.hideCheck();
+            refreshAll();
+            showEndDialog("Stalemate!", "It's a draw!");
+        }
     }
 
     private void showEndDialog(String title, String message) {
