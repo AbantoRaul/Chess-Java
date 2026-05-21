@@ -142,6 +142,8 @@ public class PauseOverlay extends JPanel {
         // Dim background
         g2.setColor(new Color(0, 0, 0, 155));
         g2.fillRect(0, 0, getWidth(), getHeight());
+
+        if (scrollAnim <= 0f) return;
     }
 
     // MOUSE
