@@ -145,6 +145,11 @@ public class PromotionOverlay extends JPanel {
                 + btnH
                 + paddingBot;
         bannerH = Math.max(280, bannerH);
+
+        bannerX = (pw - bannerW) / 2;
+        int finalY = (int)(ph * 0.15);
+        int startY = -bannerH - 50;
+        bannerY = (int)(startY + (finalY - startY) * easeOut(slideY));
     }
 
 
