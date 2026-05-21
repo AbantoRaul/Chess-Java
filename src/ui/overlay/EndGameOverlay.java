@@ -6,5 +6,6 @@ import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
-public class EndGameOverlay {
+public class EndGameOverlay extends JPanel {
+
 }
