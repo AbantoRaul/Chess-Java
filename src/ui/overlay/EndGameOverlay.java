@@ -112,6 +112,10 @@ public class EndGameOverlay extends JPanel {
         int titleSz = Math.max(15, bannerW / 18);
         int subtitleSz = Math.max(12, bannerW / 23);
         int btnSz = Math.max(10, bannerW / 26);
+
+        titleFont = new Font("Serif", Font.BOLD, titleSz);
+        subtitleFont = new Font("Serif", Font.BOLD, subtitleSz);
+        btnFont = new Font("SansSerif", Font.BOLD, btnSz);
     }
 
 
