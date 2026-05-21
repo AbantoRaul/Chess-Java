@@ -44,6 +44,9 @@ public class GameController {
         rootPanel.add(menuPanel, CARD_MENU);
 
         rootPanel.add(buildGamePanel(), CARD_GAME);
+
+        cardLayout.show(rootPanel, CARD_MENU);
+        return rootPanel;
     }
 
     private void startGame() {
