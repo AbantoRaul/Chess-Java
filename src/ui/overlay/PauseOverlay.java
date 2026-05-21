@@ -171,6 +171,12 @@ public class PauseOverlay extends JPanel {
                 cardX, cardY + cardH, BANNER_RED_DARK);
         g2.setPaint(body);
         g2.fillRoundRect(cardX, cardY, cardW, cardH, 16, 16);
+
+        // Inner gold border
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(1.8f));
+        g2.drawRoundRect(cardX + 5, cardY + 5, cardW - 10, cardH - 10, 12, 12);
+        g2.setStroke(new BasicStroke(1f));
     }
 
     // MOUSE
