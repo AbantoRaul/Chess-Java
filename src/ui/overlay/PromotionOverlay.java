@@ -70,6 +70,15 @@ public class PromotionOverlay extends JPanel {
 
         setVisible(true);
         setEnabled(true);
+
+        animIn = new Timer(16, e -> {
+            alpha  = Math.min(1f, alpha  + 0.07f);
+            slideY = Math.min(1f, slideY + 0.07f);
+            repaint();
+            if (getParent() != null) getParent().repaint();
+            if (alpha >= 1f && slideY >= 1f) ((Timer) e.getSource()).stop();
+        });
+        animIn.start();
     }
 
 
