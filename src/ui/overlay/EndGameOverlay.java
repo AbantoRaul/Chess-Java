@@ -51,6 +51,11 @@ public class EndGameOverlay extends JPanel {
         attachMouseListeners();
     }
 
+    private void stopAll() {
+        if (animIn != null) animIn.stop();
+        if (animOut != null) animOut.stop();
+    }
+
 
     // Mouse listeners
     private void attachMouseListeners() {
