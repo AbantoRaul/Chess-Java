@@ -42,6 +42,8 @@ public class GameController {
 
         menuPanel = new MenuPanel(this::startGame, cfg);
         rootPanel.add(menuPanel, CARD_MENU);
+
+        rootPanel.add(buildGamePanel(), CARD_GAME);
     }
 
     private void startGame() {
