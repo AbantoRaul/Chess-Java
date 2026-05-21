@@ -300,6 +300,11 @@ public class PauseOverlay extends JPanel {
         int step = Math.max(6, w / 28);
         int zh = 4;
 
+        for (int i = x; i < x + w - step; i += step) {
+            g2.drawLine(i, y,i + step / 2,y - zh);
+            g2.drawLine(i + step / 2, y - zh, i + step, y);
+        }
+        g2.setStroke(new BasicStroke(1f));
     }
 
     // ORNAMENT
