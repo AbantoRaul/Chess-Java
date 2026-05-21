@@ -129,4 +129,9 @@ public class GameController {
         selectedSquare = null;
         selectedMoves = null;
     }
+
+    private Move findMoveToSquare(int row, int col) {
+        if (selectedMoves == null) return null;
+
+    }
 }
