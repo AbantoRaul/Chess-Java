@@ -365,6 +365,9 @@ public class GameController {
         board.applyMove(move);
         setEnPassantTarget(move, board);
         gameState.recordMove(move);
+
+        gameState.switchTurn();
+        checkGameEnd();
     }
 
     private void setEnPassantTarget(Move move, Board board) {
