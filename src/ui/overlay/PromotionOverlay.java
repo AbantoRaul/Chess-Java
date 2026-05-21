@@ -219,6 +219,11 @@ public class PromotionOverlay extends JPanel {
         g2.drawRoundRect(bannerX + 4, bannerY + 4, bannerW - 8, bannerH - 8, 10, 10);
         g2.setStroke(new BasicStroke(1f));
 
+        g2.setColor(new Color(0, 0, 0, 40));
+        g2.setStroke(new BasicStroke(3f));
+        g2.drawRoundRect(bannerX, bannerY, bannerW, bannerH, 14, 14);
+        g2.setStroke(new BasicStroke(1f));
+
     }
 
 
