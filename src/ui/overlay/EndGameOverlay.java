@@ -210,6 +210,10 @@ public class EndGameOverlay extends JPanel {
         g2.drawRoundRect(bannerX + 4, bannerY + 4,
                 bannerW - 8, bannerH - 8, 10, 10);
         g2.setStroke(new BasicStroke(1f));
+
+        // Left and right scroll knobs. Centered vertically on the banner.
+        drawScrollKnob(g2, bannerX, bannerY + bannerH / 2);
+        drawScrollKnob(g2, bannerX + bannerW, bannerY + bannerH / 2);
     }
 
     // Scroll knob. Mirrors CheckOverlay exactly.
