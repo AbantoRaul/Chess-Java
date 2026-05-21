@@ -134,6 +134,17 @@ public class PromotionOverlay extends JPanel {
         int lineGap = Math.max(4,  titleSz / 4);
         int sepGap = Math.max(28, titleSz + 16);
         int paddingBot = Math.max(18, titleSz + 4);
+
+        bannerH = paddingTop
+                + titleSz
+                + lineGap
+                + subtitleSz
+                + sepGap
+                + btnH
+                + gridGap
+                + btnH
+                + paddingBot;
+        bannerH = Math.max(280, bannerH);
     }
 
 
