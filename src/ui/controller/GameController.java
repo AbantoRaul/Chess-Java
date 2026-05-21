@@ -253,6 +253,10 @@ public class GameController {
 
         Square from = gameState.getBoard().getSquare(fromRow, fromCol);
 
+        if (!from.isOccupied() || from.getPiece().getColor() != gameState.getCurrentTurn()) {
+            refreshAll(); return;
+        }
+
     }
 
     // ── Getters ───────────────────────────────────────────────────────────
