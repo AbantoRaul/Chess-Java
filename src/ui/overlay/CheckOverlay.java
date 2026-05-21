@@ -204,4 +204,9 @@ public class CheckOverlay extends JPanel {
         // Shadow
         g2.setColor(new Color(0, 0, 0, 70));
         g2.fillRoundRect(kx + 2, ky + 3, kw, kh, kw, kw);
+
+        // Body
+        GradientPaint gp = new GradientPaint(kx, ky, WOOD_LIGHT, kx + kw, ky + kh, WOOD_DARK);
+        g2.setPaint(gp);
+        g2.fillRoundRect(kx, ky, kw, kh, kw, kw);
     }
