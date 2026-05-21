@@ -162,4 +162,9 @@ public class CheckOverlay extends JPanel {
         g2.drawRoundRect(bannerX + 4, bannerY + 4,
                 bannerW - 8, bannerH - 8, 10, 10);
         g2.setStroke(new BasicStroke(1f));
+
+        // Left and right scroll ends
+        // These sit on the left and right edges of the banner (like a horizontal scroll)
+        drawScrollKnob(g2, bannerX,bannerY + bannerH / 2);
+        drawScrollKnob(g2, bannerX + bannerW,bannerY + bannerH / 2);
     }
