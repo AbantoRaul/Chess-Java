@@ -147,6 +147,14 @@ public class EndGameOverlay extends JPanel {
         subtitleTextY = cursor + subtitleSz;
         cursor = subtitleTextY + sepGap;
         btnY = cursor + btnH / 2;
+
+        int margin = knobR + 16;
+        int innerW = bannerW - margin * 2;
+        int totalBtnW = btnW * 3;
+        int spacing = (innerW - totalBtnW) / 2;  // gap between buttons
+        btn0X = bannerX + margin + btnW / 2;
+        btn1X = btn0X + btnW + spacing;
+        btn2X = btn1X + btnW + spacing;
     }
 
 
