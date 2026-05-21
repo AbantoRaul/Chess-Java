@@ -166,6 +166,13 @@ public class PromotionOverlay extends JPanel {
         row1Y = cursor + btnH + gridGap + btnH / 2;
     }
 
+    // Button rect for hit detection (index 0-3)
+    private Rectangle btnRect(int idx) {
+        int cx = (idx == 0 || idx == 2) ? col0X : col1X;
+        int cy = (idx == 0 || idx == 1) ? row0Y : row1Y;
+        return new Rectangle(cx - btnW / 2, cy - btnH / 2, btnW, btnH);
+    }
+
 
 
         // Mouse listeners
