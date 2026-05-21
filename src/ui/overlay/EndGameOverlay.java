@@ -212,6 +212,15 @@ public class EndGameOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1f));
     }
 
+    // Scroll knob. Mirrors CheckOverlay exactly.
+    private void drawScrollKnob(Graphics2D g2, int cx, int cy) {
+        int r = knobR;
+        int ox = cx - r;
+        int oy = cy - r;
+        int od = r * 2;
+    }
+
+
 
         // Mouse listeners
     private void attachMouseListeners() {
