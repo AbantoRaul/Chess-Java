@@ -16,4 +16,8 @@ public class PauseOverlay extends JPanel {
     private static final Color WOOD_MID = new Color(130,  80,  30);
     private static final Color WOOD_LIGHT = new Color(170, 110,  50);
 
+    private final Runnable onResume;
+    private final Runnable onRestart;
+    private final Runnable onExit;
+
 }
