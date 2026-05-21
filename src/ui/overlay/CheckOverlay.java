@@ -101,6 +101,11 @@ public class CheckOverlay extends JPanel {
         bannerH = Math.max(50, Math.min(90, bannerH));
         bannerX = (pw - bannerW) / 2;
 
+        // Slide in from above: starts above the panel, slides to final position
+        int finalBannerY = (int)(ph * 0.06);
+        int startBannerY = -bannerH - 20;
+        bannerY = (int)(startBannerY + (finalBannerY - startBannerY) * easeOut(slideY));
+
 
 
     }
