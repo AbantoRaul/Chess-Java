@@ -143,6 +143,9 @@ public class GameController {
 
         sidePanel = new SidePanel(this, cfg);
 
+        outer.add(boardArea, BorderLayout.CENTER);
+        outer.add(sidePanel, BorderLayout.EAST);
+
         return outer;
     }
 
