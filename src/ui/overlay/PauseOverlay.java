@@ -96,6 +96,13 @@ public class PauseOverlay extends JPanel {
         btn2Y = btn1Y + btnH + gap;
     }
 
+    // BUTTON RECTS — used for hit detection
+    private Rectangle btnRect(int idx) {
+        int cx = getWidth() / 2;
+        int y = idx == 0 ? btn0Y : idx == 1 ? btn1Y : btn2Y;
+        return new Rectangle(cx - btnW / 2, y, btnW, btnH);
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
