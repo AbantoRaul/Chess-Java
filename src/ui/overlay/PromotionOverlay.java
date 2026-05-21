@@ -252,6 +252,15 @@ public class PromotionOverlay extends JPanel {
 
     }
 
+    // Piece button: wood button with chess glyph above label
+    private void drawPieceButton(Graphics2D g2, int cx, int cy,
+                                 int w, int h,
+                                 int idx, boolean hov, boolean prs) {
+        int x = cx - w / 2;
+        int y = cy - h / 2;
+        int arc = Math.max(10, h / 5);
+    }
+
 
 
         // Mouse listeners
