@@ -75,4 +75,10 @@ public class GameController {
         pauseOverlay.setVisible(true);
         pauseOverlay.playOpenAnimation();
     }
+
+    private void resumeGame() {
+        paused = false;
+        pauseOverlay.setVisible(false);
+        refreshAll();
+    }
 }
