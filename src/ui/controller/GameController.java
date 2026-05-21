@@ -315,6 +315,9 @@ public class GameController {
     private void trySelect(Square sq) {
         if (!sq.isOccupied()) return;
         if (sq.getPiece().getColor() != gameState.getCurrentTurn()) return;
+        
+        selectedSquare = sq;
+        selectedMoves = validator.getLegalMoves(sq);
     }
 
     private void clearSelection() {
