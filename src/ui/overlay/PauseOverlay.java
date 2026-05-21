@@ -210,13 +210,19 @@ public class PauseOverlay extends JPanel {
                     r.width, r.height,
                     labels[i], hover[i], press[i]);
         }
-
     }
 
     // SCROLL END (top or bottom tube with knobs)
     private void drawScrollEnd(Graphics2D g2, int cx, int cy, int w) {
         int halfW = w / 2;
         int yTop = cy - tubeH / 2;
+
+        // Tube body
+        GradientPaint gp = new GradientPaint(
+                cx - halfW, yTop, WOOD_LIGHT,
+                cx - halfW, yTop + tubeH, WOOD_DARK);
+        g2.setPaint(gp);
+        g2.fillRoundRect(cx - halfW, yTop, w, tubeH, tubeH, tubeH);
     }
 
     // WOOD BUTTON
