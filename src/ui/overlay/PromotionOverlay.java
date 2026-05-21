@@ -64,6 +64,14 @@ public class PromotionOverlay extends JPanel {
         for (int i = 0; i < 4; i++) hover[i] = press[i] = false;
     }
 
+
+    private void stopAll() {
+        if (animIn != null) animIn.stop();
+        if (animOut != null) animOut.stop();
+    }
+
+
+
         // Mouse listeners
     private void attachMouseListeners() {
 
