@@ -20,6 +20,9 @@ public class PauseOverlay extends JPanel {
     private final Runnable onRestart;
     private final Runnable onExit;
 
+    private final boolean[] hover = new boolean[3];
+    private final boolean[] press = new boolean[3];
+
     public PauseOverlay(Runnable onResume, Runnable onRestart, Runnable onExit) {
         this.onResume = onResume;
         this.onRestart = onRestart;
