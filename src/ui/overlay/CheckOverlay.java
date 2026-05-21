@@ -29,4 +29,11 @@ public class CheckOverlay extends JPanel {
     private int bannerW, bannerH, bannerX, bannerY;
     private int tubeH, knobR;
     private Font msgFont;
+
+    public CheckOverlay() {
+        setOpaque(false);
+        setLayout(null);
+    }
+
+
 }
