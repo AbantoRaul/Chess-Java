@@ -83,4 +83,10 @@ public class CheckOverlay extends JPanel {
         });
         animOut.start();
     }
+
+    private void stopAll() {
+        if (animIn != null) animIn.stop();
+        if (animOut != null) animOut.stop();
+        if (holdTimer != null) holdTimer.stop();
+    }
 }
