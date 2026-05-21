@@ -110,4 +110,8 @@ public class GameController {
     public void onNewGame() {
 
     }
+
+    public void onResign() {
+
+    }
 }
