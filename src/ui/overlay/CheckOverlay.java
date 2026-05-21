@@ -222,3 +222,7 @@ public class CheckOverlay extends JPanel {
         g2.drawLine(cx - knobR / 2, ky + 5, cx + knobR / 2, ky + 5);
         g2.setStroke(new BasicStroke(1f));
     }
+
+    private void drawZigzag(Graphics2D g2, int x, int y, int w) {
+
+    }
