@@ -157,6 +157,12 @@ public class EndGameOverlay extends JPanel {
         btn2X = btn1X + btnW + spacing;
     }
 
+    // Button rects for hit detection
+    private Rectangle btnRect(int idx) {
+        int cx = idx == 0 ? btn0X : idx == 1 ? btn1X : btn2X;
+        return new Rectangle(cx - btnW / 2, btnY - btnH / 2, btnW, btnH);
+    }
+
 
     // Mouse listeners
     private void attachMouseListeners() {
