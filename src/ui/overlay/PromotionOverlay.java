@@ -97,11 +97,14 @@ public class PromotionOverlay extends JPanel {
         animOut.start();
     }
 
-
-
     private void stopAll() {
         if (animIn != null) animIn.stop();
         if (animOut != null) animOut.stop();
+    }
+
+    private float easeOut(float t) {
+        float f = 1 - t;
+        return 1 - f * f * f;
     }
 
 
