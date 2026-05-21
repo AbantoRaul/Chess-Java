@@ -57,4 +57,9 @@ public class PromotionOverlay extends JPanel {
         attachMouseListeners();
     }
 
+    // Mouse listeners
+    private void attachMouseListeners() {
+
+    }
+
 }
