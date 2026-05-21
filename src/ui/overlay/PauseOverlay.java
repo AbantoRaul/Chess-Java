@@ -193,6 +193,10 @@ public class PauseOverlay extends JPanel {
         g2.drawString(title, tx + 2, titleY + 2);
         g2.setColor(GOLD_LIGHT);
         g2.drawString(title, tx, titleY);
+
+        // Ornament
+        drawOrnament(g2, cx, ornamentY);
+
     }
 
     // SCROLL END (top or bottom tube with knobs)
