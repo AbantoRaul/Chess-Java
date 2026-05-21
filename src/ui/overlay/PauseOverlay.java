@@ -124,6 +124,11 @@ public class PauseOverlay extends JPanel {
         animTimer.start();
     }
 
+    private float ease(float t) {
+        float f = 1 - t;
+        return 1 - f * f * f;
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
