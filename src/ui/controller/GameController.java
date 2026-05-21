@@ -124,4 +124,9 @@ public class GameController {
     private void trySelect(Square sq) {
 
     }
+
+    private void clearSelection() {
+        selectedSquare = null;
+        selectedMoves = null;
+    }
 }
