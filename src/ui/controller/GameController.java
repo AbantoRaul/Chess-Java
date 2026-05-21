@@ -211,6 +211,13 @@ public class GameController {
     private void goToMenu() {
         paused = false;
         awaitingPromotion = false;
+
+        if (promotionOverlay != null) promotionOverlay.hide();
+        if (pauseOverlay != null) pauseOverlay.setVisible(false);
+        if (endGameOverlay != null) {
+            endGameOverlay.setVisible(false);
+            endGameOverlay.setEnabled(false);
+        }
     }
 
     // ── Square interaction ────────────────────────────────────────────────
