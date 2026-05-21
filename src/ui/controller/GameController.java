@@ -262,6 +262,9 @@ public class GameController {
         Move move = findMoveToSquare(toRow, toCol);
         clearSelection();
 
+        if (move != null) executeMove(move);
+        refreshAll();
+
     }
 
     // ── Getters ───────────────────────────────────────────────────────────
