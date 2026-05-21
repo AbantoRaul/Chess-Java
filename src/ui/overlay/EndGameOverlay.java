@@ -267,6 +267,12 @@ public class EndGameOverlay extends JPanel {
                 ox + od, oy + od, WOOD_DARK);
         g2.setPaint(gp);
         g2.fillOval(ox, oy, od, od);
+
+        // Gold ring
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(2f));
+        g2.drawOval(ox, oy, od, od);
+        g2.setStroke(new BasicStroke(1f));
     }
 
     // Wood button
