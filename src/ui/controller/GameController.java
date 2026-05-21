@@ -81,4 +81,8 @@ public class GameController {
         pauseOverlay.setVisible(false);
         refreshAll();
     }
+
+    private void goToMenu() {
+
+    }
 }
