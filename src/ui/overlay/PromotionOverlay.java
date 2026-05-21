@@ -39,4 +39,11 @@ public class PromotionOverlay extends JPanel {
     private Timer animIn;
     private Timer animOut;
 
+    // Layout — recomputed every paint
+    private int bannerW, bannerH, bannerX, bannerY;
+    private int titleTextY, subtitleTextY;
+    private int btnW, btnH, gridGap;
+    private int col0X, col1X;
+    private int row0Y, row1Y;
+
 }
