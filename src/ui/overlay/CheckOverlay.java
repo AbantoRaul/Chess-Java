@@ -124,5 +124,10 @@ public class CheckOverlay extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        if (alpha <= 0f) return;
+
+        recomputeLayout();
+        Graphics2D g2 = (Graphics2D) g;
     }
 }
