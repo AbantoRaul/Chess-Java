@@ -128,4 +128,9 @@ public class PromotionOverlay extends JPanel {
 
     }
 
+    //Glyph font loader — mirrors BoardPanel
+    private static Font loadGlyphFont(int size) {
+
+    }
+
 }
