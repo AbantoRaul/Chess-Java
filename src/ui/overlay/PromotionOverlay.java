@@ -285,6 +285,13 @@ public class PromotionOverlay extends JPanel {
         g2.setStroke(new BasicStroke(2f));
         g2.drawRoundRect(x + 1, y + 1, w - 2, h - 2, arc, arc);
         g2.setStroke(new BasicStroke(1f));
+
+        // Gold accent line under glyph area
+        int divY = y + (int)(h * 0.60);
+        g2.setColor(new Color(GOLD.getRed(), GOLD.getGreen(), GOLD.getBlue(), 140));
+        g2.setStroke(new BasicStroke(1f));
+        g2.drawLine(x + 8, divY, x + w - 8, divY);
+        g2.setStroke(new BasicStroke(1f));
     }
 
 
