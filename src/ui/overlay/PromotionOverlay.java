@@ -31,4 +31,7 @@ public class PromotionOverlay extends JPanel {
     private Consumer<PieceType> callback;
     private model.Color pieceColor;
 
+    private final boolean[] hover = new boolean[4];
+    private final boolean[] press = new boolean[4];
+
 }
