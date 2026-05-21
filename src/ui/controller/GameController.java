@@ -28,4 +28,10 @@ public class GameController {
     private CheckOverlay checkOverlay;
     private EndGameOverlay endGameOverlay;
     private PromotionOverlay promotionOverlay;
+
+    public GameController(JFrame frame, int usableW, int usableH) {
+        this.frame = frame;
+        this.cfg = new LayoutConfig(usableW, usableH);
+        newGame();
+    }
 }
