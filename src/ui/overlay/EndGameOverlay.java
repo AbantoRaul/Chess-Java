@@ -260,6 +260,13 @@ public class EndGameOverlay extends JPanel {
         // Shadow
         g2.setColor(new Color(0, 0, 0, 80));
         g2.fillOval(ox + 2, oy + 3, od, od);
+
+        // Body gradient
+        GradientPaint gp = new GradientPaint(
+                ox, oy, WOOD_LIGHT,
+                ox + od, oy + od, WOOD_DARK);
+        g2.setPaint(gp);
+        g2.fillOval(ox, oy, od, od);
     }
 
     // Wood button
