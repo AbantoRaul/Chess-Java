@@ -82,6 +82,18 @@ public class PauseOverlay extends JPanel {
         titleY = afterTopTube + (int)(cardH * 0.10) + titleSz;
         ornamentY = titleY + (int)(cardH * 0.07);
         zigzagY = ornamentY + (int)(cardH * 0.05);
+
+        // Button area: from below zigzag to above bottom scroll tube
+        int beforeBotTube = cardY + cardH - tubeH - knobExtra / 2 - 8;
+        btnW = (int)(cardW * 0.76);
+        btnH = Math.max(30, cardH / 9);
+        int btnAreaStart = zigzagY + (int)(cardH * 0.05);
+        int btnAreaEnd = beforeBotTube;
+        int totalBtnH = btnH * 3;
+        int gap = Math.max(6, (btnAreaEnd - btnAreaStart - totalBtnH) / 2);
+        btn0Y = btnAreaStart;
+        btn1Y = btn0Y + btnH + gap;
+        btn2Y = btn1Y + btnH + gap;
     }
 
     // MOUSE
