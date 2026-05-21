@@ -164,6 +164,13 @@ public class PauseOverlay extends JPanel {
         // Drop shadow
         g2.setColor(new Color(0, 0, 0, 100));
         g2.fillRoundRect(cardX + 7, cardY + 10, cardW, cardH, 16, 16);
+
+        // Red body
+        GradientPaint body = new GradientPaint(
+                cardX, cardY, BANNER_RED,
+                cardX, cardY + cardH, BANNER_RED_DARK);
+        g2.setPaint(body);
+        g2.fillRoundRect(cardX, cardY, cardW, cardH, 16, 16);
     }
 
     // MOUSE
