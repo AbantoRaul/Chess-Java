@@ -295,6 +295,9 @@ public class GameController {
     public void onResign() {
         if (!gameState.isOngoing()) return;
 
+        awaitingPromotion = false;
+        if (promotionOverlay != null) promotionOverlay.hide();
+        if (checkOverlay != null) checkOverlay.hideCheck();
     }
 
     public void refreshAll() {
