@@ -315,6 +315,10 @@ public class PauseOverlay extends JPanel {
         int[] xs = {cx, cx + s, cx, cx - s};
         int[] ys = {cy - s, cy, cy + s, cy};
 
+        g2.fillPolygon(xs, ys, 4);
+        g2.setStroke(new BasicStroke(1f));
+        g2.drawLine(cx - lineLen, cy, cx - s - 4, cy);
+        g2.drawLine(cx + s + 4,  cy, cx + lineLen, cy);
     }
 
     // MOUSE
