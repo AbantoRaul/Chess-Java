@@ -20,4 +20,13 @@ public class EndGameOverlay extends JPanel {
     private final Runnable onMainMenu;
     private final Runnable onQuit;
 
+    public EndGameOverlay(Runnable onNewGame, Runnable onMainMenu, Runnable onQuit) {
+        this.onNewGame = onNewGame;
+        this.onMainMenu = onMainMenu;
+        this.onQuit = onQuit;
+        setOpaque(false);
+        setLayout(null);
+        attachMouseListeners();
+    }
+
 }
