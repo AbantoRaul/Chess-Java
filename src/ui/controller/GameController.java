@@ -410,6 +410,10 @@ public class GameController {
                 checkOverlay.showCheck(name);
             }
         }
+        else {
+            gameState.setStatus(GameStatus.ONGOING);
+            if (checkOverlay != null) checkOverlay.hideCheck();
+        }
     }
 
     private void showEndDialog(String title, String message) {
