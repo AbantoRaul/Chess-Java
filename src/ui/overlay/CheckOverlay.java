@@ -24,4 +24,9 @@ public class CheckOverlay extends JPanel {
     private Timer animIn;
     private Timer animOut;
     private Timer holdTimer;
+
+    // Layout — recomputed each paint
+    private int bannerW, bannerH, bannerX, bannerY;
+    private int tubeH, knobR;
+    private Font msgFont;
 }
