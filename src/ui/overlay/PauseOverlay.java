@@ -70,6 +70,12 @@ public class PauseOverlay extends JPanel {
         // Card is centred in the panel
         cardX = (pw - cardW) / 2;
         cardY = (ph - cardH) / 2;
+
+        // Fonts
+        int titleSz = Math.max(16, cardW / 8);
+        int btnSz = Math.max(10, cardW / 14);
+        titleFont = new Font("Serif", Font.BOLD, titleSz);
+        btnFont = new Font("SansSerif", Font.BOLD, btnSz);
     }
 
     // MOUSE
