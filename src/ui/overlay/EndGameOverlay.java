@@ -256,6 +256,10 @@ public class EndGameOverlay extends JPanel {
         int ox = cx - r;
         int oy = cy - r;
         int od = r * 2;
+
+        // Shadow
+        g2.setColor(new Color(0, 0, 0, 80));
+        g2.fillOval(ox + 2, oy + 3, od, od);
     }
 
     // Wood button
