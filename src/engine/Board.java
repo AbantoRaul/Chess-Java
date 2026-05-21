@@ -147,7 +147,7 @@ public class Board {
         Board copy = new Board();
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
-                copy.grid[r][c].setPiece(copyPiece(grid[r][c].getPiece()));
+                copy.grid[row][col].setPiece(copyPiece(grid[row][col].getPiece()));
             }
         }
         copy.enPassantTarget = enPassantTarget == null

@@ -293,7 +293,7 @@ public class GameController {
     public int getLastFromCol() { return lastFromCol; }
     public int getLastToRow() { return lastToRow; }
     public int getLastToCol() { return lastToCol; }
-    
+
     // ── Game actions ──────────────────────────────────────────────────────
     public void onNewGame() {
         paused = false;
@@ -332,7 +332,7 @@ public class GameController {
     private void trySelect(Square sq) {
         if (!sq.isOccupied()) return;
         if (sq.getPiece().getColor() != gameState.getCurrentTurn()) return;
-        
+
         selectedSquare = sq;
         selectedMoves = validator.getLegalMoves(sq);
     }

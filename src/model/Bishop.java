@@ -36,8 +36,6 @@ public class Bishop extends Piece{
                 newCol += dir[1];
             }
         }
-
-        // TODO: Add diagonal sliding logic (Steps 2-5)
         return moves;
     }
 }
