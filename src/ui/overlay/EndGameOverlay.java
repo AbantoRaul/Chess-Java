@@ -51,6 +51,23 @@ public class EndGameOverlay extends JPanel {
         attachMouseListeners();
     }
 
+    // Show
+    public void show(String title, String subtitle) {
+        this.title = title;
+        this.subtitle = subtitle;
+
+        hover[0] = hover[1] = hover[2] = false;
+        press[0] = press[1] = press[2] = false;
+
+        stopAll();
+
+        alpha = 0f;
+        slideY = 0f;
+
+        setVisible(true);
+        setEnabled(true);
+    }
+
     private void stopAll() {
         if (animIn != null) animIn.stop();
         if (animOut != null) animOut.stop();
