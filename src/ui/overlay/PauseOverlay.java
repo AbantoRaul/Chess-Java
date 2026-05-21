@@ -62,6 +62,10 @@ public class PauseOverlay extends JPanel {
         tubeH = Math.max(14, ph / 30);
         knobR = Math.max(12, tubeH / 2 + 6);
         knobExtra = knobR + tubeH / 2 + 4;
+
+        int safeMargin = 16;
+        cardH = (int)(ph * 0.75) - knobExtra * 2 - safeMargin;
+        cardH = Math.max(200, cardH);
     }
 
     // MOUSE
