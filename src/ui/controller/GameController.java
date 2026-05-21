@@ -160,6 +160,9 @@ public class GameController {
                 int cx = getWidth()  / 2;
                 int cy = getHeight() / 2;
 
+                g2.setColor(new java.awt.Color(0, 0, 0, 80));
+                g2.fillOval(cx - r + 2, cy - r + 3, r * 2, r * 2);
+
 
             }
         };
