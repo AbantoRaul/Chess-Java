@@ -309,6 +309,11 @@ public class PauseOverlay extends JPanel {
 
     // ORNAMENT
     private void drawOrnament(Graphics2D g2, int cx, int cy) {
+        g2.setColor(new Color(197, 153, 83, 200));
+        int s  = Math.max(4, cardW / 40);
+        int lineLen = cardW / 6;
+        int[] xs = {cx, cx + s, cx, cx - s};
+        int[] ys = {cy - s, cy, cy + s, cy};
 
     }
 
