@@ -220,6 +220,16 @@ public class EndGameOverlay extends JPanel {
         int od = r * 2;
     }
 
+    // Wood button
+    private void drawWoodButton(Graphics2D g2, int cx, int cy,
+                                int w, int h,
+                                String label,
+                                boolean hov, boolean prs) {
+        int x = cx - w / 2;
+        int y = cy - h / 2;
+        int arc = h;
+    }
+
 
 
         // Mouse listeners
