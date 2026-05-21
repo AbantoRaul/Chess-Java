@@ -55,6 +55,8 @@ public class PauseOverlay extends JPanel {
     private void recomputeLayout() {
         int pw = getWidth(), ph = getHeight();
         if (pw == 0 || ph == 0) return;
+
+        cardW = (int)(pw * 0.52);
     }
 
     // MOUSE
