@@ -64,6 +64,9 @@ public class PromotionOverlay extends JPanel {
         for (int i = 0; i < 4; i++) hover[i] = press[i] = false;
 
         stopAll();
+
+        alpha  = 0f;
+        slideY = 0f;
     }
 
 
