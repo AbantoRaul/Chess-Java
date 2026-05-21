@@ -37,6 +37,10 @@ public class CheckOverlay extends JPanel {
 
     // Called by GameControllerSwing whenever check starts
     public void showCheck(String playerName) {
+        message = playerName + " is in CHECK!";
+        stopAll();
+        alpha  = 0f;
+        slideY = 0f;
 
     }
 }
