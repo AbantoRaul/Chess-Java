@@ -95,6 +95,12 @@ public class CheckOverlay extends JPanel {
         int pw = getWidth(), ph = getHeight();
         if (pw == 0 || ph == 0) return;
 
+        // Banner: wide but short — sits at the top center of the board
+        bannerW = (int)(pw * 0.55);
+        bannerH = (int)(ph * 0.12);
+        bannerH = Math.max(50, Math.min(90, bannerH));
+        bannerX = (pw - bannerW) / 2;
+
 
 
     }
