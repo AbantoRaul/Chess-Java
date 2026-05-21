@@ -103,6 +103,11 @@ public class PauseOverlay extends JPanel {
         return new Rectangle(cx - btnW / 2, y, btnW, btnH);
     }
 
+    private int hitBtn(Point p) {
+        for (int i = 0; i < 3; i++) if (btnRect(i).contains(p)) return i;
+        return -1;
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
