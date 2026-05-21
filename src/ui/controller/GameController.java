@@ -132,6 +132,10 @@ public class GameController {
             }
         });
 
+        JPanel centerWrapper = new JPanel(new GridBagLayout());
+        centerWrapper.setOpaque(false);
+        centerWrapper.add(layered, new GridBagConstraints());
+
         return outer;
     }
 
