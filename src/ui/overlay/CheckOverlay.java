@@ -119,4 +119,10 @@ public class CheckOverlay extends JPanel {
         float f = 1 - t;
         return 1 - f * f * f;
     }
+
+    // PAINT
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+    }
 }
