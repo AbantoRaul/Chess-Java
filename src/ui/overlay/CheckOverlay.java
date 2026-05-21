@@ -167,4 +167,20 @@ public class CheckOverlay extends JPanel {
         // These sit on the left and right edges of the banner (like a horizontal scroll)
         drawScrollKnob(g2, bannerX,bannerY + bannerH / 2);
         drawScrollKnob(g2, bannerX + bannerW,bannerY + bannerH / 2);
+
+        // CHECK message
+        g2.setFont(msgFont);
+        FontRenderContext frc = g2.getFontRenderContext();
+        Rectangle2D tb = msgFont.getStringBounds(message, frc);
+        int tx = (int)(cx - tb.getWidth()  / 2);
+        int ty = (int)(bannerY + bannerH / 2 - tb.getHeight() / 2 - tb.getY());
+
+        // Shadow
+        g2.setColor(new Color(0, 0, 0, 80));
+        g2.drawString(message, tx + 1, ty + 1);
+
+        // Main text
+        g2.setColor(GOLD_LIGHT);
+        g2.drawString(message, tx, ty);
+
     }
