@@ -20,4 +20,13 @@ public class PauseOverlay extends JPanel {
     private final Runnable onRestart;
     private final Runnable onExit;
 
+    public PauseOverlay(Runnable onResume, Runnable onRestart, Runnable onExit) {
+        this.onResume = onResume;
+        this.onRestart = onRestart;
+        this.onExit = onExit;
+        setOpaque(false);
+        setLayout(null);
+        attachMouseListeners();
+    }
+
 }
