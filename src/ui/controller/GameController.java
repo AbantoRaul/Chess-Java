@@ -426,5 +426,8 @@ public class GameController {
         gameState = new GameState();
         validator = new MoveValidator(gameState);
         gameState.getBoard().initialize();
+
+        clearSelection();
+        lastFromRow = lastFromCol = lastToRow = lastToCol = -1;
     }
 }
