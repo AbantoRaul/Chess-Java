@@ -96,6 +96,11 @@ public class EndGameOverlay extends JPanel {
         if (animOut != null) animOut.stop();
     }
 
+    private float easeOut(float t) {
+        float f = 1 - t;
+        return 1 - f * f * f;
+    }
+
 
     // Mouse listeners
     private void attachMouseListeners() {
