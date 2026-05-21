@@ -292,6 +292,21 @@ public class PromotionOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1f));
         g2.drawLine(x + 8, divY, x + w - 8, divY);
         g2.setStroke(new BasicStroke(1f));
+
+        FontRenderContext frc = g2.getFontRenderContext();
+        String[] glyphs = (pieceColor == model.Color.WHITE) ? WHITE_GLYPHS : BLACK_GLYPHS;
+        String glyph = glyphs[idx];
+        g2.setFont(glyphFont);
+        Rectangle2D gb = glyphFont.getStringBounds(glyph, frc);
+        int gx = (int)(cx - gb.getWidth()  / 2 - gb.getX());
+        int glyphCentreY = y + (int)(h * 0.32);
+        int gy = (int)(glyphCentreY - gb.getHeight() / 2 - gb.getY());
+        // Glyph shadow
+        g2.setColor(new Color(0, 0, 0, 60));
+        g2.drawString(glyph, gx + 1, gy + 1);
+        // Glyph — cream so it's visible on wood
+        g2.setColor(BANNER_CREAM);
+        g2.drawString(glyph, gx, gy);
     }
 
 
