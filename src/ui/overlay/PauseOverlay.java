@@ -211,6 +211,11 @@ public class PauseOverlay extends JPanel {
         int arc = h;
     }
 
+    // ZIGZAG
+    private void drawZigzag(Graphics2D g2, int x, int y, int w) {
+
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
