@@ -116,6 +116,10 @@ public class EndGameOverlay extends JPanel {
         titleFont = new Font("Serif", Font.BOLD, titleSz);
         subtitleFont = new Font("Serif", Font.BOLD, subtitleSz);
         btnFont = new Font("SansSerif", Font.BOLD, btnSz);
+
+        btnW = Math.max(100, bannerW / 4);
+        btnH = Math.max(38, titleSz + 18);
+        knobR = Math.max(18, btnH / 2 + 6);  // knob radius just bigger than half btn height
     }
 
 
