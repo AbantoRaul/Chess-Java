@@ -339,6 +339,19 @@ public class PauseOverlay extends JPanel {
                 if (i == 2 && was[2]) onExit.run();
             }
         });
-    }
 
+        addMouseMotionListener(new MouseMotionAdapter() {
+            @Override public void mouseMoved(MouseEvent e) {
+                boolean changed = false;
+                for (int i = 0; i < 3; i++) {
+                    boolean over = btnRect(i).contains(e.getPoint());
+                    if (over != hover[i]) { hover[i] = over; changed = true; }
+                }
+                if (changed) repaint();
+                setCursor(hitBtn(e.getPoint()) >= 0
+                        ? Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)
+                        : Cursor.getDefaultCursor());
+            }
+        });
+    }
 }
