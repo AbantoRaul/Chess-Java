@@ -101,6 +101,12 @@ public class EndGameOverlay extends JPanel {
         return 1 - f * f * f;
     }
 
+    // Layout
+    private void recomputeLayout() {
+        int pw = getWidth(), ph = getHeight();
+        if (pw == 0 || ph == 0) return;
+    }
+
 
     // Mouse listeners
     private void attachMouseListeners() {
