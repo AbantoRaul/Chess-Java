@@ -113,8 +113,10 @@ public class CheckOverlay extends JPanel {
         // Font scales with banner
         int msgSz = Math.max(13, bannerW / 12);
         msgFont = new Font("Serif", Font.BOLD, msgSz);
+    }
 
-
-
+    private float easeOut(float t) {
+        float f = 1 - t;
+        return 1 - f * f * f;
     }
 }
