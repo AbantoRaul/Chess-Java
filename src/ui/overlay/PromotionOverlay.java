@@ -224,6 +224,16 @@ public class PromotionOverlay extends JPanel {
         g2.drawRoundRect(bannerX, bannerY, bannerW, bannerH, 14, 14);
         g2.setStroke(new BasicStroke(1f));
 
+        // Title
+        FontRenderContext frc = g2.getFontRenderContext();
+        g2.setFont(titleFont);
+        Rectangle2D tb = titleFont.getStringBounds("Pawn Promotion", frc);
+        int tx = (int)(cx - tb.getWidth() / 2);
+        g2.setColor(new Color(0, 0, 0, 80));
+        g2.drawString("Pawn Promotion", tx + 1, titleTextY + 1);
+        g2.setColor(GOLD_LIGHT);
+        g2.drawString("Pawn Promotion", tx, titleTextY);
+
     }
 
 
