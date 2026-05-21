@@ -341,6 +341,27 @@ public class EndGameOverlay extends JPanel {
             }
         });
 
+        addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                if (alpha <= 0f) {
+                    setCursor(Cursor.getDefaultCursor());
+                    return;
+                }
+                boolean changed = false;
+                for (int i = 0; i < 3; i++) {
+                    boolean over = btnRect(i).contains(e.getPoint());
+                    if (over != hover[i]) {
+                        hover[i] = over;
+                        changed = true;
+                    }
+                }
+                if (changed) repaint();
+                setCursor(hitBtn(e.getPoint()) >= 0
+                        ? Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)
+                        : Cursor.getDefaultCursor());
+            }
+        });
     }
 
 }
