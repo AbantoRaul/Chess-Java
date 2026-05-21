@@ -60,6 +60,8 @@ public class PromotionOverlay extends JPanel {
     public void show(model.Color color, Consumer<PieceType> callback) {
         this.pieceColor = color;
         this.callback = callback;
+
+        for (int i = 0; i < 4; i++) hover[i] = press[i] = false;
     }
 
         // Mouse listeners
