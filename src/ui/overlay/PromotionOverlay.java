@@ -370,10 +370,12 @@ public class PromotionOverlay extends JPanel {
         return super.contains(x, y);
     }
 
-
-
     //Glyph font loader — mirrors BoardPanel
     private static Font loadGlyphFont(int size) {
+        String[] candidates = {
+                "Segoe UI Emoji", "Apple Color Emoji", "Noto Emoji",
+                "DejaVu Sans", "Arial Unicode MS", "SansSerif"
+        };
 
     }
 
