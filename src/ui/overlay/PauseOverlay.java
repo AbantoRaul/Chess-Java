@@ -152,6 +152,11 @@ public class PauseOverlay extends JPanel {
         int visH = (int)(totalH * ease(scrollAnim));
     }
 
+    // DRAW CARD
+    private void drawCard(Graphics2D g2) {
+        int cx = getWidth() / 2;
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
