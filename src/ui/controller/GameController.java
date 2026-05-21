@@ -344,6 +344,17 @@ public class GameController {
     private Move askPromotion(List<Move> promos) {
         model.Color color = promos.get(0).getPiece().getColor();
         awaitingPromotion = true;
+
+        promotionOverlay.show(color, chosen -> {
+            awaitingPromotion = false;
+            Move move = promos.stream()
+                    .filter(m -> m.getPromotionType() == chosen)
+                    .findFirst().orElse(promos.get(0));
+            clearSelection();
+            executeMove(move);
+            refreshAll();
+        });
+        return null;
     }
 
     private void executeMove(Move move) {
