@@ -384,6 +384,13 @@ public class GameController {
         awaitingPromotion = false;
         Color next = gameState.getCurrentTurn();
 
+        if (validator.isCheckmate(next)) {
+            gameState.setStatus(GameStatus.CHECKMATE);
+            if (checkOverlay != null) checkOverlay.hideCheck();
+            String winner = next.opposite() == Color.WHITE ? "White" : "Black";
+            refreshAll();
+            showEndDialog("Checkmate!", winner + " wins!");
+        }
     }
 
     private void showEndDialog(String title, String message) {
