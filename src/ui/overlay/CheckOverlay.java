@@ -50,6 +50,16 @@ public class CheckOverlay extends JPanel {
 
             if (getParent() != null) getParent().repaint();
 
+            if (alpha >= 1f && slideY >= 1f) {
+                ((Timer) e.getSource()).stop();
+                // Hold for 1.8 seconds then fade out
+                holdTimer = new Timer(400, ev -> {
+                    ((Timer) ev.getSource()).stop();
+                    fadeOut();
+                });
+                holdTimer.setRepeats(false);
+                holdTimer.start();
+            }
         });
         animIn.start();
         setVisible(true);
