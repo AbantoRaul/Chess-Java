@@ -108,6 +108,22 @@ public class PauseOverlay extends JPanel {
         return -1;
     }
 
+    // ANIMATION
+    public void playOpenAnimation() {
+        scrollAnim = 0f;
+
+        if (animTimer != null) animTimer.stop();
+        animTimer = new Timer(16, e -> {
+            scrollAnim += 0.055f;
+            if (scrollAnim >= 1f) {
+                scrollAnim = 1f;
+                ((Timer) e.getSource()).stop();
+            }
+            repaint();
+        });
+        animTimer.start();
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
