@@ -373,6 +373,11 @@ public class GameController {
     private void setEnPassantTarget(Move move, Board board) {
         board.clearEnPassantTarget();
 
+        if (move.getPiece().getType() == PieceType.PAWN
+                && Math.abs(move.getTo().getRow() - move.getFrom().getRow()) == 2) {
+            int skipped = (move.getFrom().getRow() + move.getTo().getRow()) / 2;
+            board.setEnPassantTarget(board.getSquare(skipped, move.getFrom().getCol()));
+        }
     }
 
     private void checkGameEnd() {
