@@ -46,4 +46,13 @@ public class GameController {
         refreshAll();
         cardLayout.show(rootPanel, CARD_GAME);
     }
+
+    private JPanel buildGamePanel() {
+        int side = cfg.boardSide;
+        int tileSz = Math.max(40, cfg.sq - 5);
+        int btnSize = Math.max(36, cfg.pauseBtnR * 2 + 8);
+
+
+        return outer;
+    }
 }
