@@ -150,6 +150,11 @@ public class PauseOverlay extends JPanel {
         int clipW = cardW + (knobR + 6) * 2;
         int totalH = cardH + knobExtra * 2;
         int visH = (int)(totalH * ease(scrollAnim));
+
+        Shape old = g2.getClip();
+        g2.setClip(clipX, clipY, clipW, Math.min(visH, totalH));
+        drawCard(g2);
+        g2.setClip(old);
     }
 
     // DRAW CARD
