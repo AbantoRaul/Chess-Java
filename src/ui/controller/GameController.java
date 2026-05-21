@@ -279,7 +279,8 @@ public class GameController {
     
     // ── Game actions ──────────────────────────────────────────────────────
     public void onNewGame() {
-
+        paused = false;
+        awaitingPromotion = false;
     }
 
     public void onResign() {
