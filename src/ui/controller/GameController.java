@@ -85,4 +85,9 @@ public class GameController {
     private void goToMenu() {
 
     }
+
+    // ── Square interaction ────────────────────────────────────────────────
+    public void onSquareClicked(int row, int col) {
+        Square sq = gameState.getBoard().getSquare(row, col);
+    }
 }
