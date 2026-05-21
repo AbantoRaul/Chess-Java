@@ -119,4 +119,9 @@ public class GameController {
         if (boardPanel != null) boardPanel.repaint();
         if (sidePanel != null) sidePanel.update();
     }
+
+    // ── Private helpers ───────────────────────────────────────────────────
+    private void trySelect(Square sq) {
+
+    }
 }
