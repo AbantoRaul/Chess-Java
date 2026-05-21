@@ -120,6 +120,11 @@ public class EndGameOverlay extends JPanel {
         btnW = Math.max(100, bannerW / 4);
         btnH = Math.max(38, titleSz + 18);
         knobR = Math.max(18, btnH / 2 + 6);  // knob radius just bigger than half btn height
+
+        int paddingTop = Math.max(10, titleSz / 2);  // less top padding so text sits higher
+        int lineGap = Math.max(4, titleSz / 4); // tighter gap between title and subtitle
+        int sepGap = Math.max(28, titleSz + 14); // more space from subtitle down to buttons
+        int btnPadBot = Math.max(20, titleSz + 6);
     }
 
 
