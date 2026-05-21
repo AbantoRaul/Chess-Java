@@ -250,6 +250,15 @@ public class PromotionOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1f));
         g2.drawLine(bannerX + 20, sepY, bannerX + bannerW - 20, sepY);
 
+        // 2×2 grid of piece buttons
+        for (int i = 0; i < 4; i++) {
+            Rectangle r = btnRect(i);
+            drawPieceButton(g2,
+                    r.x + r.width  / 2,
+                    r.y + r.height / 2,
+                    r.width, r.height,
+                    i, hover[i], press[i]);
+        }
     }
 
     // Piece button: wood button with chess glyph above label
