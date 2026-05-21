@@ -144,4 +144,7 @@ public class CheckOverlay extends JPanel {
     private void drawBanner(Graphics2D g2) {
         int cx = getWidth() / 2;
 
+        // Drop shadow
+        g2.setColor(new Color(0, 0, 0, 80));
+        g2.fillRoundRect(bannerX + 5, bannerY + 7, bannerW, bannerH, 14, 14);
     }
