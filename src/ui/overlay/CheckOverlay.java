@@ -110,6 +110,10 @@ public class CheckOverlay extends JPanel {
         tubeH = Math.max(12, bannerH / 5);
         knobR = Math.max(10, tubeH / 2 + 4);
 
+        // Font scales with banner
+        int msgSz = Math.max(13, bannerW / 12);
+        msgFont = new Font("Serif", Font.BOLD, msgSz);
+
 
 
     }
