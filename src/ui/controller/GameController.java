@@ -429,5 +429,17 @@ public class GameController {
 
         clearSelection();
         lastFromRow = lastFromCol = lastToRow = lastToCol = -1;
+
+        if (checkOverlay != null) checkOverlay.hideCheck();
+        if (endGameOverlay != null) {
+            endGameOverlay.setVisible(false);
+            endGameOverlay.setEnabled(false);
+        }
+
+        if (promotionOverlay != null) {
+            promotionOverlay.hide();
+            promotionOverlay.setVisible(false);
+            promotionOverlay.setEnabled(false);
+        }
     }
 }
