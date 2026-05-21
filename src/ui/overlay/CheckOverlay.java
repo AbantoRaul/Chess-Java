@@ -72,6 +72,15 @@ public class CheckOverlay extends JPanel {
     }
 
     private void fadeOut() {
-
+        animOut = new Timer(16, e -> {
+            alpha = Math.max(0f, alpha - 0.06f);
+            repaint();
+            if (getParent() != null) getParent().repaint();
+            if (alpha <= 0f) {
+                ((Timer) e.getSource()).stop();
+                setVisible(false);
+            }
+        });
+        animOut.start();
     }
 }
