@@ -46,4 +46,9 @@ public class PromotionOverlay extends JPanel {
     private int col0X, col1X;
     private int row0Y, row1Y;
 
+    private Font titleFont;
+    private Font subtitleFont;
+    private Font btnLabelFont;
+    private Font glyphFont;
+
 }
