@@ -34,4 +34,9 @@ public class GameController {
         this.cfg = new LayoutConfig(usableW, usableH);
         newGame();
     }
+
+    // ── Main panel setup ──────────────────────────────────────────────────
+    public JPanel buildMainPanel() {
+
+    }
 }
