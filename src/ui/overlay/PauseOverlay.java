@@ -160,6 +160,10 @@ public class PauseOverlay extends JPanel {
     // DRAW CARD
     private void drawCard(Graphics2D g2) {
         int cx = getWidth() / 2;
+
+        // Drop shadow
+        g2.setColor(new Color(0, 0, 0, 100));
+        g2.fillRoundRect(cardX + 7, cardY + 10, cardW, cardH, 16, 16);
     }
 
     // MOUSE
