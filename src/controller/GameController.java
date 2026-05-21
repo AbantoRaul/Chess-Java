@@ -1,4 +1,4 @@
-package ui.controller;
+package controller;
 
 import engine.*;
 import model.Color;

@@ -5,7 +5,7 @@ import engine.GameState;
 import model.Piece;
 import model.PieceType;
 import ui.app.LayoutConfig;
-import ui.controller.GameController;
+import controller.GameController;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
