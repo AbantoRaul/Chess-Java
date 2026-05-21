@@ -83,6 +83,11 @@ public class GameController {
         };
         outer.setOpaque(true);
 
+        // Top bar with pause button
+        JPanel topBar = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 6));
+        topBar.setOpaque(false);
+        topBar.add(buildPauseButton(btnSize));
+
         return outer;
     }
 
