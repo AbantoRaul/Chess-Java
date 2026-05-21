@@ -35,4 +35,9 @@ public class PauseOverlay extends JPanel {
         if (pw == 0 || ph == 0) return;
     }
 
+    // MOUSE
+    private void attachMouseListeners() {
+
+    }
+
 }
