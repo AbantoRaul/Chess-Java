@@ -177,6 +177,11 @@ public class PauseOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1.8f));
         g2.drawRoundRect(cardX + 5, cardY + 5, cardW - 10, cardH - 10, 12, 12);
         g2.setStroke(new BasicStroke(1f));
+
+        // TOP scroll tube
+        drawScrollEnd(g2, cx, cardY, cardW);
+        // BOTTOM scroll tube
+        drawScrollEnd(g2, cx, cardY + cardH, cardW);
     }
 
     // SCROLL END (top or bottom tube with knobs)
