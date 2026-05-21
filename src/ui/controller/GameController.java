@@ -103,6 +103,10 @@ public class GameController {
         checkOverlay.setVisible(false);
         layered.add(checkOverlay, JLayeredPane.PALETTE_LAYER);
 
+        pauseOverlay = new PauseOverlay(this::resumeGame, this::onNewGame, this::goToMenu);
+        pauseOverlay.setBounds(0, 0, side, side);
+        pauseOverlay.setVisible(false);
+        layered.add(pauseOverlay, JLayeredPane.MODAL_LAYER);
 
         return outer;
     }
