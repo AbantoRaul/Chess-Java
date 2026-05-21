@@ -235,7 +235,25 @@ public class PauseOverlay extends JPanel {
         g2.drawRoundRect(cx - halfW, yTop, w, tubeH, tubeH, tubeH);
         g2.setStroke(new BasicStroke(1f));
 
+        // Knobs — extend knobR above and below the tube center
+        for (int side : new int[]{-1, 1}) {
+            int kx = cx + side * halfW;
+            int kOvalX = kx - knobR;
+            int kOvalY = cy - knobR;
+            int kOvalW = knobR * 2;
+            int kOvalH = knobR * 2;
 
+            GradientPaint kgp = new GradientPaint(
+                    kx - knobR, kOvalY, WOOD_LIGHT,
+                    kx + knobR, kOvalY + kOvalH, WOOD_DARK);
+            g2.setPaint(kgp);
+            g2.fillOval(kOvalX, kOvalY, kOvalW, kOvalH);
+
+            g2.setColor(GOLD);
+            g2.setStroke(new BasicStroke(1.5f));
+            g2.drawOval(kOvalX, kOvalY, kOvalW, kOvalH);
+            g2.setStroke(new BasicStroke(1f));
+        }
     }
 
     // WOOD BUTTON
