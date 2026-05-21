@@ -213,6 +213,12 @@ public class PromotionOverlay extends JPanel {
         g2.setPaint(body);
         g2.fillRoundRect(bannerX, bannerY, bannerW, bannerH, 14, 14);
 
+        // Gold inner border
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(1.5f));
+        g2.drawRoundRect(bannerX + 4, bannerY + 4, bannerW - 8, bannerH - 8, 10, 10);
+        g2.setStroke(new BasicStroke(1f));
+
     }
 
 
