@@ -201,6 +201,16 @@ public class PauseOverlay extends JPanel {
         int yTop = cy - tubeH / 2;
     }
 
+    // WOOD BUTTON
+    private void drawWoodButton(Graphics2D g2, int cx, int cy,
+                                int w, int h,
+                                String label,
+                                boolean hov, boolean prs) {
+        int x = cx - w / 2;
+        int y = cy - h / 2;
+        int arc = h;
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
