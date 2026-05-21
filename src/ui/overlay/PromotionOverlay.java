@@ -272,6 +272,13 @@ public class PromotionOverlay extends JPanel {
         // Shadow
         g2.setColor(new Color(0, 0, 0, 80));
         g2.fillRoundRect(x + 3, y + 5, w, h, arc, arc);
+
+        // Wood body
+        Color c1 = prs ? WOOD_DARK : hov ? WOOD_LIGHT : WOOD_MID;
+        Color c2 = prs ? WOOD_MID : hov ? WOOD_MID : WOOD_DARK;
+        GradientPaint gp = new GradientPaint(x, y, c1, x, y + h, c2);
+        g2.setPaint(gp);
+        g2.fillRoundRect(x, y, w, h, arc, arc);
     }
 
 
