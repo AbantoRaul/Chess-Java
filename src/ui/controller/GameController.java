@@ -298,6 +298,12 @@ public class GameController {
         awaitingPromotion = false;
         if (promotionOverlay != null) promotionOverlay.hide();
         if (checkOverlay != null) checkOverlay.hideCheck();
+
+        String who = gameState.getCurrentTurn() == Color.WHITE ? "White" : "Black";
+        String opp = gameState.getCurrentTurn() == Color.WHITE ? "Black" : "White";
+        gameState.setStatus(GameStatus.RESIGNED);
+        refreshAll();
+        showEndDialog(who + " resigned!", opp + " wins!");
     }
 
     public void refreshAll() {
