@@ -19,4 +19,13 @@ public class PromotionOverlay extends JPanel {
     private static final Color WOOD_MID = new Color(130,  80,  30);
     private static final Color WOOD_LIGHT = new Color(170, 110,  50);
 
+    private static final PieceType[] TYPES  =
+            {PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT};
+    private static final String[] LABELS    =
+            {"Queen", "Rook", "Bishop", "Knight"};
+    private static final String[] WHITE_GLYPHS =
+            {"\u2655", "\u2656", "\u2657", "\u2658"};
+    private static final String[] BLACK_GLYPHS =
+            {"\u265B", "\u265C", "\u265D", "\u265E"};
+
 }
