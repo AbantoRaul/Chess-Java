@@ -287,6 +287,9 @@ public class GameController {
             endGameOverlay.setVisible(false);
             endGameOverlay.setEnabled(false);
         }
+
+        newGame();
+        refreshAll();
     }
 
     public void onResign() {
