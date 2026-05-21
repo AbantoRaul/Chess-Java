@@ -111,6 +111,9 @@ public class PromotionOverlay extends JPanel {
     private void recomputeLayout() {
         int pw = getWidth(), ph = getHeight();
         if (pw == 0 || ph == 0) return;
+
+        bannerW = (int)(pw * 0.70);
+        bannerW = Math.max(360, Math.min(580, bannerW));
     }
 
 
