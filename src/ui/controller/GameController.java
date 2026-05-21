@@ -233,7 +233,11 @@ public class GameController {
         if (selectedSquare == null) {
             trySelect(sq);
         } else {
-
+            Move move = findMoveToSquare(row, col);
+            if (move != null) {
+                clearSelection();
+                executeMove(move);
+            }
         }
         refreshAll();
     }
