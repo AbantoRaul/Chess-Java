@@ -157,6 +157,13 @@ public class PromotionOverlay extends JPanel {
         cursor = titleTextY + lineGap;
         subtitleTextY = cursor + subtitleSz;
         cursor = subtitleTextY + sepGap;
+
+        int totalGridW = btnW * 2 + gridGap;
+        int gridLeft = bannerX + (bannerW - totalGridW) / 2;
+        col0X = gridLeft + btnW / 2;
+        col1X = gridLeft + btnW + gridGap + btnW / 2;
+        row0Y = cursor + btnH / 2;
+        row1Y = cursor + btnH + gridGap + btnH / 2;
     }
 
 
