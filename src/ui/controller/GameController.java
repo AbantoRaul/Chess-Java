@@ -138,4 +138,8 @@ public class GameController {
     private Move askPromotion(List<Move> promos) {
 
     }
+
+    private void executeMove(Move move) {
+
+    }
 }
