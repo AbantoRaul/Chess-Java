@@ -223,6 +223,13 @@ public class PauseOverlay extends JPanel {
                 cx - halfW, yTop + tubeH, WOOD_DARK);
         g2.setPaint(gp);
         g2.fillRoundRect(cx - halfW, yTop, w, tubeH, tubeH, tubeH);
+
+        // Highlight
+        g2.setColor(new Color(230, 190, 120, 150));
+        g2.setStroke(new BasicStroke(1.2f));
+        g2.drawLine(cx - halfW + 8, yTop + 4, cx + halfW - 8, yTop + 4);
+
+
     }
 
     // WOOD BUTTON
