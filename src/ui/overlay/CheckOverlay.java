@@ -183,4 +183,14 @@ public class CheckOverlay extends JPanel {
         g2.setColor(GOLD_LIGHT);
         g2.drawString(message, tx, ty);
 
+        // Zigzag decorations left and right of text
+        int textW = (int)tb.getWidth();
+        int zigGap = 10;
+        int zigLen = (bannerW / 2 - textW / 2) - knobR - zigGap * 2;
+        if (zigLen > 20) {
+            int zigY = bannerY + bannerH / 2;
+            drawZigzag(g2,bannerX + knobR + zigGap, zigY, zigLen);
+            drawZigzag(g2,cx + textW / 2 + zigGap, zigY, zigLen);
+        }
+
     }
