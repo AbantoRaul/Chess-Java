@@ -144,6 +144,12 @@ public class PauseOverlay extends JPanel {
         g2.fillRect(0, 0, getWidth(), getHeight());
 
         if (scrollAnim <= 0f) return;
+
+        int clipX = cardX - knobR - 6;
+        int clipY = cardY - knobExtra;
+        int clipW = cardW + (knobR + 6) * 2;
+        int totalH = cardH + knobExtra * 2;
+        int visH = (int)(totalH * ease(scrollAnim));
     }
 
     // MOUSE
