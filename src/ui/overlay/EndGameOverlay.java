@@ -163,6 +163,11 @@ public class EndGameOverlay extends JPanel {
         return new Rectangle(cx - btnW / 2, btnY - btnH / 2, btnW, btnH);
     }
 
+    private int hitBtn(Point p) {
+        for (int i = 0; i < 3; i++) if (btnRect(i).contains(p)) return i;
+        return -1;
+    }
+
 
     // Mouse listeners
     private void attachMouseListeners() {
