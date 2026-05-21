@@ -6,5 +6,6 @@ import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
-public class PauseOverlay {
+public class PauseOverlay extends JPanel {
+
 }
