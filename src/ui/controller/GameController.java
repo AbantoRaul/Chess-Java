@@ -163,6 +163,10 @@ public class GameController {
                 g2.setColor(new java.awt.Color(0, 0, 0, 80));
                 g2.fillOval(cx - r + 2, cy - r + 3, r * 2, r * 2);
 
+                g2.setColor(getModel().isRollover()
+                        ? new java.awt.Color(180, 180, 180)
+                        : new java.awt.Color(220, 220, 220));
+                g2.fillOval(cx - r, cy - r, r * 2, r * 2);
 
             }
         };
