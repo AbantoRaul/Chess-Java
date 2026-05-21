@@ -1,5 +1,22 @@
 package ui.controller;
 
+import engine.*;
+import model.Color;
+import model.PieceType;
+import model.Square;
+import ui.app.LayoutConfig;
+import ui.board.BoardPanel;
+import ui.overlay.CheckOverlay;
+import ui.overlay.EndGameOverlay;
+import ui.overlay.PauseOverlay;
+import ui.overlay.PromotionOverlay;
+import ui.panel.MenuPanel;
+import ui.panel.SidePanel;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+
 public class GameController {
     private static final String CARD_MENU = "MENU";
     private static final String CARD_GAME = "GAME";
