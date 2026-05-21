@@ -81,6 +81,7 @@ public class GameController {
                 }
             }
         };
+        outer.setOpaque(true);
 
         return outer;
     }
