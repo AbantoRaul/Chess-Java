@@ -422,6 +422,9 @@ public class GameController {
     }
 
     private void newGame() {
-
+        awaitingPromotion = false;
+        gameState = new GameState();
+        validator = new MoveValidator(gameState);
+        gameState.getBoard().initialize();
     }
 }
