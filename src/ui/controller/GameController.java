@@ -342,7 +342,8 @@ public class GameController {
     }
 
     private Move askPromotion(List<Move> promos) {
-
+        model.Color color = promos.get(0).getPiece().getColor();
+        awaitingPromotion = true;
     }
 
     private void executeMove(Move move) {
