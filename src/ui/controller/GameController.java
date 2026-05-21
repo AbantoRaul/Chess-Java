@@ -361,6 +361,10 @@ public class GameController {
         lastFromRow = move.getFrom().getRow(); lastFromCol = move.getFrom().getCol();
         lastToRow = move.getTo().getRow(); lastToCol = move.getTo().getCol();
         Board board = gameState.getBoard();
+
+        board.applyMove(move);
+        setEnPassantTarget(move, board);
+        gameState.recordMove(move);
     }
 
     private void setEnPassantTarget(Move move, Board board) {
