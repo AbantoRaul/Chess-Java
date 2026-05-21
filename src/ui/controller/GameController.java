@@ -40,6 +40,8 @@ public class GameController {
         cardLayout = new CardLayout();
         rootPanel = new JPanel(cardLayout);
 
+        menuPanel = new MenuPanel(this::startGame, cfg);
+        rootPanel.add(menuPanel, CARD_MENU);
     }
 
     private void startGame() {
