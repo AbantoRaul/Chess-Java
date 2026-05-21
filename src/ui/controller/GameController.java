@@ -168,6 +168,11 @@ public class GameController {
                         : new java.awt.Color(220, 220, 220));
                 g2.fillOval(cx - r, cy - r, r * 2, r * 2);
 
+                g2.setColor(new java.awt.Color(197, 153, 83));
+                g2.setStroke(new BasicStroke(2.5f));
+                g2.drawOval(cx - r, cy - r, r * 2, r * 2);
+                g2.setStroke(new BasicStroke(1f));
+
             }
         };
 
