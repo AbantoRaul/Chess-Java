@@ -382,6 +382,6 @@ public class PromotionOverlay extends JPanel {
             if (f.canDisplay('\u2655')) return f;
         }
 
+        return new Font("SansSerif", Font.BOLD, size);
     }
-
 }
