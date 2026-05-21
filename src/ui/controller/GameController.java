@@ -114,6 +114,12 @@ public class GameController {
         endGameOverlay.setEnabled(false);
         layered.add(endGameOverlay, JLayeredPane.POPUP_LAYER);
 
+        promotionOverlay = new PromotionOverlay();
+        promotionOverlay.setBounds(0, 0, side, side);
+        promotionOverlay.setVisible(false);
+        promotionOverlay.setEnabled(false);
+        layered.add(promotionOverlay, Integer.valueOf(JLayeredPane.POPUP_LAYER + 100));
+
         return outer;
     }
 
