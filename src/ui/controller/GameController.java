@@ -218,6 +218,10 @@ public class GameController {
             endGameOverlay.setVisible(false);
             endGameOverlay.setEnabled(false);
         }
+
+        clearSelection();
+        cardLayout.show(rootPanel, CARD_MENU);
+        menuPanel.startAnimation();
     }
 
     // ── Square interaction ────────────────────────────────────────────────
