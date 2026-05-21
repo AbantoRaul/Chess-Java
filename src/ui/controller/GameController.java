@@ -68,7 +68,8 @@ public class GameController {
                 Graphics2D g2 = (Graphics2D) g;
                 int w = getWidth(), h = getHeight();
 
-
+                g2.setColor(new java.awt.Color(180, 140, 100));
+                g2.fillRect(0, 0, w, h);
             }
         };
 
