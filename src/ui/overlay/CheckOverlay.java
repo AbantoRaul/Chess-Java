@@ -42,5 +42,16 @@ public class CheckOverlay extends JPanel {
         alpha  = 0f;
         slideY = 0f;
 
+        animIn = new Timer(16, e -> {
+            alpha  = Math.min(1f, alpha  + 0.08f);
+            slideY = Math.min(1f, slideY + 0.08f);
+
+            repaint();
+
+            if (getParent() != null) getParent().repaint();
+
+        });
+        animIn.start();
+        setVisible(true);
     }
 }
