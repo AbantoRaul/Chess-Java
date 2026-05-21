@@ -192,6 +192,11 @@ public class PromotionOverlay extends JPanel {
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
     }
 
+    // Draw banner
+    private void drawBanner(Graphics2D g2) {
+        int cx = getWidth() / 2;
+    }
+
 
 
         // Mouse listeners
