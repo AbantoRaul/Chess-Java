@@ -244,6 +244,12 @@ public class PromotionOverlay extends JPanel {
         g2.setColor(BANNER_CREAM);
         g2.drawString(sub, sx, subtitleTextY);
 
+        // Thin gold separator
+        int sepY = subtitleTextY + Math.max(6, btnH / 6);
+        g2.setColor(new Color(GOLD.getRed(), GOLD.getGreen(), GOLD.getBlue(), 120));
+        g2.setStroke(new BasicStroke(1f));
+        g2.drawLine(bannerX + 20, sepY, bannerX + bannerW - 20, sepY);
+
     }
 
 
