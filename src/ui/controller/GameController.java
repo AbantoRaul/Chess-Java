@@ -114,4 +114,9 @@ public class GameController {
     public void onResign() {
 
     }
+
+    public void refreshAll() {
+        if (boardPanel != null) boardPanel.repaint();
+        if (sidePanel != null) sidePanel.update();
+    }
 }
