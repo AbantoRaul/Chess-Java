@@ -200,4 +200,8 @@ public class CheckOverlay extends JPanel {
         int kh = (int) (bannerH * 0.85);
         int kx = cx - knobR;
         int ky = cy - kh / 2;
+
+        // Shadow
+        g2.setColor(new Color(0, 0, 0, 70));
+        g2.fillRoundRect(kx + 2, ky + 3, kw, kh, kw, kw);
     }
