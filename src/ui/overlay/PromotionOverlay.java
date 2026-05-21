@@ -206,6 +206,13 @@ public class PromotionOverlay extends JPanel {
         g2.setColor(new Color(0, 0, 0, 80));
         g2.fillRoundRect(bannerX + 5, bannerY + 7, bannerW, bannerH, 14, 14);
 
+        // Red body
+        GradientPaint body = new GradientPaint(
+                bannerX, bannerY, BANNER_RED,
+                bannerX, bannerY + bannerH,  BANNER_RED_DARK);
+        g2.setPaint(body);
+        g2.fillRoundRect(bannerX, bannerY, bannerW, bannerH, 14, 14);
+
     }
 
 
