@@ -281,6 +281,12 @@ public class GameController {
     public void onNewGame() {
         paused = false;
         awaitingPromotion = false;
+
+        if (pauseOverlay != null) pauseOverlay.setVisible(false);
+        if (endGameOverlay != null) {
+            endGameOverlay.setVisible(false);
+            endGameOverlay.setEnabled(false);
+        }
     }
 
     public void onResign() {
