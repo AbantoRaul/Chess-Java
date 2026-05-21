@@ -29,4 +29,10 @@ public class PauseOverlay extends JPanel {
         attachMouseListeners();
     }
 
+    // LAYOUT — called every paintComponent so it always matches panel size
+    private void recomputeLayout() {
+        int pw = getWidth(), ph = getHeight();
+        if (pw == 0 || ph == 0) return;
+    }
+
 }
