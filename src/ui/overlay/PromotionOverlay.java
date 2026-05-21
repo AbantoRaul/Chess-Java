@@ -178,6 +178,12 @@ public class PromotionOverlay extends JPanel {
         return -1;
     }
 
+    // Paint
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+    }
+
 
 
         // Mouse listeners
