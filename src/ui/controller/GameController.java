@@ -293,6 +293,7 @@ public class GameController {
     }
 
     public void onResign() {
+        if (!gameState.isOngoing()) return;
 
     }
 
