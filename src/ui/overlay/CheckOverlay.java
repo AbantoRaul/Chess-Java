@@ -70,4 +70,8 @@ public class CheckOverlay extends JPanel {
         stopAll();
         fadeOut();
     }
+
+    private void fadeOut() {
+
+    }
 }
