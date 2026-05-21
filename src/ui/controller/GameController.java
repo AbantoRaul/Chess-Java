@@ -15,4 +15,17 @@ public class GameController {
     private List<Move> selectedMoves;
     private int lastFromRow = -1, lastFromCol = -1;
     private int lastToRow = -1, lastToCol = -1;
+
+    // ── UI components ─────────────────────────────────────────────────────
+    private final JFrame frame;
+    private final LayoutConfig cfg;
+    private JPanel rootPanel;
+    private CardLayout cardLayout;
+    private BoardPanel boardPanel;
+    private SidePanel sidePanel;
+    private MenuPanel menuPanel;
+    private PauseOverlay pauseOverlay;
+    private CheckOverlay checkOverlay;
+    private EndGameOverlay endGameOverlay;
+    private PromotionOverlay promotionOverlay;
 }
