@@ -38,6 +38,10 @@ public class EndGameOverlay extends JPanel {
     private int btnW, btnH;
     private int titleTextY, subtitleTextY;
 
+    private Font titleFont;
+    private Font subtitleFont;
+    private Font btnFont;
+
     public EndGameOverlay(Runnable onNewGame, Runnable onMainMenu, Runnable onQuit) {
         this.onNewGame = onNewGame;
         this.onMainMenu = onMainMenu;
