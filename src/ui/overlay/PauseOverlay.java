@@ -129,6 +129,14 @@ public class PauseOverlay extends JPanel {
         return 1 - f * f * f;
     }
 
+    // PAINT
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        recomputeLayout();
+        Graphics2D g2 = (Graphics2D) g;
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
