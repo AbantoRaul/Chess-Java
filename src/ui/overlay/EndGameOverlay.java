@@ -23,6 +23,9 @@ public class EndGameOverlay extends JPanel {
     private final boolean[] hover = new boolean[3];
     private final boolean[] press = new boolean[3];
 
+    private String title = "";
+    private String subtitle = "";
+
     public EndGameOverlay(Runnable onNewGame, Runnable onMainMenu, Runnable onQuit) {
         this.onNewGame = onNewGame;
         this.onMainMenu = onMainMenu;
