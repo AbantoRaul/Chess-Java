@@ -209,7 +209,8 @@ public class GameController {
     }
 
     private void goToMenu() {
-
+        paused = false;
+        awaitingPromotion = false;
     }
 
     // ── Square interaction ────────────────────────────────────────────────
