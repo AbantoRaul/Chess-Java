@@ -216,6 +216,11 @@ public class PauseOverlay extends JPanel {
 
     }
 
+    // ORNAMENT
+    private void drawOrnament(Graphics2D g2, int cx, int cy) {
+
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
