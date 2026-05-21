@@ -224,5 +224,11 @@ public class CheckOverlay extends JPanel {
     }
 
     private void drawZigzag(Graphics2D g2, int x, int y, int w) {
+        g2.setColor(new Color(GOLD.getRed(), GOLD.getGreen(), GOLD.getBlue(), 160));
+        g2.setStroke(new BasicStroke(1.2f));
+
+        int step = Math.max(5, w / 14);
+        int zh = 3;
+    }
 
     }
