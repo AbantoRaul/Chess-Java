@@ -37,6 +37,8 @@ public class GameController {
 
     // ── Main panel setup ──────────────────────────────────────────────────
     public JPanel buildMainPanel() {
+        cardLayout = new CardLayout();
+        rootPanel = new JPanel(cardLayout);
 
     }
 
