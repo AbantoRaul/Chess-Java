@@ -397,6 +397,12 @@ public class GameController {
             refreshAll();
             showEndDialog("Stalemate!", "It's a draw!");
         }
+        else if (gameState.getHalfMoveClock() >= 100) {
+            gameState.setStatus(GameStatus.DRAW);
+            if (checkOverlay != null) checkOverlay.hideCheck();
+            refreshAll();
+            showEndDialog("Draw!", "50-move rule reached.");
+        }
     }
 
     private void showEndDialog(String title, String message) {
