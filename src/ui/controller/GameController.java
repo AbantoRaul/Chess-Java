@@ -157,4 +157,8 @@ public class GameController {
         if (checkOverlay != null) checkOverlay.hideCheck();
         endGameOverlay.show(title, message);
     }
+
+    private void newGame() {
+
+    }
 }
