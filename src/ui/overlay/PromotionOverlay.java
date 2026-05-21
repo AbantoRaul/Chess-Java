@@ -9,5 +9,6 @@ import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 import java.util.function.Consumer;
 
-public class PromotionOverlay {
+public class PromotionOverlay extends JPanel {
+
 }
