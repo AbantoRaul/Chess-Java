@@ -315,10 +315,31 @@ public class EndGameOverlay extends JPanel {
         g2.drawString(label, lx, ly);
     }
 
-
-
-        // Mouse listeners
+    // Mouse listeners
     private void attachMouseListeners() {
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (alpha <= 0f) return;
+                int i = hitBtn(e.getPoint());
+                if (i >= 0) {
+                    press[i] = true;
+                    repaint();
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (alpha <= 0f) return;
+                int i = hitBtn(e.getPoint());
+                boolean[] was = {press[0], press[1], press[2]};
+                press[0] = press[1] = press[2] = false;
+                repaint();
+                if (i == 0 && was[0]) onNewGame.run();
+                if (i == 1 && was[1]) onMainMenu.run();
+                if (i == 2 && was[2]) onQuit.run();
+            }
+        });
 
     }
 
