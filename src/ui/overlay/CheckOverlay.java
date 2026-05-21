@@ -209,4 +209,10 @@ public class CheckOverlay extends JPanel {
         GradientPaint gp = new GradientPaint(kx, ky, WOOD_LIGHT, kx + kw, ky + kh, WOOD_DARK);
         g2.setPaint(gp);
         g2.fillRoundRect(kx, ky, kw, kh, kw, kw);
+
+        // Gold border
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(1.5f));
+        g2.drawRoundRect(kx, ky, kw, kh, kw, kw);
+        g2.setStroke(new BasicStroke(1f));
     }
