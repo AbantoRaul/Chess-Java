@@ -257,6 +257,11 @@ public class GameController {
             refreshAll(); return;
         }
 
+        selectedSquare = from;
+        selectedMoves  = validator.getLegalMoves(from);
+        Move move = findMoveToSquare(toRow, toCol);
+        clearSelection();
+
     }
 
     // ── Getters ───────────────────────────────────────────────────────────
