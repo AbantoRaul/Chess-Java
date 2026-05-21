@@ -57,7 +57,12 @@ public class PromotionOverlay extends JPanel {
         attachMouseListeners();
     }
 
-    // Mouse listeners
+    public void show(model.Color color, Consumer<PieceType> callback) {
+        this.pieceColor = color;
+        this.callback = callback;
+    }
+
+        // Mouse listeners
     private void attachMouseListeners() {
 
     }
