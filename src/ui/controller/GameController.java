@@ -214,6 +214,8 @@ public class GameController {
 
     // ── Pause / Resume ────────────────────────────────────────────────────
     public void onPauseClicked() {
+        if (!gameState.isOngoing() || awaitingPromotion) return;
+
         paused = true;
         pauseOverlay.setVisible(true);
         pauseOverlay.playOpenAnimation();
@@ -310,7 +312,7 @@ public class GameController {
     }
 
     public void onResign() {
-        if (!gameState.isOngoing()) return;
+        if (!gameState.isOngoing() || paused) return;
 
         awaitingPromotion = false;
         if (promotionOverlay != null) promotionOverlay.hide();
@@ -362,6 +364,8 @@ public class GameController {
         model.Color color = promos.get(0).getPiece().getColor();
         awaitingPromotion = true;
 
+        if (checkOverlay != null) checkOverlay.hideCheck();
+
         promotionOverlay.show(color, chosen -> {
             awaitingPromotion = false;
             Move move = promos.stream()
@@ -369,6 +373,14 @@ public class GameController {
                     .findFirst().orElse(promos.get(0));
             clearSelection();
             executeMove(move);
+            refreshAll();
+
+            gameState.getBoard().applyMove(move);
+            gameState.recordMove(move);
+            setEnPassantTarget(move, gameState.getBoard());
+
+            gameState.switchTurn();
+            checkGameEnd();
             refreshAll();
         });
         return null;
