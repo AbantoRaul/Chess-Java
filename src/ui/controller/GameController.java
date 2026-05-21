@@ -142,4 +142,8 @@ public class GameController {
     private void executeMove(Move move) {
 
     }
+
+    private void setEnPassantTarget(Move move, Board board) {
+
+    }
 }
