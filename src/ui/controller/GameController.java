@@ -152,4 +152,9 @@ public class GameController {
         Color next = gameState.getCurrentTurn();
 
     }
+
+    private void showEndDialog(String title, String message) {
+        if (checkOverlay != null) checkOverlay.hideCheck();
+        endGameOverlay.show(title, message);
+    }
 }
