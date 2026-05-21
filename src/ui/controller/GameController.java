@@ -95,4 +95,14 @@ public class GameController {
         Square from = gameState.getBoard().getSquare(fromRow, fromCol);
 
     }
+
+    // ── Getters ───────────────────────────────────────────────────────────
+    public Square getSelectedSquare() { return selectedSquare; }
+    public List<Move> getSelectedMoves() { return selectedMoves; }
+    public GameState getGameState() { return gameState; }
+    public MoveValidator getValidator() { return validator; }
+    public int getLastFromRow() { return lastFromRow; }
+    public int getLastFromCol() { return lastFromCol; }
+    public int getLastToRow() { return lastToRow; }
+    public int getLastToCol() { return lastToCol; }
 }
