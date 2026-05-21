@@ -94,6 +94,10 @@ public class GameController {
         layered.setMinimumSize(new Dimension(side, side));
         layered.setMaximumSize(new Dimension(side, side));
 
+        boardPanel = new BoardPanel(this, cfg);
+        boardPanel.setBounds(0, 0, side, side);
+        layered.add(boardPanel, JLayeredPane.DEFAULT_LAYER);
+
         return outer;
     }
 
