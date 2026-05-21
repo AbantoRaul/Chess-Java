@@ -364,6 +364,14 @@ public class PromotionOverlay extends JPanel {
         });
     }
 
+    @Override
+    public boolean contains(int x, int y) {
+        if (!isEnabled() || alpha <= 0f) return false;
+        return super.contains(x, y);
+    }
+
+
+
     //Glyph font loader — mirrors BoardPanel
     private static Font loadGlyphFont(int size) {
 
