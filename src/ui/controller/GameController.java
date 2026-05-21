@@ -313,7 +313,8 @@ public class GameController {
 
     // ── Private helpers ───────────────────────────────────────────────────
     private void trySelect(Square sq) {
-
+        if (!sq.isOccupied()) return;
+        if (sq.getPiece().getColor() != gameState.getCurrentTurn()) return;
     }
 
     private void clearSelection() {
