@@ -229,6 +229,12 @@ public class PauseOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1.2f));
         g2.drawLine(cx - halfW + 8, yTop + 4, cx + halfW - 8, yTop + 4);
 
+        // Gold border
+        g2.setColor(GOLD);
+        g2.setStroke(new BasicStroke(1.5f));
+        g2.drawRoundRect(cx - halfW, yTop, w, tubeH, tubeH, tubeH);
+        g2.setStroke(new BasicStroke(1f));
+
 
     }
 
