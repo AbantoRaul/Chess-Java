@@ -106,6 +106,10 @@ public class CheckOverlay extends JPanel {
         int startBannerY = -bannerH - 20;
         bannerY = (int)(startBannerY + (finalBannerY - startBannerY) * easeOut(slideY));
 
+        // Tube and knobs
+        tubeH = Math.max(12, bannerH / 5);
+        knobR = Math.max(10, tubeH / 2 + 4);
+
 
 
     }
