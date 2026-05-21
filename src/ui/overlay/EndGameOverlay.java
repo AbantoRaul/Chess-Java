@@ -273,6 +273,12 @@ public class EndGameOverlay extends JPanel {
         g2.setStroke(new BasicStroke(2f));
         g2.drawOval(ox, oy, od, od);
         g2.setStroke(new BasicStroke(1f));
+
+        // Inner highlight arc
+        g2.setColor(new Color(230, 190, 120, 130));
+        g2.setStroke(new BasicStroke(1.2f));
+        g2.drawArc(ox + 5, oy + 5, od - 10, od - 10, 40, 110);
+        g2.setStroke(new BasicStroke(1f));
     }
 
     // Wood button
