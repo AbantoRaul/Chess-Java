@@ -62,6 +62,8 @@ public class PromotionOverlay extends JPanel {
         this.callback = callback;
 
         for (int i = 0; i < 4; i++) hover[i] = press[i] = false;
+
+        stopAll();
     }
 
 
