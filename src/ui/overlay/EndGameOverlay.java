@@ -240,6 +240,14 @@ public class EndGameOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1f));
         g2.drawLine(bannerX + knobR + 10, sepY, bannerX + bannerW - knobR - 10, sepY);
         g2.setStroke(new BasicStroke(1f));
+
+        // Three buttons side by side
+        String[] labels = {"NEW GAME", "MAIN MENU", "QUIT"};
+        int[] bxs = {btn0X, btn1X, btn2X};
+        for (int i = 0; i < 3; i++) {
+            drawWoodButton(g2, bxs[i], btnY, btnW, btnH,
+                    labels[i], hover[i], press[i]);
+        }
     }
 
     // Scroll knob. Mirrors CheckOverlay exactly.
