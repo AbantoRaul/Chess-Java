@@ -64,4 +64,10 @@ public class CheckOverlay extends JPanel {
         animIn.start();
         setVisible(true);
     }
+
+    // Called when check is resolved (king moved out of check)
+    public void hideCheck() {
+        stopAll();
+        fadeOut();
+    }
 }
