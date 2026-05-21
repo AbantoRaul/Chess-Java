@@ -125,6 +125,15 @@ public class EndGameOverlay extends JPanel {
         int lineGap = Math.max(4, titleSz / 4); // tighter gap between title and subtitle
         int sepGap = Math.max(28, titleSz + 14); // more space from subtitle down to buttons
         int btnPadBot = Math.max(20, titleSz + 6);
+
+        bannerH = paddingTop
+                + titleSz
+                + lineGap
+                + subtitleSz
+                + sepGap
+                + btnH
+                + btnPadBot;
+        bannerH = Math.max(150, bannerH);
     }
 
 
