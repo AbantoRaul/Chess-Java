@@ -173,6 +173,16 @@ public class GameController {
                 g2.drawOval(cx - r, cy - r, r * 2, r * 2);
                 g2.setStroke(new BasicStroke(1f));
 
+                g2.setColor(new java.awt.Color(60, 30, 10));
+                int bw = Math.max(3, r / 4);
+                int bh = Math.max(8, r - 6);
+                int gap = Math.max(3, r / 5);
+                int lx = cx - gap / 2 - bw;
+                int rx = cx + gap / 2;
+                int by = cy - bh / 2;
+                g2.fillRoundRect(lx, by, bw, bh, 3, 3);
+                g2.fillRoundRect(rx, by, bw, bh, 3, 3);
+                g2.dispose();
             }
         };
 
