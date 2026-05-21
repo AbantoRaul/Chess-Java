@@ -150,8 +150,8 @@ public class CheckOverlay extends JPanel {
 
         // Red body
         GradientPaint body = new GradientPaint(
-                bannerX, bannerY,BANNER_RED,
-                bannerX, bannerY + bannerH,  BANNER_RED_DARK);
+                bannerX, bannerY, BANNER_RED,
+                bannerX, bannerY + bannerH, BANNER_RED_DARK);
 
         g2.setPaint(body);
         g2.fillRoundRect(bannerX, bannerY, bannerW, bannerH, 14, 14);
@@ -165,15 +165,15 @@ public class CheckOverlay extends JPanel {
 
         // Left and right scroll ends
         // These sit on the left and right edges of the banner (like a horizontal scroll)
-        drawScrollKnob(g2, bannerX,bannerY + bannerH / 2);
-        drawScrollKnob(g2, bannerX + bannerW,bannerY + bannerH / 2);
+        drawScrollKnob(g2, bannerX, bannerY + bannerH / 2);
+        drawScrollKnob(g2, bannerX + bannerW, bannerY + bannerH / 2);
 
         // CHECK message
         g2.setFont(msgFont);
         FontRenderContext frc = g2.getFontRenderContext();
         Rectangle2D tb = msgFont.getStringBounds(message, frc);
-        int tx = (int)(cx - tb.getWidth()  / 2);
-        int ty = (int)(bannerY + bannerH / 2 - tb.getHeight() / 2 - tb.getY());
+        int tx = (int) (cx - tb.getWidth() / 2);
+        int ty = (int) (bannerY + bannerH / 2 - tb.getHeight() / 2 - tb.getY());
 
         // Shadow
         g2.setColor(new Color(0, 0, 0, 80));
@@ -184,13 +184,20 @@ public class CheckOverlay extends JPanel {
         g2.drawString(message, tx, ty);
 
         // Zigzag decorations left and right of text
-        int textW = (int)tb.getWidth();
+        int textW = (int) tb.getWidth();
         int zigGap = 10;
         int zigLen = (bannerW / 2 - textW / 2) - knobR - zigGap * 2;
         if (zigLen > 20) {
             int zigY = bannerY + bannerH / 2;
-            drawZigzag(g2,bannerX + knobR + zigGap, zigY, zigLen);
-            drawZigzag(g2,cx + textW / 2 + zigGap, zigY, zigLen);
+            drawZigzag(g2, bannerX + knobR + zigGap, zigY, zigLen);
+            drawZigzag(g2, cx + textW / 2 + zigGap, zigY, zigLen);
         }
+    }
 
+    // Scroll knob on the left or right edge of the banner
+    private void drawScrollKnob(Graphics2D g2, int cx, int cy) {
+        int kw = knobR * 2;
+        int kh = (int) (bannerH * 0.85);
+        int kx = cx - knobR;
+        int ky = cy - kh / 2;
     }
