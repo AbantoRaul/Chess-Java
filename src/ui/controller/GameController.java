@@ -108,6 +108,12 @@ public class GameController {
         pauseOverlay.setVisible(false);
         layered.add(pauseOverlay, JLayeredPane.MODAL_LAYER);
 
+        endGameOverlay = new EndGameOverlay(this::onNewGame, this::goToMenu, () -> System.exit(0));
+        endGameOverlay.setBounds(0, 0, side, side);
+        endGameOverlay.setVisible(false);
+        endGameOverlay.setEnabled(false);
+        layered.add(endGameOverlay, JLayeredPane.POPUP_LAYER);
+
         return outer;
     }
 
