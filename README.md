@@ -1,18 +1,54 @@
-# Overview
-Chess-Java is a terminal-based two-player chess game built in Java. It is designed with a clean separation between the game engine and the UI layer, making it easy to extend or swap out the interface in the future.
+# ♟️ Chess-Java
 
-# Core Idea
-The goal of this project is to implement a fully functional chess game that runs entirely in the terminal. Two players share the same machine and take turns entering moves in algebraic notation. The system enforces all standard chess rules under the hood, so players can focus on the game without worrying about illegal moves being accepted.
+Chess-Java is a two-player chess game built in Java using Swing. It is designed with a clean separation between the game engine and the UI layer, featuring a fully functional chess engine with all standard rules, and a polished wooden-themed graphical interface.
 
-Members:
-Raul Anthony A. Abanto
-Ma. Guadalupe G. Baya
-Jai Jemelie T. Mercado
+---
 
+## 👥 The Team — "3 Idiots"
 
-UML Class Diagram
-<img width="6144" height="5973" alt="674592073_945540325152427_3317823445121947030_n" src="https://github.com/user-attachments/assets/e24e8c55-e43a-408d-8cb9-88f1ad79f807" />
+AbantoRaul - Raul Anthony A. Abanto 
+BayaGuadalupe - Ma. Guadalupe G. Baya 
+JaiMercado - Jai Jemelie T. Mercado 
 
+---
 
-Use-Case Diagram
-<img width="6144" height="5390" alt="681181735_1420330949864142_6197446606832445198_n" src="https://github.com/user-attachments/assets/d3d0f56a-365f-4a10-a1cb-0d9bac82e0e5" />
+## 🎮 Features
+
+- ✅ Full chess rule enforcement (castling, en passant, promotion, check, checkmate, stalemate)
+- ✅ Drag-and-drop and click-to-move piece interaction
+- ✅ Move history tracker with algebraic notation
+- ✅ Material advantage display
+- ✅ Pawn promotion selection overlay
+- ✅ Check, checkmate, and stalemate detection with animated overlays
+- ✅ Pause menu with resume, restart, and exit options
+- ✅ 50-move draw rule enforcement
+- ✅ Wooden-themed responsive UI
+
+---
+
+## 📸 Photos
+
+<img width="959" height="503" alt="image" src="https://github.com/user-attachments/assets/1f983c5d-b37c-4b0d-bb79-ad013c041d5d" />
+
+<img width="959" height="504" alt="image" src="https://github.com/user-attachments/assets/473f6d65-a859-4734-b10d-c44da12f140b" />
+
+<img width="959" height="502" alt="image" src="https://github.com/user-attachments/assets/cb320f30-20b9-4812-b3bb-080e6a232d22" />
+
+<img width="959" height="506" alt="image" src="https://github.com/user-attachments/assets/b39f6994-acc3-4d5f-95fa-48821936f4b5" />
+
+<img width="959" height="502" alt="image" src="https://github.com/user-attachments/assets/80b5688f-4c5b-4ba1-ab46-a0ab7db3b5ef" />
+
+<img width="959" height="503" alt="image" src="https://github.com/user-attachments/assets/73c097ee-917d-4bd8-9530-233d7f5a69cb" />
+
+<img width="959" height="502" alt="image" src="https://github.com/user-attachments/assets/6fb51cce-abd3-4726-9637-b9e0521912fc" />
+
+---
+
+## 📐 UML & Use-Case Diagrams
+
+<img width="8192" height="4977" alt="UML_Class_Diagram" src="https://github.com/user-attachments/assets/52cf7bb2-db62-49ab-aebd-9bcb7007ff5e" />
+
+<img width="1300" height="1947" alt="Usecase_diagram" src="https://github.com/user-attachments/assets/80f45877-0995-4ec6-bea0-697476b34081" />
+
+---
+
