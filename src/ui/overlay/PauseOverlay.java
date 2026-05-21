@@ -197,6 +197,10 @@ public class PauseOverlay extends JPanel {
         // Ornament
         drawOrnament(g2, cx, ornamentY);
 
+        // Zigzag
+        int zigW = (int)(cardW * 0.78);
+        drawZigzag(g2, cx - zigW / 2, zigzagY, zigW);
+
     }
 
     // SCROLL END (top or bottom tube with knobs)
