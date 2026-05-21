@@ -70,6 +70,15 @@ public class GameController {
 
                 g2.setColor(new java.awt.Color(180, 140, 100));
                 g2.fillRect(0, 0, w, h);
+
+                for (int r = 0; r * tileSz < h + tileSz; r++) {
+                    for (int c = 0; c * tileSz < w + tileSz; c++) {
+                        g2.setColor((r + c) % 2 == 0
+                                ? new java.awt.Color(200, 170, 130, 100)
+                                : new java.awt.Color(150, 110, 70, 100));
+                        g2.fillRect(c * tileSz, r * tileSz, tileSz, tileSz);
+                    }
+                }
             }
         };
 
