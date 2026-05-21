@@ -26,6 +26,11 @@ public class EndGameOverlay extends JPanel {
     private String title = "";
     private String subtitle = "";
 
+    private float alpha = 0f;
+    private float slideY = 0f;
+    private Timer animIn;
+    private Timer animOut;
+
     public EndGameOverlay(Runnable onNewGame, Runnable onMainMenu, Runnable onQuit) {
         this.onNewGame = onNewGame;
         this.onMainMenu = onMainMenu;
