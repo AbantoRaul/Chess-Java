@@ -185,6 +185,12 @@ public class GameController {
                 g2.dispose();
             }
         };
+        btn.setPreferredSize(new Dimension(size, size));
+        btn.setContentAreaFilled(false);
+        btn.setBorderPainted(false);
+        btn.setFocusPainted(false);
+        btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btn.addActionListener(e -> onPauseClicked());
 
         return btn;
     }
