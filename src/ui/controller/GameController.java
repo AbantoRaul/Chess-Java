@@ -226,6 +226,8 @@ public class GameController {
 
     // ── Square interaction ────────────────────────────────────────────────
     public void onSquareClicked(int row, int col) {
+        if (!gameState.isOngoing() || paused || awaitingPromotion) return;
+
         Square sq = gameState.getBoard().getSquare(row, col);
     }
 
