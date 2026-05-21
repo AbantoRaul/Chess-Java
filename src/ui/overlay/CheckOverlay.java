@@ -215,4 +215,10 @@ public class CheckOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1.5f));
         g2.drawRoundRect(kx, ky, kw, kh, kw, kw);
         g2.setStroke(new BasicStroke(1f));
+
+        // Highlight
+        g2.setColor(new Color(230, 190, 120, 120));
+        g2.setStroke(new BasicStroke(1f));
+        g2.drawLine(cx - knobR / 2, ky + 5, cx + knobR / 2, ky + 5);
+        g2.setStroke(new BasicStroke(1f));
     }
