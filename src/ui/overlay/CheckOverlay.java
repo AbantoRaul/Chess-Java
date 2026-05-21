@@ -237,4 +237,7 @@ public class CheckOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1f));
     }
 
+    @Override
+    public boolean contains(int x, int y) {
+        return false;  // CheckOverlay never consumes clicks. It is display only.
     }
