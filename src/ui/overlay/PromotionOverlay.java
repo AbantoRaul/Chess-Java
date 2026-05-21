@@ -51,4 +51,10 @@ public class PromotionOverlay extends JPanel {
     private Font btnLabelFont;
     private Font glyphFont;
 
+    public PromotionOverlay() {
+        setOpaque(false);
+        setLayout(null);
+        attachMouseListeners();
+    }
+
 }
