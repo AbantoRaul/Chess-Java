@@ -114,6 +114,11 @@ public class PromotionOverlay extends JPanel {
 
         bannerW = (int)(pw * 0.70);
         bannerW = Math.max(360, Math.min(580, bannerW));
+
+        int titleSz = Math.max(15, bannerW / 18);
+        int subtitleSz = Math.max(12, bannerW / 24);
+        int btnLabelSz = Math.max(10, bannerW / 28);
+        int glyphSz = Math.max(24, bannerW / 12);
     }
 
 
