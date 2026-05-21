@@ -146,4 +146,10 @@ public class GameController {
     private void setEnPassantTarget(Move move, Board board) {
 
     }
+
+    private void checkGameEnd() {
+        awaitingPromotion = false;
+        Color next = gameState.getCurrentTurn();
+
+    }
 }
