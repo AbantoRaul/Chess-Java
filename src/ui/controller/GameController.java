@@ -333,6 +333,8 @@ public class GameController {
                         && m.getMoveType() == MoveType.PROMOTION)
                 .toList();
 
+        if (!promos.isEmpty()) return askPromotion(promos);
+
     }
 
     private Move askPromotion(List<Move> promos) {
