@@ -88,6 +88,12 @@ public class GameController {
         topBar.setOpaque(false);
         topBar.add(buildPauseButton(btnSize));
 
+        // Layered pane: board + overlays stacked
+        JLayeredPane layered = new JLayeredPane();
+        layered.setPreferredSize(new Dimension(side, side));
+        layered.setMinimumSize(new Dimension(side, side));
+        layered.setMaximumSize(new Dimension(side, side));
+
         return outer;
     }
 
