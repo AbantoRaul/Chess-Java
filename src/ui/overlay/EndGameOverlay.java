@@ -224,6 +224,15 @@ public class EndGameOverlay extends JPanel {
         g2.drawString(title, tx + 1, titleTextY + 1);
         g2.setColor(GOLD_LIGHT);
         g2.drawString(title, tx, titleTextY);
+
+        // Subtitle
+        g2.setFont(subtitleFont);
+        Rectangle2D sb = subtitleFont.getStringBounds(subtitle, frc);
+        int sx = (int) (cx - sb.getWidth() / 2);
+        g2.setColor(new Color(0, 0, 0, 70));
+        g2.drawString(subtitle, sx + 1, subtitleTextY + 1);
+        g2.setColor(BANNER_CREAM);
+        g2.drawString(subtitle, sx, subtitleTextY);
     }
 
     // Scroll knob. Mirrors CheckOverlay exactly.
