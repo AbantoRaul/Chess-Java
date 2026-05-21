@@ -201,6 +201,16 @@ public class PauseOverlay extends JPanel {
         int zigW = (int)(cardW * 0.78);
         drawZigzag(g2, cx - zigW / 2, zigzagY, zigW);
 
+        // Buttons
+        String[] labels = {"RESUME", "RESTART", "EXIT"};
+        for (int i = 0; i < 3; i++) {
+            Rectangle r = btnRect(i);
+            drawWoodButton(g2,
+                    r.x + r.width / 2, r.y + r.height / 2,
+                    r.width, r.height,
+                    labels[i], hover[i], press[i]);
+        }
+
     }
 
     // SCROLL END (top or bottom tube with knobs)
