@@ -39,4 +39,11 @@ public class GameController {
     public JPanel buildMainPanel() {
 
     }
+
+    private void startGame() {
+        menuPanel.stopAnimation();
+        newGame();
+        refreshAll();
+        cardLayout.show(rootPanel, CARD_GAME);
+    }
 }
