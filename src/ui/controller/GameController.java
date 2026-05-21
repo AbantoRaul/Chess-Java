@@ -120,6 +120,18 @@ public class GameController {
         promotionOverlay.setEnabled(false);
         layered.add(promotionOverlay, Integer.valueOf(JLayeredPane.POPUP_LAYER + 100));
 
+        // Keep overlay bounds in sync when the layered pane resizes
+        layered.addComponentListener(new java.awt.event.ComponentAdapter() {
+            @Override public void componentResized(java.awt.event.ComponentEvent e) {
+                int w = layered.getWidth(), h = layered.getHeight();
+                boardPanel.setBounds(0, 0, w, h);
+                checkOverlay.setBounds(0, 0, w, h);
+                pauseOverlay.setBounds(0, 0, w, h);
+                endGameOverlay.setBounds(0, 0, w, h);
+                promotionOverlay.setBounds(0, 0, w, h);
+            }
+        });
+
         return outer;
     }
 
