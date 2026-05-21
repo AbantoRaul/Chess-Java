@@ -76,6 +76,12 @@ public class PauseOverlay extends JPanel {
         int btnSz = Math.max(10, cardW / 14);
         titleFont = new Font("Serif", Font.BOLD, titleSz);
         btnFont = new Font("SansSerif", Font.BOLD, btnSz);
+
+        // Content positions
+        int afterTopTube = cardY + tubeH + knobExtra / 2;
+        titleY = afterTopTube + (int)(cardH * 0.10) + titleSz;
+        ornamentY = titleY + (int)(cardH * 0.07);
+        zigzagY = ornamentY + (int)(cardH * 0.05);
     }
 
     // MOUSE
