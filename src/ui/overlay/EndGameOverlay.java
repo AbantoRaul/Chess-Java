@@ -31,6 +31,13 @@ public class EndGameOverlay extends JPanel {
     private Timer animIn;
     private Timer animOut;
 
+    // Layout — recomputed each paint
+    private int bannerW, bannerH, bannerX, bannerY;
+    private int knobR;
+    private int btn0X, btn1X, btn2X, btnY;
+    private int btnW, btnH;
+    private int titleTextY, subtitleTextY;
+
     public EndGameOverlay(Runnable onNewGame, Runnable onMainMenu, Runnable onQuit) {
         this.onNewGame = onNewGame;
         this.onMainMenu = onMainMenu;
