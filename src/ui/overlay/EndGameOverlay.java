@@ -139,6 +139,14 @@ public class EndGameOverlay extends JPanel {
         int finalY = (int) (ph * 0.30);
         int startY = -bannerH - knobR * 2 - 10;
         bannerY = (int) (startY + (finalY - startY) * easeOut(slideY));
+
+        // Text positions
+        int cursor = bannerY + paddingTop;
+        titleTextY = cursor + titleSz;
+        cursor = titleTextY + lineGap;
+        subtitleTextY = cursor + subtitleSz;
+        cursor = subtitleTextY + sepGap;
+        btnY = cursor + btnH / 2;
     }
 
 
