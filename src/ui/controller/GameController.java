@@ -134,4 +134,8 @@ public class GameController {
         if (selectedMoves == null) return null;
 
     }
+
+    private Move askPromotion(List<Move> promos) {
+
+    }
 }
