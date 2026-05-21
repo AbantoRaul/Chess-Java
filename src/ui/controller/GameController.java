@@ -90,4 +90,9 @@ public class GameController {
     public void onSquareClicked(int row, int col) {
         Square sq = gameState.getBoard().getSquare(row, col);
     }
+
+    public void onDragCompleted(int fromRow, int fromCol, int toRow, int toCol) {
+        Square from = gameState.getBoard().getSquare(fromRow, fromCol);
+
+    }
 }
