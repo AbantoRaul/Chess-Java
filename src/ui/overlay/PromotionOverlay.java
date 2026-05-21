@@ -150,6 +150,13 @@ public class PromotionOverlay extends JPanel {
         int finalY = (int)(ph * 0.15);
         int startY = -bannerH - 50;
         bannerY = (int)(startY + (finalY - startY) * easeOut(slideY));
+
+        // Text positions
+        int cursor = bannerY + paddingTop;
+        titleTextY = cursor + titleSz;
+        cursor = titleTextY + lineGap;
+        subtitleTextY = cursor + subtitleSz;
+        cursor = subtitleTextY + sepGap;
     }
 
 
