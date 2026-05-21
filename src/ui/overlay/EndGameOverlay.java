@@ -364,4 +364,9 @@ public class EndGameOverlay extends JPanel {
         });
     }
 
+    @Override
+    public boolean contains(int x, int y) {
+        if (!isEnabled() || alpha <= 0f) return false;
+        return super.contains(x, y);
+    }
 }
