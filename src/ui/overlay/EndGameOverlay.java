@@ -29,4 +29,10 @@ public class EndGameOverlay extends JPanel {
         attachMouseListeners();
     }
 
+
+    // Mouse listeners
+    private void attachMouseListeners() {
+
+    }
+
 }
