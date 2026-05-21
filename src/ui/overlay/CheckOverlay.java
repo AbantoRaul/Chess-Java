@@ -17,4 +17,11 @@ public class CheckOverlay extends JPanel {
 
     // Message to display
     private String message = "";
+
+    // Animation
+    private float alpha = 0f;
+    private float slideY = 0f;
+    private Timer animIn;
+    private Timer animOut;
+    private Timer holdTimer;
 }
