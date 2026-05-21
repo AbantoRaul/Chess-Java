@@ -179,6 +179,12 @@ public class PauseOverlay extends JPanel {
         g2.setStroke(new BasicStroke(1f));
     }
 
+    // SCROLL END (top or bottom tube with knobs)
+    private void drawScrollEnd(Graphics2D g2, int cx, int cy, int w) {
+        int halfW = w / 2;
+        int yTop = cy - tubeH / 2;
+    }
+
     // MOUSE
     private void attachMouseListeners() {
 
