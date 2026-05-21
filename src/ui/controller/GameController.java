@@ -371,6 +371,7 @@ public class GameController {
     }
 
     private void setEnPassantTarget(Move move, Board board) {
+        board.clearEnPassantTarget();
 
     }
 
