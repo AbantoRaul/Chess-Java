@@ -124,6 +124,11 @@ public class PromotionOverlay extends JPanel {
         subtitleFont = new Font("Serif", Font.BOLD,  subtitleSz);
         btnLabelFont = new Font("SansSerif", Font.BOLD,  btnLabelSz);
         glyphFont = loadGlyphFont(glyphSz);
+
+        gridGap = Math.max(10, bannerW / 26);
+        int sidePad = 30;
+        btnW = Math.max(90, (bannerW - sidePad * 2 - gridGap) / 2);
+        btnH = btnW;
     }
 
 
