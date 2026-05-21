@@ -335,6 +335,10 @@ public class GameController {
 
         if (!promos.isEmpty()) return askPromotion(promos);
 
+        return selectedMoves.stream()
+                .filter(m -> m.getTo().getRow() == row && m.getTo().getCol() == col)
+                .findFirst().orElse(null);
+
     }
 
     private Move askPromotion(List<Move> promos) {
