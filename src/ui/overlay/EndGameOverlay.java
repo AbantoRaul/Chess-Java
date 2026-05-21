@@ -298,6 +298,11 @@ public class EndGameOverlay extends JPanel {
         GradientPaint gp = new GradientPaint(x, y, c1, x, y + h, c2);
         g2.setPaint(gp);
         g2.fillRoundRect(x, y, w, h, arc, arc);
+
+        g2.setColor(new Color(210, 210, 210, 180));
+        g2.setStroke(new BasicStroke(2f));
+        g2.drawRoundRect(x + 1, y + 1, w - 2, h - 2, arc, arc);
+        g2.setStroke(new BasicStroke(1f));
     }
 
 
