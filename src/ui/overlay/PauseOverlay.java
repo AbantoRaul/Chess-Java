@@ -138,6 +138,10 @@ public class PauseOverlay extends JPanel {
 
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        // Dim background
+        g2.setColor(new Color(0, 0, 0, 155));
+        g2.fillRect(0, 0, getWidth(), getHeight());
     }
 
     // MOUSE
