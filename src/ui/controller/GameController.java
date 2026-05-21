@@ -156,6 +156,11 @@ public class GameController {
                 Graphics2D g2 = (Graphics2D) g.create();
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+                int r = Math.min(getWidth(), getHeight()) / 2;
+                int cx = getWidth()  / 2;
+                int cy = getHeight() / 2;
+
+
             }
         };
 
