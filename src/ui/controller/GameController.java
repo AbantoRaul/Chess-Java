@@ -136,6 +136,11 @@ public class GameController {
         centerWrapper.setOpaque(false);
         centerWrapper.add(layered, new GridBagConstraints());
 
+        JPanel boardArea = new JPanel(new BorderLayout());
+        boardArea.setOpaque(false);
+        boardArea.add(topBar, BorderLayout.NORTH);
+        boardArea.add(centerWrapper, BorderLayout.CENTER);
+
         return outer;
     }
 
