@@ -182,6 +182,17 @@ public class PauseOverlay extends JPanel {
         drawScrollEnd(g2, cx, cardY, cardW);
         // BOTTOM scroll tube
         drawScrollEnd(g2, cx, cardY + cardH, cardW);
+
+        // PAUSED title
+        g2.setFont(titleFont);
+        FontRenderContext frc = g2.getFontRenderContext();
+        String title = "PAUSED";
+        Rectangle2D tb = titleFont.getStringBounds(title, frc);
+        int tx = (int)(cx - tb.getWidth() / 2);
+        g2.setColor(new Color(0, 0, 0, 55));
+        g2.drawString(title, tx + 2, titleY + 2);
+        g2.setColor(GOLD_LIGHT);
+        g2.drawString(title, tx, titleY);
     }
 
     // SCROLL END (top or bottom tube with knobs)
