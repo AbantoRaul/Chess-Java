@@ -229,6 +229,13 @@ public class GameController {
         if (!gameState.isOngoing() || paused || awaitingPromotion) return;
 
         Square sq = gameState.getBoard().getSquare(row, col);
+
+        if (selectedSquare == null) {
+            trySelect(sq);
+        } else {
+
+        }
+        refreshAll();
     }
 
     public void onDragCompleted(int fromRow, int fromCol, int toRow, int toCol) {
