@@ -6,14 +6,14 @@ import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
 public class CheckOverlay extends JPanel {
-    private static final Color BANNER_RED = new Color(139,  28,  28);
-    private static final Color BANNER_RED_DARK = new Color( 90,  15,  15);
+    private static final Color BANNER_RED = new Color(139, 28, 28);
+    private static final Color BANNER_RED_DARK = new Color(90, 15, 15);
     private static final Color BANNER_CREAM = new Color(237, 213, 176);
-    private static final Color GOLD = new Color(197, 153,  83);
+    private static final Color GOLD = new Color(197, 153, 83);
     private static final Color GOLD_LIGHT = new Color(230, 190, 120);
-    private static final Color WOOD_DARK = new Color( 95,  55,  20);
-    private static final Color WOOD_MID = new Color(130,  80,  30);
-    private static final Color WOOD_LIGHT = new Color(170, 110,  50);
+    private static final Color WOOD_DARK = new Color(95, 55, 20);
+    private static final Color WOOD_MID = new Color(130, 80, 30);
+    private static final Color WOOD_LIGHT = new Color(170, 110, 50);
 
     // Message to display
     private String message = "";
@@ -39,11 +39,11 @@ public class CheckOverlay extends JPanel {
     public void showCheck(String playerName) {
         message = playerName + " is in CHECK!";
         stopAll();
-        alpha  = 0f;
+        alpha = 0f;
         slideY = 0f;
 
         animIn = new Timer(16, e -> {
-            alpha  = Math.min(1f, alpha  + 0.08f);
+            alpha = Math.min(1f, alpha + 0.08f);
             slideY = Math.min(1f, slideY + 0.08f);
 
             repaint();
@@ -96,15 +96,15 @@ public class CheckOverlay extends JPanel {
         if (pw == 0 || ph == 0) return;
 
         // Banner: wide but short — sits at the top center of the board
-        bannerW = (int)(pw * 0.55);
-        bannerH = (int)(ph * 0.12);
+        bannerW = (int) (pw * 0.55);
+        bannerH = (int) (ph * 0.12);
         bannerH = Math.max(50, Math.min(90, bannerH));
         bannerX = (pw - bannerW) / 2;
 
         // Slide in from above: starts above the panel, slides to final position
-        int finalBannerY = (int)(ph * 0.06);
+        int finalBannerY = (int) (ph * 0.06);
         int startBannerY = -bannerH - 20;
-        bannerY = (int)(startBannerY + (finalBannerY - startBannerY) * easeOut(slideY));
+        bannerY = (int) (startBannerY + (finalBannerY - startBannerY) * easeOut(slideY));
 
         // Tube and knobs
         tubeH = Math.max(12, bannerH / 5);
@@ -231,8 +231,8 @@ public class CheckOverlay extends JPanel {
         int zh = 3;
 
         for (int i = x; i < x + w - step; i += step) {
-            g2.drawLine(i, y,i + step / 2,y - zh);
-            g2.drawLine(i + step / 2,y - zh, i + step, y);
+            g2.drawLine(i, y, i + step / 2, y - zh);
+            g2.drawLine(i + step / 2, y - zh, i + step, y);
         }
         g2.setStroke(new BasicStroke(1f));
     }
@@ -241,3 +241,4 @@ public class CheckOverlay extends JPanel {
     public boolean contains(int x, int y) {
         return false;  // CheckOverlay never consumes clicks. It is display only.
     }
+}
