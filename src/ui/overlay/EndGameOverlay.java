@@ -108,6 +108,10 @@ public class EndGameOverlay extends JPanel {
 
         bannerW = (int) (pw * 0.68);
         bannerW = Math.max(340, Math.min(580, bannerW));
+
+        int titleSz = Math.max(15, bannerW / 18);
+        int subtitleSz = Math.max(12, bannerW / 23);
+        int btnSz = Math.max(10, bannerW / 26);
     }
 
 
