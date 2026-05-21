@@ -28,4 +28,7 @@ public class PromotionOverlay extends JPanel {
     private static final String[] BLACK_GLYPHS =
             {"\u265B", "\u265C", "\u265D", "\u265E"};
 
+    private Consumer<PieceType> callback;
+    private model.Color pieceColor;
+
 }
